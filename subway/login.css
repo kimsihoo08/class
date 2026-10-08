@@ -7,6 +7,7 @@
     --subway-gray-02: #999999;
     --subway-gray-03: #767676;
     --subway-black: #000000;
+    --subway-yellow: #F7B52C;
     --font-subway: "Noto Sans KR", sans-serif;
 }
 
@@ -52,11 +53,12 @@ body {
     height: 26px;
 }
 
+/* Figma의 뒤로가기 아이콘과 같은 방향의 단순한 CSS 아이콘 */
 .back_btn::before {
     content: "";
     position: absolute;
-    top: 7px;
-    left: 4px;
+    top: 6px;
+    left: 5px;
     width: 13px;
     height: 13px;
     border-left: 2px solid var(--subway-black);
@@ -83,11 +85,9 @@ body {
     position: absolute;
     top: 29px;
     left: 21px;
-    font-size: 2rem;
-    font-weight: 900;
-    line-height: 1;
-    letter-spacing: -0.08em;
-    color: var(--subway-green);
+    width: 98px;
+    height: 20px;
+    object-fit: contain;
 }
 
 .login_method {
@@ -113,12 +113,12 @@ body {
 }
 
 .kakao_btn {
-    background-color: #F9DB00;
-    color: #3E1918;
+    background-color: var(--subway-yellow);
+    color: var(--subway-black);
 }
 
 .naver_btn {
-    background-color: #01C73C;
+    background-color: var(--subway-green);
     color: var(--subway-white);
 }
 
@@ -138,7 +138,7 @@ body {
 .other_login::before {
     content: "";
     position: absolute;
-    top: 0;
+    top: 15px;
     left: 50%;
     width: 204px;
     border-top: 1px solid var(--subway-gray-02);
@@ -146,6 +146,10 @@ body {
 }
 
 .other_login p {
+    position: relative;
+    z-index: 1;
+    padding: 0 10px;
+    background-color: var(--subway-white);
     font-size: 1.4rem;
     font-weight: 500;
     color: var(--subway-gray-03);
@@ -168,7 +172,10 @@ body {
     background-color: var(--subway-gray-02);
 }
 
-.account_switch_title p {
+.switch_label {
+    display: inline-flex;
+    align-items: center;
+    column-gap: 4px;
     flex: 0 0 auto;
     font-size: 1.4rem;
     font-weight: 600;
@@ -176,14 +183,34 @@ body {
 }
 
 .switch_icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+    position: relative;
+    display: inline-block;
     width: 19px;
     height: 19px;
-    margin-left: -4px;
-    font-size: 1.5rem;
-    font-weight: 700;
+}
+
+/* 계정전환 옆 아이콘 */
+.switch_icon::before {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 9px;
+    height: 9px;
+    border-top: 1.5px solid var(--subway-black);
+    border-right: 1.5px solid var(--subway-black);
+}
+
+.switch_icon::after {
+    content: "";
+    position: absolute;
+    top: 7px;
+    left: 4px;
+    width: 10px;
+    height: 1.5px;
+    background-color: var(--subway-black);
+    transform: rotate(-45deg);
+    transform-origin: left center;
 }
 
 .account_switch_text {
