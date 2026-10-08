@@ -103,6 +103,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    column-gap: 8px;
     width: 100%;
     height: 50px;
     border-radius: 25px;
@@ -111,13 +112,28 @@ body {
     line-height: 1;
 }
 
+.login_btn img {
+    flex: 0 0 auto;
+    object-fit: contain;
+}
+
+.kakao_btn img {
+    width: 24px;
+    height: 22px;
+}
+
+.naver_btn img {
+    width: 22px;
+    height: 22px;
+}
+
 .kakao_btn {
     background-color: var(--subway-yellow);
-    color: var(--subway-black);
+    color: #3C1E1E;
 }
 
 .naver_btn {
-    background-color: var(--subway-green);
+    background-color: #00C73C;
     color: var(--subway-white);
 }
 
