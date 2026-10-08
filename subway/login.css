@@ -157,22 +157,23 @@ body {
     display: block;
     width: fit-content;
     margin: 18px auto 0;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     font-weight: 400;
     color: var(--subway-gray-02);
     text-decoration: underline;
-    text-underline-offset: 2px;
+    text-decoration-thickness: 0.1rem;
+    text-underline-offset: 0.3rem;
 }
 
 .account_switch {
-    padding: 145px 26px 0;
+    padding: 145px 20px 0;
 }
 
 .account_switch_title {
     display: flex;
     align-items: center;
     justify-content: center;
-    column-gap: 7px;
+    column-gap: 6px;
     position: relative;
     font-size: 1.4rem;
     font-weight: 400;
@@ -188,11 +189,11 @@ body {
 }
 
 .account_switch_title::before {
-    margin-right: 3px;
+    margin-right: 2px;
 }
 
 .account_switch_title::after {
-    margin-left: 3px;
+    margin-left: 2px;
 }
 
 .switch_icon {
