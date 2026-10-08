@@ -53,7 +53,6 @@ body {
     height: 26px;
 }
 
-/* Figma의 뒤로가기 아이콘과 같은 방향의 단순한 CSS 아이콘 */
 .back_btn::before {
     content: "";
     position: absolute;
@@ -128,31 +127,17 @@ body {
 }
 
 .other_login {
-    position: relative;
     display: flex;
     justify-content: center;
     margin-top: 20px;
-    padding-top: 15px;
-}
-
-.other_login::before {
-    content: "";
-    position: absolute;
-    top: 15px;
-    left: 50%;
-    width: 204px;
-    border-top: 1px solid var(--subway-gray-02);
-    transform: translateX(-50%);
 }
 
 .other_login p {
-    position: relative;
-    z-index: 1;
-    padding: 0 10px;
-    background-color: var(--subway-white);
     font-size: 1.4rem;
     font-weight: 500;
     color: var(--subway-gray-03);
+    text-decoration: underline;
+    text-underline-offset: 2px;
     letter-spacing: -0.01em;
 }
 
@@ -163,54 +148,26 @@ body {
 .account_switch_title {
     display: flex;
     align-items: center;
+    justify-content: center;
     column-gap: 8px;
-}
-
-.account_switch_title .line {
-    flex: 1;
-    height: 1px;
-    background-color: var(--subway-gray-02);
-}
-
-.switch_label {
-    display: inline-flex;
-    align-items: center;
-    column-gap: 4px;
-    flex: 0 0 auto;
-    font-size: 1.4rem;
-    font-weight: 600;
-    letter-spacing: 0.03em;
+    font-size: 2.4rem;
+    font-weight: 700;
+    line-height: 1;
 }
 
 .switch_icon {
-    position: relative;
-    display: inline-block;
-    width: 19px;
-    height: 19px;
-}
-
-/* 계정전환 옆 아이콘 */
-.switch_icon::before {
-    content: "";
-    position: absolute;
-    top: 3px;
-    left: 3px;
-    width: 9px;
-    height: 9px;
-    border-top: 1.5px solid var(--subway-black);
-    border-right: 1.5px solid var(--subway-black);
-}
-
-.switch_icon::after {
-    content: "";
-    position: absolute;
-    top: 7px;
-    left: 4px;
-    width: 10px;
-    height: 1.5px;
-    background-color: var(--subway-black);
-    transform: rotate(-45deg);
-    transform-origin: left center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border: 2px solid var(--subway-gray-01);
+    border-radius: 50%;
+    font-family: Arial, sans-serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--subway-gray-02);
 }
 
 .account_switch_text {
