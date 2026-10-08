@@ -8,6 +8,8 @@
     --subway-gray-03: #767676;
     --subway-black: #000000;
     --subway-yellow: #F7B52C;
+    --kakao-yellow: #F9DB00;
+    --naver-green: #00C73C;
     --font-subway: "Noto Sans KR", sans-serif;
 }
 
@@ -18,13 +20,13 @@ html {
 body {
     font-family: var(--font-subway);
     color: var(--subway-black);
-    background-color: var(--subway-white);
+    background-color: #F5F5F5;
 }
 
 #wrap {
     width: 100%;
     max-width: 390px;
-    min-width: 360px;
+    min-width: 320px;
     min-height: 100dvh;
     margin: 0 auto;
     background-color: var(--subway-white);
@@ -32,25 +34,25 @@ body {
 
 .login_header {
     position: relative;
-    height: 102px;
+    height: 128px;
 }
 
 .login_header h1 {
     position: absolute;
-    top: 76px;
+    top: 82px;
     left: 50%;
     font-size: 1.8rem;
-    font-weight: 700;
+    font-weight: 400;
     line-height: 1;
     transform: translateX(-50%);
 }
 
 .back_btn {
     position: absolute;
-    top: 70px;
-    left: 17px;
-    width: 27px;
-    height: 26px;
+    top: 76px;
+    left: 26px;
+    width: 24px;
+    height: 24px;
 }
 
 .back_btn::before {
@@ -58,54 +60,63 @@ body {
     position: absolute;
     top: 6px;
     left: 5px;
-    width: 13px;
-    height: 13px;
-    border-left: 2px solid var(--subway-black);
-    border-bottom: 2px solid var(--subway-black);
+    width: 10px;
+    height: 10px;
+    border-left: 1.5px solid var(--subway-black);
+    border-bottom: 1.5px solid var(--subway-black);
     transform: rotate(45deg);
 }
 
+.back_btn::after {
+    content: "";
+    position: absolute;
+    top: 11px;
+    left: 5px;
+    width: 14px;
+    height: 1.5px;
+    background-color: var(--subway-black);
+}
+
 .login_intro {
-    position: relative;
-    height: 190px;
-    padding: 86px 21px 0;
+    height: 165px;
+    padding: 0 26px;
+}
+
+.subway_logo {
+    display: block;
+    width: 98px;
+    height: 20px;
+    object-fit: contain;
+    margin-bottom: 47px;
 }
 
 .login_intro h2 {
     display: flex;
     flex-direction: column;
-    row-gap: 9px;
-    font-size: 2.5rem;
-    font-weight: 700;
-    line-height: 1;
-}
-
-.subway_logo {
-    position: absolute;
-    top: 29px;
-    left: 21px;
-    width: 98px;
-    height: 20px;
-    object-fit: contain;
+    row-gap: 8px;
+    font-size: 2.4rem;
+    font-weight: 500;
+    line-height: 1.05;
+    letter-spacing: -0.04em;
 }
 
 .login_method {
-    padding: 0 20px;
+    padding: 0 26px;
 }
 
 .login_button_list {
     display: flex;
     flex-direction: column;
-    row-gap: 12px;
+    row-gap: 10px;
 }
 
 .login_btn {
     display: flex;
     align-items: center;
     justify-content: center;
-    column-gap: 8px;
+    column-gap: 7px;
     width: 100%;
-    height: 50px;
+    height: 49px;
     border-radius: 25px;
     font-size: 1.6rem;
     font-weight: 700;
@@ -118,22 +129,22 @@ body {
 }
 
 .kakao_btn img {
-    width: 24px;
-    height: 22px;
+    width: 20px;
+    height: 18px;
 }
 
 .naver_btn img {
-    width: 22px;
-    height: 22px;
+    width: 19px;
+    height: 19px;
 }
 
 .kakao_btn {
-    background-color: var(--subway-yellow);
+    background-color: var(--kakao-yellow);
     color: #3C1E1E;
 }
 
 .naver_btn {
-    background-color: #00C73C;
+    background-color: var(--naver-green);
     color: var(--subway-white);
 }
 
@@ -143,56 +154,69 @@ body {
 }
 
 .other_login {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-}
-
-.other_login p {
-    font-size: 1.4rem;
-    font-weight: 500;
-    color: var(--subway-gray-03);
+    display: block;
+    width: fit-content;
+    margin: 18px auto 0;
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: var(--subway-gray-02);
     text-decoration: underline;
     text-underline-offset: 2px;
-    letter-spacing: -0.01em;
 }
 
 .account_switch {
-    padding: 191px 18px 0;
+    padding: 145px 26px 0;
 }
 
 .account_switch_title {
     display: flex;
     align-items: center;
     justify-content: center;
-    column-gap: 8px;
-    font-size: 2.4rem;
-    font-weight: 700;
+    column-gap: 7px;
+    position: relative;
+    font-size: 1.4rem;
+    font-weight: 400;
     line-height: 1;
+}
+
+.account_switch_title::before,
+.account_switch_title::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background-color: var(--subway-gray-01);
+}
+
+.account_switch_title::before {
+    margin-right: 3px;
+}
+
+.account_switch_title::after {
+    margin-left: 3px;
 }
 
 .switch_icon {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 24px;
-    height: 24px;
-    border: 2px solid var(--subway-gray-01);
+    width: 14px;
+    height: 14px;
+    border: 1px solid var(--subway-gray-02);
     border-radius: 50%;
     font-family: Arial, sans-serif;
-    font-size: 1.7rem;
+    font-size: 1rem;
     font-weight: 700;
     line-height: 1;
     color: var(--subway-gray-02);
 }
 
 .account_switch_text {
-    margin-top: 12px;
+    margin-top: 14px;
     text-align: center;
-    font-size: 1.3rem;
-    font-weight: 500;
+    font-size: 1.2rem;
+    font-weight: 400;
     color: var(--subway-gray-03);
-    letter-spacing: -0.01em;
+    letter-spacing: -0.03em;
 }
 
 .switch_btn {
@@ -200,25 +224,35 @@ body {
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 50px;
-    margin-top: 30px;
+    height: 49px;
+    margin-top: 29px;
     border-radius: 25px;
     background-color: var(--subway-green);
     color: var(--subway-white);
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     font-weight: 700;
 }
 
 @media (max-width: 359px) {
-    #wrap {
-        min-width: 320px;
+    .login_header {
+        height: 110px;
     }
 
-    .login_intro h2 {
-        font-size: 2.3rem;
+    .login_header h1 {
+        top: 70px;
+    }
+
+    .back_btn {
+        top: 64px;
+        left: 20px;
+    }
+
+    .login_intro {
+        height: 150px;
+        padding: 0 20px;
     }
 
     .account_switch {
-        padding-top: 160px;
+        padding-top: 120px;
     }
 }
