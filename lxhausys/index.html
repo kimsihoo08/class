@@ -1,69 +1,109 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>엘엑스하우시스리뉴얼포트폴리오</title>
+    <title>엘엑스하우시스 리뉴얼 포트폴리오</title>
     <link rel="stylesheet" href="../css/default.css">
     <link rel="stylesheet" href="../npm/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="../font/css/pretendardvariable.css">
-    <link rel="stylesheet" href="css/main.css">  
-    <script src="../npm/swiper/swiper-bundle.min.js"></script>  
+    <link rel="stylesheet" href="css/main.css">
+    <script src="../npm/swiper/swiper-bundle.min.js"></script>
 </head>
 <body>
     <div id="wrap">
         <header>제목공간</header>
         <main>
-            <div class="hero-sec">
-                <!-- Slider main container -->
+            <section class="hero-sec" aria-label="메인 비주얼">
                 <div class="swiper visual">
-                    <!-- Additional required wrapper -->
                     <div class="swiper-wrapper">
-                        <!-- Slides -->
                         <div class="swiper-slide">
-                            <img src="img/hero1.png" alt="할인배너" class="pc">
-                            <img src="img/m_visua01.png" alt="모바일할인배너" class="mo">
+                            <img src="img/hero1.png" alt="할인 배너" class="pc">
+                            <img src="img/m_visua01.png" alt="모바일 할인 배너" class="mo">
                         </div>
                         <div class="swiper-slide">
                             <img src="img/hero2.png" alt="달콤고구마" class="pc">
-                            <img src="img/m_visua02.png" alt="모바일달콤고구마" class="mo">
+                            <img src="img/m_visua02.png" alt="모바일 달콤고구마" class="mo">
                         </div>
                     </div>
-                    <!-- If we need pagination -->
-                    <div class="swiper-pagination"></div>
 
-                    <!-- If we need navigation buttons -->
-                    <div class="swiper-button-prev"></div>
-                    <div class="swiper-button-next"></div>
+                    <div class="visual-controls" aria-label="메인 비주얼 슬라이드 제어">
+                        <span class="visual-current" aria-live="polite">01</span>
+                        <div class="visual-progress" role="progressbar" aria-label="슬라이드 진행 상태" aria-valuemin="1" aria-valuemax="2" aria-valuenow="1">
+                            <span class="visual-progress-bar"></span>
+                        </div>
+                        <span class="visual-total">02</span>
 
-                    <!-- If we need scrollbar -->
-                    <div class="swiper-scrollbar"></div>
+                        <div class="visual-arrows">
+                            <button type="button" class="visual-prev" aria-label="이전 슬라이드">
+                                <span aria-hidden="true"></span>
+                            </button>
+                            <button type="button" class="visual-next" aria-label="다음 슬라이드">
+                                <span aria-hidden="true"></span>
+                            </button>
+                        </div>
+
+                        <button type="button" class="visual-toggle" aria-label="자동 재생 일시정지" aria-pressed="false">
+                            <span class="pause-icon" aria-hidden="true"></span>
+                        </button>
+                    </div>
                 </div>
-            </div>
+            </section>
         </main>
         <footer>&copy;</footer>
     </div>
+
     <script>
-        const swiperHero = new Swiper('.hero-sec > .swiper', {
-            // Optional parameters
+        const visualCurrent = document.querySelector('.visual-current');
+        const visualTotal = document.querySelector('.visual-total');
+        const visualProgress = document.querySelector('.visual-progress');
+        const visualProgressBar = document.querySelector('.visual-progress-bar');
+        const visualToggle = document.querySelector('.visual-toggle');
+        const visualToggleIcon = document.querySelector('.pause-icon');
+
+        const swiperHero = new Swiper('.hero-sec .visual', {
             direction: 'horizontal',
             loop: true,
-
-            // If we need pagination
-            pagination: {
-                el: '.visual .swiper-pagination',
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
             },
-
-            // Navigation arrows
             navigation: {
-                nextEl: '.visual .swiper-button-next',
-                prevEl: '.visual .swiper-button-prev',
+                nextEl: '.visual-next',
+                prevEl: '.visual-prev',
             },
+            on: {
+                init: updateVisualControls,
+                slideChange: updateVisualControls,
+            },
+        });
 
-            // And if we need scrollbar
-            scrollbar: {
-                el: '.visual .swiper-scrollbar',
-            },
+        function updateVisualControls() {
+            const total = swiperHero.slides.length - (swiperHero.params.loop ? 2 : 0);
+            const current = swiperHero.realIndex + 1;
+            const progress = (current / total) * 100;
+
+            visualCurrent.textContent = String(current).padStart(2, '0');
+            visualTotal.textContent = String(total).padStart(2, '0');
+            visualProgressBar.style.width = progress + '%';
+            visualProgress.setAttribute('aria-valuemax', total);
+            visualProgress.setAttribute('aria-valuenow', current);
+        }
+
+        visualToggle.addEventListener('click', function () {
+            const isPaused = visualToggle.getAttribute('aria-pressed') === 'true';
+
+            if (isPaused) {
+                swiperHero.autoplay.start();
+                visualToggle.setAttribute('aria-pressed', 'false');
+                visualToggle.setAttribute('aria-label', '자동 재생 일시정지');
+                visualToggleIcon.classList.remove('is-play');
+            } else {
+                swiperHero.autoplay.stop();
+                visualToggle.setAttribute('aria-pressed', 'true');
+                visualToggle.setAttribute('aria-label', '자동 재생 시작');
+                visualToggleIcon.classList.add('is-play');
+            }
         });
     </script>
 </body>
