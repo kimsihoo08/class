@@ -61,6 +61,18 @@
         const visualToggle = document.querySelector('.visual-toggle');
         const visualToggleIcon = document.querySelector('.pause-icon');
 
+        function updateVisualControls(swiper) {
+            const total = swiper.slides.length - (swiper.params.loop ? 2 : 0);
+            const current = swiper.realIndex + 1;
+            const progress = (current / total) * 100;
+
+            visualCurrent.textContent = String(current).padStart(2, '0');
+            visualTotal.textContent = String(total).padStart(2, '0');
+            visualProgressBar.style.width = progress + '%';
+            visualProgress.setAttribute('aria-valuemax', total);
+            visualProgress.setAttribute('aria-valuenow', current);
+        }
+
         const swiperHero = new Swiper('.hero-sec .visual', {
             direction: 'horizontal',
             loop: true,
@@ -73,22 +85,14 @@
                 prevEl: '.visual-prev',
             },
             on: {
-                init: updateVisualControls,
-                slideChange: updateVisualControls,
+                init: function (swiper) {
+                    updateVisualControls(swiper);
+                },
+                slideChange: function (swiper) {
+                    updateVisualControls(swiper);
+                },
             },
         });
-
-        function updateVisualControls() {
-            const total = swiperHero.slides.length - (swiperHero.params.loop ? 2 : 0);
-            const current = swiperHero.realIndex + 1;
-            const progress = (current / total) * 100;
-
-            visualCurrent.textContent = String(current).padStart(2, '0');
-            visualTotal.textContent = String(total).padStart(2, '0');
-            visualProgressBar.style.width = progress + '%';
-            visualProgress.setAttribute('aria-valuemax', total);
-            visualProgress.setAttribute('aria-valuenow', current);
-        }
 
         visualToggle.addEventListener('click', function () {
             const isPaused = visualToggle.getAttribute('aria-pressed') === 'true';
