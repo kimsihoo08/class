@@ -964,3 +964,26 @@ body {
   #wrap main .products-sec .products-grid { gap:14px !important; }
   #wrap main .products-sec .product-card { flex-basis:calc((100% - 14px)/2) !important; width:calc((100% - 14px)/2) !important; }
 }
+
+
+/* Desktop reference sizing: keep the Figma content width on wide monitors */
+@media (min-width: 1441px) {
+  #wrap main .products-sec {
+    padding-left: max(48px, calc((100% - 1344px) / 2)) !important;
+    padding-right: max(48px, calc((100% - 1344px) / 2)) !important;
+  }
+  #wrap main .products-sec .products-heading,
+  #wrap main .products-sec .products-inner {
+    width:100% !important;
+    max-width:1344px !important;
+    margin-left:auto !important;
+    margin-right:auto !important;
+  }
+  #wrap main .products-sec .products-grid {
+    gap:14px !important;
+  }
+  #wrap main .products-sec .product-card {
+    flex:0 0 calc((100% - 42px)/4) !important;
+    width:calc((100% - 42px)/4) !important;
+  }
+}
