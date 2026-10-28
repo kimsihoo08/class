@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/main.css?v=products-layout-3">
+    <link rel="stylesheet" href="css/main.css?v=products-layout-4">
     <script src="../npm/swiper/swiper-bundle.min.js"></script>
 </head>
 <body>
@@ -203,5 +203,35 @@
             });
         });
     </script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const mainTabs = document.querySelectorAll('.products-main-tab');
+    const subTabs = document.querySelectorAll('.products-sub-tabs button');
+
+    function activateTab(button, siblings) {
+        siblings.forEach(function (tab) {
+            const active = tab === button;
+            tab.classList.toggle('is-active', active);
+            if (active) tab.setAttribute('aria-pressed', 'true');
+            else tab.setAttribute('aria-pressed', 'false');
+        });
+    }
+
+    mainTabs.forEach(function (button) {
+        button.setAttribute('aria-pressed', button.classList.contains('is-active') ? 'true' : 'false');
+        button.addEventListener('click', function () {
+            activateTab(button, mainTabs);
+        });
+    });
+
+    subTabs.forEach(function (button) {
+        button.setAttribute('aria-pressed', button.classList.contains('is-active') ? 'true' : 'false');
+        button.addEventListener('click', function () {
+            activateTab(button, subTabs);
+        });
+    });
+});
+</script>
+
 </body>
 </html>
