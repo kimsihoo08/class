@@ -987,3 +987,16 @@ body {
     width:calc((100% - 42px)/4) !important;
   }
 }
+
+
+/* Desktop: make the PRODUCTS area feel fuller while preserving reference proportions */
+@media (min-width: 1441px) {
+  #wrap main .products-sec {
+    padding-left: max(40px, calc((100% - 1500px) / 2)) !important;
+    padding-right: max(40px, calc((100% - 1500px) / 2)) !important;
+  }
+  #wrap main .products-sec .products-heading,
+  #wrap main .products-sec .products-inner {
+    max-width:1500px !important;
+  }
+}
