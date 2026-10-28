@@ -1,6 +1,19 @@
+:root {
+    /* Brand colors from Figma Variables */
+    --color-neutral-stone-beige: #d8d1c8;
+    --color-text-inverse: #ffffff;
+    --color-gray-lx: #746661;
+    --color-neutral-white: #ffffff;
+    --color-neutral-charcoal: #242321;
+    --color-red-lx: #a72b2a;
+    --color-neutral-light-gray: #e5e1dc;
+    --color-neutral-ivory: #f7f5f1;
+    --color-text-primary: #242321;
+}
+
 body {
-    background-color: yellow;
-    font-family: "Pretendard Variable", sans-serif;
+    background-color: var(--color-neutral-white);
+    font-family: "Noto Sans KR", sans-serif;
 }
 
 .mo {
@@ -30,7 +43,7 @@ body {
     align-items: center;
     gap: 16px;
     color: #fff;
-    font-family: "Pretendard Variable", sans-serif;
+    font-family: "Noto Sans KR", sans-serif;
     font-size: 16px;
     font-weight: 600;
     line-height: 1;
