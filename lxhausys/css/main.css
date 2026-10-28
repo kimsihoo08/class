@@ -947,9 +947,9 @@ body {
 #wrap main .products-sec .products-track span {
   position:absolute !important;
   top:5px !important;
-  left:0 !important;
+  left:0;
   display:block !important;
-  width:45% !important;
+  width:45%;
   height:2px !important;
   margin:0 !important;
   padding:0 !important;
