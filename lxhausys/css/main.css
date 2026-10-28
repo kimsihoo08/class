@@ -437,3 +437,109 @@ body {
  #wrap .products-sec .product-info h3 { font-size:16px; }
  #wrap .products-sec .product-compare { right:14px; bottom:18px; min-width:88px; font-size:12px; }
 }
+
+
+/* Final screenshot-matched PRODUCTS layout */
+#wrap main .products-sec {
+  display:block !important; position:relative; width:100%; max-width:none;
+  margin:0; padding:30px 3.4% 42px !important; overflow:hidden;
+  background:#f7f4ef; color:#171615; font-family:"Noto Sans KR",sans-serif;
+}
+#wrap main .products-sec .products-heading {
+  display:flex; align-items:center; justify-content:space-between;
+  margin:0 0 14px; width:100%; max-width:none;
+}
+#wrap main .products-sec .products-heading h2 {
+  margin:0; font-size:18px; font-weight:500; line-height:1.2; letter-spacing:-.3px;
+}
+#wrap main .products-sec .products-all {
+  display:flex; align-items:center; justify-content:space-between; gap:8px;
+  width:60px; min-width:60px; min-height:18px; padding:0 8px;
+  border-radius:20px; background:#252422; color:#fff; font-size:6px; line-height:1;
+}
+#wrap main .products-sec .products-all span { font-size:8px; }
+#wrap main .products-sec .products-inner { width:100%; max-width:none; margin:0; }
+#wrap main .products-sec .products-main-tabs,
+#wrap main .products-sec .products-sub-tabs {
+  display:flex; align-items:center; flex-wrap:nowrap; gap:6px;
+  width:100%; margin:0; padding:0 0 6px; overflow-x:auto; overflow-y:hidden;
+  white-space:nowrap; scrollbar-width:none;
+}
+#wrap main .products-sec .products-main-tabs::-webkit-scrollbar,
+#wrap main .products-sec .products-sub-tabs::-webkit-scrollbar { display:none; }
+#wrap main .products-sec .products-main-tabs { margin-bottom:2px; }
+#wrap main .products-sec .products-main-tab,
+#wrap main .products-sec .products-sub-tabs button {
+  display:inline-flex; align-items:center; justify-content:center; flex:0 0 auto;
+  min-height:18px; margin:0; padding:0 9px; border:1px solid #e4dfd8;
+  border-radius:20px; background:#fff; color:#292725;
+  font:400 6px/1 "Noto Sans KR",sans-serif; white-space:nowrap;
+}
+#wrap main .products-sec .products-main-tab.is-active,
+#wrap main .products-sec .products-sub-tabs button.is-active {
+  border-color:#aa292b; background:#aa292b; color:#fff;
+}
+#wrap main .products-sec .products-sub-tabs { gap:4px; margin-bottom:8px; }
+#wrap main .products-sec .products-sub-tabs button { min-height:14px; padding:0 7px; font-size:5.5px; }
+#wrap main .products-sec .products-grid {
+  display:grid; grid-auto-flow:column; grid-auto-columns:calc((100% - 36px)/4);
+  grid-template-columns:none; gap:6px; width:100%; margin:0; padding:0;
+  overflow-x:auto; overflow-y:hidden; scrollbar-width:none;
+  scroll-snap-type:x mandatory; scroll-behavior:smooth; overscroll-behavior-x:contain;
+}
+#wrap main .products-sec .products-grid::-webkit-scrollbar { display:none; }
+#wrap main .products-sec .product-card {
+  display:block; position:relative; min-width:0; height:128px; min-height:0;
+  margin:0; padding:4px; overflow:hidden; border-radius:9px;
+  background:#fff; scroll-snap-align:start;
+}
+#wrap main .products-sec .product-image {
+  display:block; width:100%; height:auto; aspect-ratio:1.3/1;
+  margin:0 0 4px; padding:0; overflow:hidden; border-radius:6px;
+}
+#wrap main .products-sec .product-image img {
+  display:block; width:100%; height:100%; max-width:none; margin:0;
+  object-fit:cover;
+}
+#wrap main .products-sec .product-info { position:static; margin:0; padding:0; }
+#wrap main .products-sec .product-category,
+#wrap main .products-sec .product-code {
+  display:block; margin:0; color:#8a8179; font-size:5px; font-weight:400;
+  line-height:1.35; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+}
+#wrap main .products-sec .product-info h3 {
+  margin:2px 0 1px; color:#302d29; font-size:6px; font-weight:400; line-height:1.3;
+}
+#wrap main .products-sec .product-compare {
+  position:absolute; right:5px; bottom:5px; min-width:30px; height:12px;
+  margin:0; padding:0 4px; border:1px solid #d8d1c8; border-radius:12px;
+  background:#fff; color:#82766c; font:400 5px/1 "Noto Sans KR",sans-serif;
+}
+#wrap main .products-sec .products-track {
+  position:relative; width:100%; height:12px; margin:8px 0 0;
+  padding:0; background:transparent; cursor:pointer; touch-action:none;
+}
+#wrap main .products-sec .products-track::before {
+  content:""; position:absolute; top:5px; left:0; width:100%; height:2px; background:#ddd6cf;
+}
+#wrap main .products-sec .products-track span {
+  position:absolute; top:5px; left:0; display:block; width:25%; height:2px;
+  margin:0; padding:0; background:#756a62; cursor:grab;
+}
+#wrap main .products-sec .products-track:active span { cursor:grabbing; }
+@media(min-width:1000px) {
+ #wrap main .products-sec { padding:30px 3.4% 42px !important; }
+ #wrap main .products-sec .products-heading h2 { font-size:18px; }
+}
+@media(max-width:600px) {
+ #wrap main .products-sec { padding:28px 16px 34px !important; }
+ #wrap main .products-sec .products-heading h2 { font-size:24px; }
+ #wrap main .products-sec .products-all { width:86px; min-width:86px; min-height:24px; font-size:9px; }
+ #wrap main .products-sec .products-main-tab { min-height:24px; padding:0 12px; font-size:9px; }
+ #wrap main .products-sec .products-sub-tabs button { min-height:20px; padding:0 9px; font-size:8px; }
+ #wrap main .products-sec .products-grid { grid-auto-columns:calc((100% - 12px)/2); gap:6px; }
+ #wrap main .products-sec .product-card { height:190px; padding:6px; }
+ #wrap main .products-sec .product-category, #wrap main .products-sec .product-code { font-size:7px; }
+ #wrap main .products-sec .product-info h3 { font-size:9px; }
+ #wrap main .products-sec .product-compare { min-width:44px; height:16px; font-size:7px; }
+}
