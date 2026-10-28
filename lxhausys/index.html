@@ -58,6 +58,8 @@
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const visual = document.querySelector('.hero-sec .visual');
+            const nextButton = document.querySelector('.visual-next');
+            const prevButton = document.querySelector('.visual-prev');
             const visualCurrent = document.querySelector('.visual-current');
             const visualTotal = document.querySelector('.visual-total');
             const visualProgress = document.querySelector('.visual-progress');
@@ -65,8 +67,8 @@
             const visualToggle = document.querySelector('.visual-toggle');
             const visualToggleIcon = document.querySelector('.pause-icon');
 
-            if (!visual || typeof Swiper === 'undefined') {
-                console.error('Swiper를 불러오지 못했습니다. 스크립트 경로를 확인하세요.');
+            if (!visual || typeof window.Swiper === 'undefined') {
+                console.error('슬라이드 초기화 실패: Swiper 라이브러리 또는 슬라이드 요소를 찾지 못했습니다.');
                 return;
             }
 
@@ -80,27 +82,35 @@
                 visualProgress.setAttribute('aria-valuenow', current);
             }
 
-            const swiperHero = new Swiper(visual, {
+            const swiperHero = new window.Swiper(visual, {
                 direction: 'horizontal',
                 loop: true,
                 speed: 600,
                 autoplay: {
                     delay: 5000,
-                    disableOnInteraction: false,
+                    disableOnInteraction: false
                 },
                 navigation: {
-                    nextEl: '.visual-next',
-                    prevEl: '.visual-prev',
+                    nextEl: nextButton,
+                    prevEl: prevButton
                 },
                 on: {
                     init: updateVisualControls,
-                    slideChange: updateVisualControls,
-                },
+                    slideChange: updateVisualControls
+                }
+            });
+
+            nextButton.addEventListener('click', function (event) {
+                event.preventDefault();
+                swiperHero.slideNext();
+            });
+            prevButton.addEventListener('click', function (event) {
+                event.preventDefault();
+                swiperHero.slidePrev();
             });
 
             visualToggle.addEventListener('click', function () {
                 const isPaused = visualToggle.getAttribute('aria-pressed') === 'true';
-
                 if (isPaused) {
                     swiperHero.autoplay.start();
                     visualToggle.setAttribute('aria-pressed', 'false');
