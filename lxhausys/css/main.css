@@ -1105,3 +1105,22 @@ body {
     height:6px !important;
   }
 }
+
+
+/* Main category tabs: match the supplied Figma reference */
+@media (min-width: 601px) {
+  #wrap main .products-sec .products-main-tabs {
+    display:flex !important;
+    align-items:center !important;
+    gap:18px !important;
+  }
+  #wrap main .products-sec .products-main-tab {
+    height:56px !important;
+    min-height:56px !important;
+    padding:0 26px !important;
+    font-size:18px !important;
+    line-height:1 !important;
+    font-weight:500 !important;
+    border-radius:999px !important;
+  }
+}
