@@ -199,7 +199,7 @@ body {
 
 /* ===== PRODUCTS ===== */
 .products-sec {
-    padding: 100px 5.4%;
+    padding: 100px 0 100px 5.4%;
     background: var(--color-neutral-ivory);
 }
 
@@ -207,6 +207,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding-right: 5.4%;
 }
 
 .products-heading h2 {
@@ -237,6 +238,7 @@ body {
     flex-wrap: wrap;
     gap: 8px;
     margin-bottom: 16px;
+    padding-right: 5.4%;
 }
 
 .products-main-tab {
@@ -262,6 +264,7 @@ body {
     flex-wrap: wrap;
     gap: 8px;
     margin-bottom: 40px;
+    padding-right: 5.4%;
 }
 
 .products-sub-tabs button {
@@ -269,7 +272,7 @@ body {
     padding: 0 16px;
     border: 1px solid var(--color-neutral-light-gray);
     border-radius: 999px;
-    background: #ffffff; /* 배경을 흰색으로 설정 */
+    background: #ffffff;
     color: var(--color-gray-lx);
     font-size: 14px;
     cursor: pointer;
@@ -282,43 +285,45 @@ body {
     font-weight: 600;
 }
 
-/* 제품 리스트 (가로 스크롤) */
+/* ===== ★ 상품 리스트 및 카드 레이아웃 ===== */
 .products-grid {
     display: flex;
+    flex-wrap: nowrap;
     gap: 24px;
     overflow-x: auto;
     scrollbar-width: none;
+    scroll-behavior: smooth;
+    padding-right: 5.4%;
 }
 
 .products-grid::-webkit-scrollbar {
     display: none;
 }
 
+/* 
+  * [수정 완료] 
+  * 카드 너비를 400px로 잡아서 화면에 3개는 완벽하게 다 나오고, 
+  * 4번째 카드가 오른쪽 끝에 걸쳐서 딱 잘리도록 설정함 (찌부 안 됨!)
+*/
 .product-card {
-    flex: 0 0 320px;
-}
-.product-card {
-    flex: 0 0 340px;
+    flex: 0 0 400px;            
     border: 1px solid #e5e5e5;
     border-radius: 12px;
     background-color: #ffffff;
-    overflow: hidden;
+    padding: 24px;
     display: flex;
     flex-direction: column;
+    box-sizing: border-box;
 }
 
-/* 2. 카드 내부 이미지 영역 크기 키우기 */
-.product-card img {
-    width: 100%;
-    height: 240px;
-    object-fit: cover;
-}
-
+/* 이미지 박스: 찌부되지 않도록 높이를 시원하게 260px로 복원 및 유지 */
 .product-image {
-    width: 240px;
-    height: 240px;
+    width: 100%;
+    height: 260px;              
     background: var(--color-neutral-stone-beige);
+    border-radius: 8px;
     overflow: hidden;
+    margin-bottom: 16px;
 }
 
 .product-image img {
@@ -329,7 +334,9 @@ body {
 }
 
 .product-info {
-    padding-top: 16px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
 }
 
 .product-category {
@@ -350,14 +357,16 @@ body {
     color: var(--color-gray-lx);
 }
 
+/* ★ '비교하기' 버튼: 색상은 기존 디자인 유지, 크기만 큼직하게 유지 */
 .product-compare {
-    margin-top: 12px;
-    padding: 6px 14px;
+    margin-top: 16px;
+    align-self: flex-end;
+    padding: 10px 22px;         
     border: 1px solid var(--color-neutral-light-gray);
     border-radius: 999px;
-    background: var(--color-neutral-white);
-    color: var(--color-text-primary);
-    font-size: 12px;
+    background: var(--color-neutral-white); /* 원래 흰색 배경 유지 */
+    color: var(--color-text-primary);     /* 원래 글씨 색상 유지 */
+    font-size: 14px;            
     cursor: pointer;
 }
 
@@ -366,6 +375,7 @@ body {
     position: relative;
     height: 4px;
     margin-top: 32px;
+    margin-right: 5.4%;
     border-radius: 2px;
     background: var(--color-neutral-light-gray);
     cursor: pointer;
@@ -383,14 +393,22 @@ body {
 /* 모바일/태블릿 */
 @media (max-width: 1024px) {
     .products-sec {
-        padding: 60px 24px;
+        padding: 60px 0 60px 24px;
+    }
+
+    .products-heading,
+    .products-main-tabs,
+    .products-sub-tabs,
+    .products-grid,
+    .products-track {
+        padding-right: 24px;
+        margin-right: 0;
     }
 
     .products-heading h2 {
         font-size: 24px;
     }
 
-    /* 버튼이 많으니 줄바꿈 대신 옆으로 밀어서 보기 */
     .products-main-tabs,
     .products-sub-tabs {
         flex-wrap: nowrap;
@@ -405,11 +423,232 @@ body {
     }
 
     .product-card {
-        flex-basis: 160px;
+        flex: 0 0 240px;
     }
 
     .product-image {
-        width: 160px;
         height: 160px;
     }
+}
+/* ===== HEADER DESIGN ===== */
+.header {
+    width: 100%;
+    background-color: #d8d1c8; /* 캡처 화면의 은은한 베이지색 배경 */
+    position: relative;
+    z-index: 1000;
+}
+
+.header-inner {
+    max-width: 1440px;
+    height: 90px;
+    margin: 0 auto;
+    padding: 0 5.4%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* 왼쪽 로고 */
+.header-logo a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.header-logo img {
+    height: 28px;
+    object-fit: contain;
+}
+
+/* 중앙 네비게이션 메뉴 */
+.header-nav ul {
+    display: flex;
+    align-items: center;
+    gap: 48px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.header-nav a {
+    font-size: 16px;
+    font-weight: 500;
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.header-nav a:hover {
+    color: #b30000; /* 호버 시 포인트 컬러 */
+}
+
+/* 오른쪽 유틸리티 메뉴 (검색, 로그인, 고객센터) */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.header-link {
+    font-size: 14px;
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.header-link:hover {
+    color: #222222;
+}
+
+/* 모바일/태블릿 반응형 */
+@media (max-width: 1024px) {
+    .header-inner {
+        padding: 0 24px;
+        height: 70px;
+    }
+    
+    .header-nav {
+        display: none; /* 모바일 환경 레이아웃 대응 */
+    }
+}
+/* ===== 텍스트 수직 정렬 완벽 수정 CSS ===== */
+
+.header {
+    width: 100%;
+    background-color: #d8d1c8;
+    position: relative;
+    z-index: 1000;
+}
+
+.header-inner {
+    max-width: 1440px;
+    height: 90px;
+    margin: 0 auto;
+    padding: 0 5.4%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    z-index: 10;
+}
+
+.header-logo a { display: flex; align-items: center; text-decoration: none; }
+.header-logo img { height: 28px; object-fit: contain; }
+
+/* 상단 대메뉴 간격 설정 */
+.main-menu {
+    display: flex;
+    align-items: center;
+    gap: 65px; /* 대메뉴 사이의 간격 */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.main-menu a {
+    font-size: 16px;
+    font-weight: 500;
+    color: #ffffff;
+    text-decoration: none;
+    line-height: 90px;
+    display: inline-block;
+}
+
+.header-right { display: flex; align-items: center; gap: 24px; }
+.header-link { font-size: 14px; color: #ffffff; text-decoration: none; }
+
+
+/* 드롭다운 백그라운드 패널 */
+.header-dropdown-bg {
+    position: absolute;
+    top: 90px;
+    left: 0;
+    width: 100%;
+    background-color: #ffffff;
+    border-top: 1px solid #e5e5e5;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    display: none !important;
+    z-index: 5;
+    padding: 40px 5.4%;
+    box-sizing: border-box;
+}
+
+.dropdown-inner {
+    max-width: 1440px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+/* 왼쪽 브랜드 버튼 영역 */
+.dropdown-left-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 200px;
+    flex-shrink: 0;
+}
+
+.side-btn {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    background-color: #f2efe9;
+    border-radius: 8px;
+    font-size: 13px;
+    color: #333333;
+    text-decoration: none;
+    font-weight: 500;
+}
+.side-btn:hover { background-color: #e4dfd5; }
+
+
+/* ===== 핵심: 하단 서브메뉴 5열 정렬 (상단 대메뉴와 간격 완벽 일치) ===== */
+.dropdown-sub-columns {
+    display: flex;
+    gap: 65px;          /* 상단 .main-menu의 gap과 똑같이 맞춰야 수직으로 떨어짐! */
+    margin-right: 80px; /* 우측 여백 미세 조정 */
+}
+
+.sub-col {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    min-width: 130px; /* 각 열의 너비 확보 */
+}
+
+.sub-col li {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.sub-col li a {
+    font-size: 14px;
+    color: #555555;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: color 0.2s;
+}
+
+.sub-col li a:hover {
+    color: #b30000;
+    font-weight: 600;
+}
+
+
+/* 마우스 호버 시 동작 */
+.header:hover {
+    background-color: #ffffff;
+}
+
+.header:hover .main-menu a,
+.header:hover .header-link {
+    color: #222222;
+}
+
+.header:hover .header-dropdown-bg {
+    display: block !important;
 }
