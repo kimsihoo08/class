@@ -694,7 +694,7 @@ body {
     .dropdown-inner {
         display: grid;
         grid-template-columns: 200px minmax(0, 1fr);
-        column-gap: clamp(24px, 3vw, 48px);
+        column-gap: 40px;
         align-items: start;
         width: 100%;
         max-width: 1360px;
@@ -707,17 +707,28 @@ body {
         width: 200px;
     }
 
-    /* 서브메뉴 5열이 남은 영역을 고르게 사용하도록 설정 */
+    /* 서브메뉴는 5개 열을 명시적으로 균등 배치하고 버튼 영역과 겹치지 않게 함 */
     .dropdown-sub-columns {
         position: static;
         transform: none;
         display: grid;
-        grid-template-columns: repeat(5, minmax(0, 1fr));
-        column-gap: clamp(12px, 1.5vw, 24px);
+        grid-template-columns: repeat(5, minmax(120px, 1fr));
+        column-gap: 28px;
         width: 100%;
         max-width: none;
         min-width: 0;
         margin: 0;
+        box-sizing: border-box;
+    }
+
+    .dropdown-sub-columns .sub-col {
+        min-width: 0;
+        width: 100%;
+    }
+
+    .dropdown-sub-columns .sub-col a {
+        white-space: normal;
+        overflow-wrap: break-word;
     }
 
     .sub-col {
