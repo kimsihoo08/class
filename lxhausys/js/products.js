@@ -1,95 +1,42 @@
 document.addEventListener('DOMContentLoaded', function () {
+    /* A. 제품 목록을 Swiper로 초기화 */
+    const productSwipers = [];
 
-    /* ─────────────────────────────────────────
-       A. 제품 리스트 가로 스크롤바
-          (기존 코드를 함수로 묶어서 리스트마다 한 번씩 실행)
-    ───────────────────────────────────────── */
-    function initScroll(wrap) {
-        const list = wrap.querySelector('.products-grid');
+    document.querySelectorAll('.products-list-wrap').forEach(function (wrap) {
+        const container = wrap.querySelector('.products-grid');
+        if (!container || typeof window.Swiper === 'undefined') return;
+
+        // Swiper의 필수 구조: container > swiper-wrapper > swiper-slide
+        const wrapper = document.createElement('div');
+        wrapper.className = 'swiper-wrapper';
+
+        Array.from(container.children).forEach(function (card) {
+            card.classList.add('swiper-slide');
+            wrapper.appendChild(card);
+        });
+
+        container.appendChild(wrapper);
+        container.classList.add('swiper');
+
+        // 기존 커스텀 스크롤바는 Swiper와 중복되므로 숨김
         const track = wrap.querySelector('.products-track');
-        const thumb = track && track.querySelector('span');
-        if (!list || !track || !thumb) return;
+        if (track) track.hidden = true;
 
-        let dragging = false;
-        let startX = 0;
-        let startScroll = 0;
-
-        function syncTrack() {
-            const maxScroll = list.scrollWidth - list.clientWidth;
-            const visibleRatio = list.clientWidth / list.scrollWidth;
-            const thumbWidth = maxScroll <= 0 ? 100 : Math.max(12, visibleRatio * 100);
-            const progress = maxScroll <= 0 ? 0 : list.scrollLeft / maxScroll;
-
-            thumb.style.width = thumbWidth + '%';
-            thumb.style.left = progress * (100 - thumbWidth) + '%';
-            track.setAttribute('aria-valuenow', String(Math.round(progress * 100)));
-        }
-
-        function scrollToTrackPosition(clientX) {
-            const rect = track.getBoundingClientRect();
-            const thumbWidthPx = thumb.getBoundingClientRect().width;
-            const usableWidth = rect.width - thumbWidthPx;
-            const position = Math.max(0, Math.min(1, (clientX - rect.left - thumbWidthPx / 2) / usableWidth));
-
-            list.scrollLeft = position * (list.scrollWidth - list.clientWidth);
-        }
-
-        track.addEventListener('pointerdown', function (event) {
-            dragging = true;
-            startX = event.clientX;
-            startScroll = list.scrollLeft;
-            track.setPointerCapture(event.pointerId);
-            scrollToTrackPosition(event.clientX);
-            event.preventDefault();
+        const swiper = new window.Swiper(container, {
+            direction: 'horizontal',
+            slidesPerView: 'auto',
+            spaceBetween: 24,
+            speed: 600,
+            watchOverflow: true,
+            observer: true,
+            observeParents: true
         });
 
-        track.addEventListener('pointermove', function (event) {
-            if (!dragging) return;
+        productSwipers.push(swiper);
+    });
 
-            const rect = track.getBoundingClientRect();
-            const thumbWidthPx = thumb.getBoundingClientRect().width;
-            const usableWidth = rect.width - thumbWidthPx;
-            const delta = event.clientX - startX;
-
-            list.scrollLeft = startScroll + delta / Math.max(1, usableWidth) * (list.scrollWidth - list.clientWidth);
-        });
-
-        track.addEventListener('pointerup', function () { dragging = false; });
-        track.addEventListener('pointercancel', function () { dragging = false; });
-
-        track.addEventListener('keydown', function (event) {
-            if (event.key === 'ArrowRight') {
-                list.scrollBy({ left: list.clientWidth * 0.75, behavior: 'smooth' });
-                event.preventDefault();
-            }
-            if (event.key === 'ArrowLeft') {
-                list.scrollBy({ left: -list.clientWidth * 0.75, behavior: 'smooth' });
-                event.preventDefault();
-            }
-            if (event.key === 'Home') {
-                list.scrollTo({ left: 0, behavior: 'smooth' });
-                event.preventDefault();
-            }
-            if (event.key === 'End') {
-                list.scrollTo({ left: list.scrollWidth, behavior: 'smooth' });
-                event.preventDefault();
-            }
-        });
-
-        list.addEventListener('scroll', syncTrack, { passive: true });
-        window.addEventListener('resize', syncTrack);
-        syncTrack();
-    }
-
-    document.querySelectorAll('.products-list-wrap').forEach(initScroll);
-
-
-    /* ─────────────────────────────────────────
-       B. 탭 전환
-          "버튼 i번째를 누르면 칸 i번째만 보이고 나머지는 숨김"
-    ───────────────────────────────────────── */
+    /* B. 탭 전환: 기존 동작 유지 */
     function setupTabs(buttons, targets) {
-
         function select(index) {
             buttons.forEach(function (button, i) {
                 const active = i === index;
@@ -101,8 +48,12 @@ document.addEventListener('DOMContentLoaded', function () {
                 target.classList.toggle('is-hidden', i !== index);
             });
 
-            // 숨겨져 있던 리스트는 크기가 0이라서, 보이게 된 뒤 스크롤바를 다시 계산하게 알림
-            window.dispatchEvent(new Event('resize'));
+            // 탭 전환 후 표시된 Swiper의 크기와 위치 갱신
+            requestAnimationFrame(function () {
+                productSwipers.forEach(function (swiper) {
+                    swiper.update();
+                });
+            });
         }
 
         buttons.forEach(function (button, i) {
@@ -111,7 +62,6 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         });
 
-        // HTML에서 is-active가 붙어 있는 버튼을 처음 화면으로 사용 (없으면 첫 번째)
         const first = Array.from(buttons).findIndex(function (button) {
             return button.classList.contains('is-active');
         });
@@ -120,15 +70,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const panels = document.querySelectorAll('.products-panel');
 
-    // 탭1 → 탭2 묶음(panel) 바꾸기
+    // 탭1 → 제품 대분류 panel
     setupTabs(document.querySelectorAll('.products-main-tab'), panels);
 
-    // 탭2 → 리스트 바꾸기 (panel마다 따로)
+    // 탭2 → panel 안의 제품 소분류 리스트
     panels.forEach(function (panel) {
         setupTabs(
             panel.querySelectorAll('.products-sub-tabs button'),
             panel.querySelectorAll('.products-list-wrap')
         );
     });
-
 });
