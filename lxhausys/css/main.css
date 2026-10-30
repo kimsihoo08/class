@@ -626,6 +626,7 @@ body {
     padding: 0;
     margin: 0;
     min-width: 130px; /* 각 열의 너비 확보 */
+    text-align: center
 }
 
 .sub-col li {
@@ -715,8 +716,8 @@ body {
     .dropdown-inner {
         position: relative;
         display: block;
-        width: 100%;
-        max-width: none;
+        /*width: 100%;*/
+        /*max-width: none;*/
         min-height: 190px;
         margin: 0;
     }
@@ -805,7 +806,7 @@ body {
 @media (max-width: 1024px) {
     .header-inner {
         height: 70px;
-        padding: 0 20px;
+        padding: 0px;
         gap: 16px;
     }
 
