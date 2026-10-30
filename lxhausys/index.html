@@ -18,7 +18,7 @@
     <!-- 1. 상단 베이지색 헤더 바 -->
                 <div class="header-inner">
                     <div class="header-logo">
-                        <a href="#"><img src="img/lxlogo1.png" alt="LX 하우시스"></a>
+                        <a href="#"><img src="img/lxlogo1.png" data-default-src="img/lxlogo1.png" data-hover-src="img/lxlogo2.png" alt="LX 하우시스"></a>
                     </div>
                     <nav class="header-nav">
                         <ul class="main-menu">
@@ -427,6 +427,27 @@
             });
         });
     </script>
+    <script>
+        // PC 헤더에 마우스를 올리면 로고를 밝은 배경용 이미지로 변경
+        document.addEventListener('DOMContentLoaded', function () {
+            const header = document.querySelector('.header');
+            const logo = document.querySelector('.header-logo img');
+            if (!header || !logo) return;
+
+            const defaultLogo = logo.dataset.defaultSrc;
+            const hoverLogo = logo.dataset.hoverSrc;
+            const desktopQuery = window.matchMedia('(min-width: 1025px)');
+
+            header.addEventListener('mouseenter', function () {
+                if (desktopQuery.matches) logo.src = hoverLogo;
+            });
+
+            header.addEventListener('mouseleave', function () {
+                logo.src = defaultLogo;
+            });
+        });
+    </script>
+
     <script src="js/products.js"></script>
 </body>
 </html>
