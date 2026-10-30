@@ -286,19 +286,19 @@ body {
 }
 
 /* ===== ★ 상품 리스트 및 카드 레이아웃 ===== */
-.products-grid {
+.products-list-wrap {
     width: 100%;
     overflow: hidden;
     padding-right: 5.4%;
     box-sizing: border-box;
 }
 
-.products-grid .swiper-wrapper {
+.products-list-wrap .swiper-wrapper {
     display: flex;
     align-items: stretch;
 }
 
-.products-grid .product-card {
+.products-list-wrap .product-card {
     width: 400px;
     flex: 0 0 400px;
 }
@@ -402,13 +402,13 @@ body {
     .products-heading,
     .products-main-tabs,
     .products-sub-tabs,
-    .products-grid,
+    .products-list-wrap,
     .products-track {
         padding-right: 24px;
         margin-right: 0;
     }
 
-    .products-grid .product-card {
+    .products-list-wrap .product-card {
         width: 240px;
         flex: 0 0 240px;
     }
