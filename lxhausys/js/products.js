@@ -1,42 +1,95 @@
 document.addEventListener('DOMContentLoaded', function () {
-    /* A. 제품 Swiper 초기화 - HERO와 같은 HTML 구조 사용 */
-    const productSwipers = [];
 
-    document.querySelectorAll('.products-list-wrap').forEach(function (wrap) {
-        const container = wrap;
-        if (!container || typeof window.Swiper === 'undefined') return;
-
-        // HERO처럼 .swiper > .swiper-wrapper > .swiper-slide 구조를 사용
-        const wrapper = container.querySelector(':scope > .swiper-wrapper');
-        if (!wrapper) return;
-
-        const slides = wrapper.querySelectorAll(':scope > .swiper-slide');
-        if (!slides.length) return;
-
+    /* ─────────────────────────────────────────
+       A. 제품 리스트 가로 스크롤바
+          (기존 코드를 함수로 묶어서 리스트마다 한 번씩 실행)
+    ───────────────────────────────────────── */
+    function initScroll(wrap) {
+        const list = wrap.querySelector('.products-grid');
         const track = wrap.querySelector('.products-track');
-        if (track) track.hidden = true;
+        const thumb = track && track.querySelector('span');
+        if (!list || !track || !thumb) return;
 
-        const swiper = new window.Swiper(container, {
-            direction: 'horizontal',
-            loop: false,
-            slidesPerView: 'auto',
-            spaceBetween: 24,
-            speed: 600,
-            watchOverflow: true,
-            observer: true,
-            observeParents: true,
-            on: {
-                init: function () {
-                    this.update();
-                }
+        let dragging = false;
+        let startX = 0;
+        let startScroll = 0;
+
+        function syncTrack() {
+            const maxScroll = list.scrollWidth - list.clientWidth;
+            const visibleRatio = list.clientWidth / list.scrollWidth;
+            const thumbWidth = maxScroll <= 0 ? 100 : Math.max(12, visibleRatio * 100);
+            const progress = maxScroll <= 0 ? 0 : list.scrollLeft / maxScroll;
+
+            thumb.style.width = thumbWidth + '%';
+            thumb.style.left = progress * (100 - thumbWidth) + '%';
+            track.setAttribute('aria-valuenow', String(Math.round(progress * 100)));
+        }
+
+        function scrollToTrackPosition(clientX) {
+            const rect = track.getBoundingClientRect();
+            const thumbWidthPx = thumb.getBoundingClientRect().width;
+            const usableWidth = rect.width - thumbWidthPx;
+            const position = Math.max(0, Math.min(1, (clientX - rect.left - thumbWidthPx / 2) / usableWidth));
+
+            list.scrollLeft = position * (list.scrollWidth - list.clientWidth);
+        }
+
+        track.addEventListener('pointerdown', function (event) {
+            dragging = true;
+            startX = event.clientX;
+            startScroll = list.scrollLeft;
+            track.setPointerCapture(event.pointerId);
+            scrollToTrackPosition(event.clientX);
+            event.preventDefault();
+        });
+
+        track.addEventListener('pointermove', function (event) {
+            if (!dragging) return;
+
+            const rect = track.getBoundingClientRect();
+            const thumbWidthPx = thumb.getBoundingClientRect().width;
+            const usableWidth = rect.width - thumbWidthPx;
+            const delta = event.clientX - startX;
+
+            list.scrollLeft = startScroll + delta / Math.max(1, usableWidth) * (list.scrollWidth - list.clientWidth);
+        });
+
+        track.addEventListener('pointerup', function () { dragging = false; });
+        track.addEventListener('pointercancel', function () { dragging = false; });
+
+        track.addEventListener('keydown', function (event) {
+            if (event.key === 'ArrowRight') {
+                list.scrollBy({ left: list.clientWidth * 0.75, behavior: 'smooth' });
+                event.preventDefault();
+            }
+            if (event.key === 'ArrowLeft') {
+                list.scrollBy({ left: -list.clientWidth * 0.75, behavior: 'smooth' });
+                event.preventDefault();
+            }
+            if (event.key === 'Home') {
+                list.scrollTo({ left: 0, behavior: 'smooth' });
+                event.preventDefault();
+            }
+            if (event.key === 'End') {
+                list.scrollTo({ left: list.scrollWidth, behavior: 'smooth' });
+                event.preventDefault();
             }
         });
 
-        productSwipers.push(swiper);
-    });
+        list.addEventListener('scroll', syncTrack, { passive: true });
+        window.addEventListener('resize', syncTrack);
+        syncTrack();
+    }
 
-    /* B. 탭 전환: 기존 동작 유지 */
+    document.querySelectorAll('.products-list-wrap').forEach(initScroll);
+
+
+    /* ─────────────────────────────────────────
+       B. 탭 전환
+          "버튼 i번째를 누르면 칸 i번째만 보이고 나머지는 숨김"
+    ───────────────────────────────────────── */
     function setupTabs(buttons, targets) {
+
         function select(index) {
             buttons.forEach(function (button, i) {
                 const active = i === index;
@@ -48,12 +101,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 target.classList.toggle('is-hidden', i !== index);
             });
 
-            // 탭 전환 후 표시된 Swiper의 크기와 위치 갱신
-            requestAnimationFrame(function () {
-                productSwipers.forEach(function (swiper) {
-                    swiper.update();
-                });
-            });
+            // 숨겨져 있던 리스트는 크기가 0이라서, 보이게 된 뒤 스크롤바를 다시 계산하게 알림
+            window.dispatchEvent(new Event('resize'));
         }
 
         buttons.forEach(function (button, i) {
@@ -62,6 +111,7 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         });
 
+        // HTML에서 is-active가 붙어 있는 버튼을 처음 화면으로 사용 (없으면 첫 번째)
         const first = Array.from(buttons).findIndex(function (button) {
             return button.classList.contains('is-active');
         });
@@ -70,14 +120,36 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const panels = document.querySelectorAll('.products-panel');
 
-    // 탭1 → 제품 대분류 panel
+    // 탭1 → 탭2 묶음(panel) 바꾸기
     setupTabs(document.querySelectorAll('.products-main-tab'), panels);
 
-    // 탭2 → panel 안의 제품 소분류 리스트
+    // 탭2 → 리스트 바꾸기 (panel마다 따로)
     panels.forEach(function (panel) {
         setupTabs(
             panel.querySelectorAll('.products-sub-tabs button'),
             panel.querySelectorAll('.products-list-wrap')
         );
     });
+
+
+    /* ─────────────────────────────────────────
+       C. NEWS 섹션 Swiper 슬라이드 초기화
+    ───────────────────────────────────────── */
+    const newsSwiper = new Swiper('.news-list-wrap', {
+        slidesPerView: 'auto',
+        spaceBetween: 32,
+        freeMode: true,
+        scrollbar: {
+            el: '.news-track',
+            draggable: true,
+        },
+    });
+    /* ─────────────────────────────────────────
+       CUSTOMER CENTER 탭 전환 기능
+    ───────────────────────────────────────── */
+    setupTabs(
+        document.querySelectorAll('.customer-tab'),
+        document.querySelectorAll('.customer-panel')
+    );
+
 });
