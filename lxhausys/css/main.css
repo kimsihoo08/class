@@ -686,18 +686,18 @@ body {
         left: 0;
         right: 0;
         width: 100%;
-        padding: 40px 5.4%;
+        padding: 32px 24px;
         box-sizing: border-box;
     }
 
-    /* 기존 좌측 브랜드 버튼과 서브메뉴를 별도 영역으로 유지 */
+    /* 중앙 정렬된 콘텐츠 영역 안에서 버튼과 서브메뉴 간격을 조절 */
     .dropdown-inner {
         display: grid;
         grid-template-columns: 200px minmax(0, 1fr);
-        column-gap: clamp(48px, 7vw, 120px);
+        column-gap: clamp(24px, 3vw, 48px);
         align-items: start;
         width: 100%;
-        max-width: 1440px;
+        max-width: 1360px;
         min-height: 190px;
         margin: 0 auto;
     }
@@ -707,15 +707,16 @@ body {
         width: 200px;
     }
 
-    /* 서브메뉴 5열은 오른쪽 영역 안에서 넓게 펼쳐 중앙 정렬 */
+    /* 서브메뉴 5열이 남은 영역을 고르게 사용하도록 설정 */
     .dropdown-sub-columns {
         position: static;
         transform: none;
         display: grid;
-        grid-template-columns: repeat(5, minmax(110px, 1fr));
-        gap: clamp(18px, 2.2vw, 36px);
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        column-gap: clamp(12px, 1.5vw, 24px);
         width: 100%;
         max-width: none;
+        min-width: 0;
         margin: 0;
     }
 
