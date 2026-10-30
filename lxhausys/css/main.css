@@ -663,9 +663,10 @@ body {
 
 /* ===== PC 메뉴 중앙 정렬 / 모바일 반응형 ===== */
 @media (min-width: 1025px) {
-    .header-inner { position: relative; }
+    .header-inner {
+        position: relative;
+    }
 
-    /* 상단 메뉴: 로고와 우측 메뉴에 영향받지 않고 화면 정중앙 */
     .header-nav {
         position: absolute;
         left: 50%;
@@ -673,7 +674,7 @@ body {
         transform: translate(-50%, -50%);
     }
 
-    .header-nav .main-menu {
+    .header-nav > .main-menu {
         display: flex;
         justify-content: center;
         gap: clamp(28px, 3.4vw, 65px);
@@ -682,32 +683,34 @@ body {
 
     .header-dropdown-bg {
         position: absolute;
-        inset: 90px 0 auto;
+        left: 0;
+        right: 0;
         width: 100%;
         padding: 32px 24px;
         box-sizing: border-box;
     }
 
-    /* 왼쪽 버튼은 콘텐츠의 왼쪽에 고정 */
+    /* 드롭다운 내부는 화면 전체 폭을 기준으로 계산 */
     .dropdown-inner {
         position: relative;
         display: block;
         width: 100%;
-        max-width: 1360px;
+        max-width: none;
         min-height: 190px;
-        margin: 0 auto;
+        margin: 0;
     }
 
+    /* 왼쪽 브랜드 버튼은 중앙 서브메뉴 레이아웃과 분리 */
     .dropdown-left-buttons {
         position: absolute;
-        left: 0;
+        left: max(0px, calc((100vw - 1360px) / 2 - 24px));
         top: 0;
         display: flex;
         flex-direction: column;
         width: 200px;
     }
 
-    /* 5개 서브메뉴 묶음 자체를 브라우저 화면 중앙에 배치 */
+    /* 상단 메뉴와 동일하게 viewport 기준 50%에서 중앙 정렬 */
     .dropdown-sub-columns {
         position: relative;
         left: 50%;
@@ -715,7 +718,7 @@ body {
         display: grid;
         grid-template-columns: repeat(5, minmax(0, 1fr));
         column-gap: clamp(24px, 3vw, 48px);
-        width: min(1050px, calc(100vw - 360px));
+        width: min(1050px, calc(100vw - 400px));
         max-width: none;
         min-width: 0;
         margin: 0;
@@ -733,7 +736,9 @@ body {
     }
 
     .mobile-menu-toggle,
-    .mobile-menu { display: none !important; }
+    .mobile-menu {
+        display: none !important;
+    }
 }
 
 .mobile-menu-toggle { display: none; }
