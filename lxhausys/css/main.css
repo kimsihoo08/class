@@ -663,7 +663,7 @@ body {
 
 /* ===== HEADER NAV / DROPDOWN ALIGNMENT ===== */
 
-/* PC: 각 상단 메뉴를 아래 서브메뉴 열의 중앙에 맞춤 */
+/* PC: 상단 메뉴와 서브메뉴 5열의 중심선을 동일하게 맞춤 */
 @media (min-width: 1025px) {
     .header-inner {
         position: relative;
@@ -674,16 +674,15 @@ body {
         left: 50%;
         top: 50%;
         transform: translate(-50%, -50%);
-        width: min(1000px, calc(100vw - 64px));
-        max-width: calc(100% - 40px);
+        width: min(960px, calc(100vw - 64px));
+        max-width: none;
     }
 
     .header-nav > .main-menu {
         display: grid;
         grid-template-columns: repeat(5, minmax(0, 1fr));
         align-items: center;
-        justify-content: initial;
-        gap: clamp(16px, 2.5vw, 40px);
+        gap: 0;
         width: 100%;
         white-space: nowrap;
     }
@@ -724,8 +723,8 @@ body {
         transform: translateX(-50%);
         display: grid;
         grid-template-columns: repeat(5, minmax(0, 1fr));
-        column-gap: clamp(16px, 2.5vw, 40px);
-        width: min(1000px, calc(100vw - 64px));
+        column-gap: 0;
+        width: min(960px, calc(100vw - 64px));
         max-width: 100%;
         min-width: 0;
         margin: 0;
@@ -735,6 +734,8 @@ body {
     .dropdown-sub-columns .sub-col {
         min-width: 0;
         width: auto;
+        padding-left: clamp(8px, 1vw, 16px);
+        box-sizing: border-box;
     }
 
     .dropdown-sub-columns .sub-col a {
@@ -748,11 +749,11 @@ body {
     }
 }
 
-/* 넓은 PC: 왼쪽 브랜드 버튼은 서브메뉴 영역 바깥에 배치 */
+/* 넓은 PC: 왼쪽 브랜드 버튼과 5열 메뉴가 겹치지 않도록 공간 확보 */
 @media (min-width: 1280px) {
     .header-nav,
     .dropdown-sub-columns {
-        width: min(1000px, calc(100vw - 320px));
+        width: min(960px, calc(100vw - 480px));
     }
 
     .dropdown-left-buttons {
@@ -766,7 +767,7 @@ body {
     }
 }
 
-/* 태블릿 가로: 좌측 브랜드 버튼을 숨기고 5열 정렬 유지 */
+/* 태블릿 가로: 왼쪽 버튼을 숨기고 메뉴 5열을 화면 중앙에 맞춤 */
 @media (max-width: 1279px) and (min-width: 1025px) {
     .dropdown-left-buttons {
         display: none;
@@ -774,12 +775,7 @@ body {
 
     .header-nav,
     .dropdown-sub-columns {
-        width: min(1000px, calc(100vw - 64px));
-    }
-
-    .header-nav > .main-menu,
-    .dropdown-sub-columns {
-        column-gap: clamp(16px, 2.5vw, 28px);
+        width: min(960px, calc(100vw - 64px));
     }
 
     .header-nav a {
