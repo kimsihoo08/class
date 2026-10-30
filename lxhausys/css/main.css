@@ -665,17 +665,22 @@ body {
 
 /* PC: 상단 메뉴와 서브메뉴 5열의 중심선을 동일하게 맞춤 */
 @media (min-width: 1025px) {
+    /* 메뉴의 기준점을 max-width가 있는 .header-inner가 아니라 전체 헤더로 고정 */
     .header-inner {
-        position: relative;
+        position: static;
     }
 
     .header-nav {
         position: absolute;
         left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
+        top: 0;
+        height: 90px;
+        display: flex;
+        align-items: center;
+        transform: translateX(-50%);
         width: min(960px, calc(100vw - 64px));
         max-width: none;
+        box-sizing: border-box;
     }
 
     .header-nav > .main-menu {
