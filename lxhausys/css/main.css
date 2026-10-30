@@ -661,7 +661,9 @@ body {
     display: block !important;
 }
 
-/* ===== PC 메뉴 중앙 정렬 / 모바일 반응형 ===== */
+/* ===== HEADER NAV / DROPDOWN ALIGNMENT ===== */
+
+/* PC: 상단 메뉴는 화면 너비 기준으로 중앙 정렬 */
 @media (min-width: 1025px) {
     .header-inner {
         position: relative;
@@ -672,17 +674,22 @@ body {
         left: 50%;
         top: 50%;
         transform: translate(-50%, -50%);
+        width: max-content;
+        max-width: calc(100% - 420px);
     }
 
     .header-nav > .main-menu {
         display: flex;
+        align-items: center;
         justify-content: center;
-        gap: clamp(28px, 3.4vw, 65px);
+        gap: clamp(24px, 3vw, 48px);
         white-space: nowrap;
     }
 
+    /* 드롭다운 패널은 뷰포트 전체 너비 */
     .header-dropdown-bg {
         position: absolute;
+        top: 90px;
         left: 0;
         right: 0;
         width: 100%;
@@ -690,7 +697,6 @@ body {
         box-sizing: border-box;
     }
 
-    /* 드롭다운 내부는 화면 전체 폭을 기준으로 계산 */
     .dropdown-inner {
         position: relative;
         display: block;
@@ -700,26 +706,17 @@ body {
         margin: 0;
     }
 
-    /* 왼쪽 브랜드 버튼은 중앙 서브메뉴 레이아웃과 분리 */
-    .dropdown-left-buttons {
-        position: absolute;
-        left: max(0px, calc((100vw - 1360px) / 2 - 24px));
-        top: 0;
-        display: flex;
-        flex-direction: column;
-        width: 200px;
-    }
-
-    /* 상단 메뉴와 동일하게 viewport 기준 50%에서 중앙 정렬 */
+    /* 서브메뉴는 dropdown-inner의 중앙점(화면 중앙)에 고정 */
     .dropdown-sub-columns {
-        position: relative;
+        position: absolute;
+        top: 0;
         left: 50%;
         transform: translateX(-50%);
         display: grid;
         grid-template-columns: repeat(5, minmax(0, 1fr));
-        column-gap: clamp(24px, 3vw, 48px);
-        width: min(1050px, calc(100vw - 400px));
-        max-width: none;
+        column-gap: clamp(20px, 2.5vw, 40px);
+        width: min(1000px, calc(100vw - 360px));
+        max-width: 100%;
         min-width: 0;
         margin: 0;
         box-sizing: border-box;
@@ -741,7 +738,46 @@ body {
     }
 }
 
-.mobile-menu-toggle { display: none; }
+/* 넓은 PC에서만 왼쪽 브랜드 버튼을 노출해 서브메뉴와 겹치지 않게 함 */
+@media (min-width: 1280px) {
+    .dropdown-left-buttons {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        width: 200px;
+    }
+
+    .dropdown-sub-columns {
+        width: min(1000px, calc(100vw - 320px));
+    }
+}
+
+/* 태블릿·모바일 헤더 */
+.mobile-menu-toggle {
+    display: none;
+}
+
+@media (max-width: 1279px) and (min-width: 1025px) {
+    .dropdown-left-buttons {
+        display: none;
+    }
+
+    .dropdown-sub-columns {
+        width: min(1000px, calc(100vw - 64px));
+        column-gap: clamp(16px, 2vw, 28px);
+    }
+
+    .header-nav > .main-menu {
+        gap: clamp(18px, 2.2vw, 28px);
+    }
+
+    .header-nav a {
+        font-size: clamp(13px, 1.25vw, 16px);
+    }
+}
 
 @media (max-width: 1024px) {
     .header-inner {
@@ -750,14 +786,28 @@ body {
         gap: 16px;
     }
 
-    .header-nav { display: none; }
+    .header-nav {
+        display: none;
+    }
 
     .header-dropdown-bg,
-    .header:hover .header-dropdown-bg { display: none !important; }
+    .header:hover .header-dropdown-bg {
+        display: none !important;
+    }
 
-    .header-logo img { max-width: min(42vw, 180px); height: auto; }
-    .header-right { gap: clamp(10px, 2.5vw, 20px); }
-    .header-link { font-size: 12px; white-space: nowrap; }
+    .header-logo img {
+        max-width: min(42vw, 180px);
+        height: auto;
+    }
+
+    .header-right {
+        gap: clamp(10px, 2.5vw, 20px);
+    }
+
+    .header-link {
+        font-size: 12px;
+        white-space: nowrap;
+    }
 
     .mobile-menu-toggle {
         display: flex;
@@ -781,9 +831,17 @@ body {
         transition: transform .2s ease, opacity .2s ease;
     }
 
-    .mobile-menu-toggle[aria-expanded="true"] span:first-child { transform: translateY(7px) rotate(45deg); }
-    .mobile-menu-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
-    .mobile-menu-toggle[aria-expanded="true"] span:last-child { transform: translateY(-7px) rotate(-45deg); }
+    .mobile-menu-toggle[aria-expanded="true"] span:first-child {
+        transform: translateY(7px) rotate(45deg);
+    }
+
+    .mobile-menu-toggle[aria-expanded="true"] span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .mobile-menu-toggle[aria-expanded="true"] span:last-child {
+        transform: translateY(-7px) rotate(-45deg);
+    }
 
     .mobile-menu:not([hidden]) {
         display: block;
@@ -800,8 +858,16 @@ body {
         z-index: 1001;
     }
 
-    .mobile-menu ul { list-style: none; padding: 0; margin: 0; }
-    .mobile-menu li { border-bottom: 1px solid #e9e6e2; }
+    .mobile-menu ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .mobile-menu li {
+        border-bottom: 1px solid #e9e6e2;
+    }
+
     .mobile-menu li a {
         display: block;
         padding: 17px 4px;
@@ -810,15 +876,43 @@ body {
         text-decoration: none;
     }
 
-    .mobile-menu-utility { display: flex; flex-wrap: wrap; gap: 18px; padding-top: 20px; }
-    .mobile-menu-utility a { color: #555; font-size: 13px; text-decoration: none; }
+    .mobile-menu-utility {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 18px;
+        padding-top: 20px;
+    }
+
+    .mobile-menu-utility a {
+        color: #555;
+        font-size: 13px;
+        text-decoration: none;
+    }
 }
 
 @media (max-width: 480px) {
-    .header-inner { padding: 0 12px; gap: 8px; }
-    .header-logo img { max-width: 118px; }
-    .header-right { gap: 8px; }
-    .header-right .header-link { font-size: 11px; }
-    .header-right .header-link:nth-child(2) { display: none; }
-    .mobile-menu-toggle { margin-left: auto; }
+    .header-inner {
+        padding: 0 12px;
+        gap: 8px;
+    }
+
+    .header-logo img {
+        max-width: 118px;
+    }
+
+    .header-right {
+        gap: 8px;
+    }
+
+    .header-right .header-link {
+        font-size: 11px;
+    }
+
+    .header-right .header-link:nth-child(2) {
+        display: none;
+    }
+
+    .mobile-menu-toggle {
+        margin-left: auto;
+    }
 }
