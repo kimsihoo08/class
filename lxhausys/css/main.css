@@ -661,13 +661,13 @@ body {
     display: block !important;
 }
 
-/* ===== 헤더 정렬 및 반응형 레이아웃 ===== */
+/* ===== 헤더 중앙 정렬 및 반응형 레이아웃 ===== */
 @media (min-width: 1025px) {
     .header-inner {
         position: relative;
     }
 
-    /* 로고와 우측 유틸리티 너비에 관계없이 뷰포트 중앙 */
+    /* 상단 대메뉴는 뷰포트 가로 중앙 */
     .header-nav {
         position: absolute;
         left: 50%;
@@ -681,42 +681,46 @@ body {
         white-space: nowrap;
     }
 
-    /* 드롭다운 컬럼은 header-dropdown-bg(화면 전체 폭)를 기준으로 중앙 정렬 */
     .header-dropdown-bg {
         position: absolute;
         left: 0;
         right: 0;
         width: 100%;
+        padding: 40px 5.4%;
+        box-sizing: border-box;
     }
 
+    /* 기존 좌측 브랜드 버튼과 서브메뉴를 별도 영역으로 유지 */
     .dropdown-inner {
-        position: static;
-        display: block;
-        max-width: none;
+        display: grid;
+        grid-template-columns: 200px minmax(0, 1fr);
+        column-gap: clamp(48px, 7vw, 120px);
+        align-items: start;
+        width: 100%;
+        max-width: 1440px;
         min-height: 190px;
-        margin: 0;
+        margin: 0 auto;
     }
 
     .dropdown-left-buttons {
-        position: relative;
+        position: static;
         width: 200px;
     }
 
+    /* 서브메뉴 5열은 오른쪽 영역 안에서 넓게 펼쳐 중앙 정렬 */
     .dropdown-sub-columns {
-        position: absolute;
-        top: 40px;
-        left: 50%;
-        transform: translateX(-50%);
-        display: flex;
-        justify-content: center;
-        gap: clamp(48px, 5vw, 88px);
-        width: max-content;
-        max-width: calc(100vw - 48px);
+        position: static;
+        transform: none;
+        display: grid;
+        grid-template-columns: repeat(5, minmax(110px, 1fr));
+        gap: clamp(18px, 2.2vw, 36px);
+        width: 100%;
+        max-width: none;
         margin: 0;
     }
 
     .sub-col {
-        min-width: 140px;
+        min-width: 0;
     }
 
     .mobile-menu-toggle,
@@ -725,9 +729,7 @@ body {
     }
 }
 
-.mobile-menu-toggle {
-    display: none;
-}
+.mobile-menu-toggle { display: none; }
 
 @media (max-width: 1024px) {
     .header-inner {
@@ -736,14 +738,10 @@ body {
         gap: 16px;
     }
 
-    .header-nav {
-        display: none;
-    }
+    .header-nav { display: none; }
 
     .header-dropdown-bg,
-    .header:hover .header-dropdown-bg {
-        display: none !important;
-    }
+    .header:hover .header-dropdown-bg { display: none !important; }
 
     .header-logo img {
         max-width: min(42vw, 180px);
@@ -785,9 +783,7 @@ body {
         transform: translateY(7px) rotate(45deg);
     }
 
-    .mobile-menu-toggle[aria-expanded="true"] span:nth-child(2) {
-        opacity: 0;
-    }
+    .mobile-menu-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
 
     .mobile-menu-toggle[aria-expanded="true"] span:last-child {
         transform: translateY(-7px) rotate(-45deg);
@@ -814,9 +810,7 @@ body {
         margin: 0;
     }
 
-    .mobile-menu li {
-        border-bottom: 1px solid #e9e6e2;
-    }
+    .mobile-menu li { border-bottom: 1px solid #e9e6e2; }
 
     .mobile-menu li a {
         display: block;
@@ -841,28 +835,10 @@ body {
 }
 
 @media (max-width: 480px) {
-    .header-inner {
-        padding: 0 12px;
-        gap: 8px;
-    }
-
-    .header-logo img {
-        max-width: 118px;
-    }
-
-    .header-right {
-        gap: 8px;
-    }
-
-    .header-right .header-link {
-        font-size: 11px;
-    }
-
-    .header-right .header-link:nth-child(2) {
-        display: none;
-    }
-
-    .mobile-menu-toggle {
-        margin-left: auto;
-    }
+    .header-inner { padding: 0 12px; gap: 8px; }
+    .header-logo img { max-width: 118px; }
+    .header-right { gap: 8px; }
+    .header-right .header-link { font-size: 11px; }
+    .header-right .header-link:nth-child(2) { display: none; }
+    .mobile-menu-toggle { margin-left: auto; }
 }
