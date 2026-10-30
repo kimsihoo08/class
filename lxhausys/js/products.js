@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const productSwipers = [];
 
     document.querySelectorAll('.products-list-wrap').forEach(function (wrap) {
-        const container = wrap.querySelector('.products-grid');
+        const container = wrap;
         if (!container || typeof window.Swiper === 'undefined') return;
 
         // HERO처럼 .swiper > .swiper-wrapper > .swiper-slide 구조를 사용
