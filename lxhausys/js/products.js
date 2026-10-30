@@ -1,24 +1,29 @@
 document.addEventListener('DOMContentLoaded', function () {
-    /* A. 제품 목록을 Swiper로 초기화 */
+    /* A. HTML에 작성한 Swiper 구조를 초기화 */
     const productSwipers = [];
 
     document.querySelectorAll('.products-list-wrap').forEach(function (wrap) {
         const container = wrap.querySelector('.products-grid');
         if (!container || typeof window.Swiper === 'undefined') return;
 
-        // Swiper의 필수 구조: container > swiper-wrapper > swiper-slide
-        const wrapper = document.createElement('div');
-        wrapper.className = 'swiper-wrapper';
+        // HTML의 swiper-wrapper를 그대로 사용하고, 카드에 swiper-slide만 추가
+        let wrapper = container.querySelector(':scope > .swiper-wrapper');
+        if (!wrapper) {
+            wrapper = document.createElement('div');
+            wrapper.className = 'swiper-wrapper';
+            Array.from(container.children).forEach(function (child) {
+                if (child.classList.contains('product-card')) {
+                    wrapper.appendChild(child);
+                }
+            });
+            container.appendChild(wrapper);
+        }
 
-        Array.from(container.children).forEach(function (card) {
+        wrapper.querySelectorAll('.product-card').forEach(function (card) {
             card.classList.add('swiper-slide');
-            wrapper.appendChild(card);
         });
-
-        container.appendChild(wrapper);
         container.classList.add('swiper');
 
-        // 기존 커스텀 스크롤바는 Swiper와 중복되므로 숨김
         const track = wrap.querySelector('.products-track');
         if (track) track.hidden = true;
 
