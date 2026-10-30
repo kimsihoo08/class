@@ -761,6 +761,14 @@ body {
         width: min(960px, calc(100vw - 480px));
     }
 
+    .header-logo {
+        transform: translateX(-8px);
+    }
+
+    .header-right {
+        transform: translateX(8px);
+    }
+
     .dropdown-left-buttons {
         position: absolute;
         top: 0;
