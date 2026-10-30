@@ -663,7 +663,7 @@ body {
 
 /* ===== HEADER NAV / DROPDOWN ALIGNMENT ===== */
 
-/* PC: 상단 메뉴는 화면 너비 기준으로 중앙 정렬 */
+/* PC: 각 상단 메뉴를 아래 서브메뉴 열의 중앙에 맞춤 */
 @media (min-width: 1025px) {
     .header-inner {
         position: relative;
@@ -674,19 +674,30 @@ body {
         left: 50%;
         top: 50%;
         transform: translate(-50%, -50%);
-        width: max-content;
-        max-width: calc(100% - 420px);
+        width: min(1000px, calc(100vw - 64px));
+        max-width: calc(100% - 40px);
     }
 
     .header-nav > .main-menu {
-        display: flex;
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
         align-items: center;
-        justify-content: center;
-        gap: clamp(24px, 3vw, 48px);
+        justify-content: initial;
+        gap: clamp(16px, 2.5vw, 40px);
+        width: 100%;
         white-space: nowrap;
     }
 
-    /* 드롭다운 패널은 뷰포트 전체 너비 */
+    .header-nav > .main-menu > li {
+        min-width: 0;
+        text-align: center;
+    }
+
+    .header-nav > .main-menu > li > a {
+        display: inline-block;
+        line-height: 1.4;
+    }
+
     .header-dropdown-bg {
         position: absolute;
         top: 90px;
@@ -706,7 +717,6 @@ body {
         margin: 0;
     }
 
-    /* 서브메뉴는 dropdown-inner의 중앙점(화면 중앙)에 고정 */
     .dropdown-sub-columns {
         position: absolute;
         top: 0;
@@ -714,8 +724,8 @@ body {
         transform: translateX(-50%);
         display: grid;
         grid-template-columns: repeat(5, minmax(0, 1fr));
-        column-gap: clamp(20px, 2.5vw, 40px);
-        width: min(1000px, calc(100vw - 360px));
+        column-gap: clamp(16px, 2.5vw, 40px);
+        width: min(1000px, calc(100vw - 64px));
         max-width: 100%;
         min-width: 0;
         margin: 0;
@@ -738,8 +748,13 @@ body {
     }
 }
 
-/* 넓은 PC에서만 왼쪽 브랜드 버튼을 노출해 서브메뉴와 겹치지 않게 함 */
+/* 넓은 PC: 왼쪽 브랜드 버튼은 서브메뉴 영역 바깥에 배치 */
 @media (min-width: 1280px) {
+    .header-nav,
+    .dropdown-sub-columns {
+        width: min(1000px, calc(100vw - 320px));
+    }
+
     .dropdown-left-buttons {
         position: absolute;
         top: 0;
@@ -749,34 +764,31 @@ body {
         gap: 12px;
         width: 200px;
     }
-
-    .dropdown-sub-columns {
-        width: min(1000px, calc(100vw - 320px));
-    }
 }
 
-/* 태블릿·모바일 헤더 */
-.mobile-menu-toggle {
-    display: none;
-}
-
+/* 태블릿 가로: 좌측 브랜드 버튼을 숨기고 5열 정렬 유지 */
 @media (max-width: 1279px) and (min-width: 1025px) {
     .dropdown-left-buttons {
         display: none;
     }
 
+    .header-nav,
     .dropdown-sub-columns {
         width: min(1000px, calc(100vw - 64px));
-        column-gap: clamp(16px, 2vw, 28px);
     }
 
-    .header-nav > .main-menu {
-        gap: clamp(18px, 2.2vw, 28px);
+    .header-nav > .main-menu,
+    .dropdown-sub-columns {
+        column-gap: clamp(16px, 2.5vw, 28px);
     }
 
     .header-nav a {
         font-size: clamp(13px, 1.25vw, 16px);
     }
+}
+
+.mobile-menu-toggle {
+    display: none;
 }
 
 @media (max-width: 1024px) {
