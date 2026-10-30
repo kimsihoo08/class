@@ -1,40 +1,35 @@
 document.addEventListener('DOMContentLoaded', function () {
-    /* A. HTML에 작성한 Swiper 구조를 초기화 */
+    /* A. 제품 Swiper 초기화 - HERO와 같은 HTML 구조 사용 */
     const productSwipers = [];
 
     document.querySelectorAll('.products-list-wrap').forEach(function (wrap) {
         const container = wrap.querySelector('.products-grid');
         if (!container || typeof window.Swiper === 'undefined') return;
 
-        // HTML의 swiper-wrapper를 그대로 사용하고, 카드에 swiper-slide만 추가
-        let wrapper = container.querySelector(':scope > .swiper-wrapper');
-        if (!wrapper) {
-            wrapper = document.createElement('div');
-            wrapper.className = 'swiper-wrapper';
-            Array.from(container.children).forEach(function (child) {
-                if (child.classList.contains('product-card')) {
-                    wrapper.appendChild(child);
-                }
-            });
-            container.appendChild(wrapper);
-        }
+        // HERO처럼 .swiper > .swiper-wrapper > .swiper-slide 구조를 사용
+        const wrapper = container.querySelector(':scope > .swiper-wrapper');
+        if (!wrapper) return;
 
-        wrapper.querySelectorAll('.product-card').forEach(function (card) {
-            card.classList.add('swiper-slide');
-        });
-        container.classList.add('swiper');
+        const slides = wrapper.querySelectorAll(':scope > .swiper-slide');
+        if (!slides.length) return;
 
         const track = wrap.querySelector('.products-track');
         if (track) track.hidden = true;
 
         const swiper = new window.Swiper(container, {
             direction: 'horizontal',
+            loop: false,
             slidesPerView: 'auto',
             spaceBetween: 24,
             speed: 600,
             watchOverflow: true,
             observer: true,
-            observeParents: true
+            observeParents: true,
+            on: {
+                init: function () {
+                    this.update();
+                }
+            }
         });
 
         productSwipers.push(swiper);
