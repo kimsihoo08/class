@@ -450,7 +450,7 @@ body {
     max-width: 1440px;
     height: 90px;
     margin: 0 auto;
-    padding: 0 5.4%;
+    padding: 0%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -626,7 +626,7 @@ body {
     padding: 0;
     margin: 0;
     min-width: 130px; /* 각 열의 너비 확보 */
-    text-align: center
+    text-align: center;
 }
 
 .sub-col li {
