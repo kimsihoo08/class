@@ -661,13 +661,11 @@ body {
     display: block !important;
 }
 
-/* ===== 헤더 중앙 정렬 및 반응형 레이아웃 ===== */
+/* ===== PC 메뉴 중앙 정렬 / 모바일 반응형 ===== */
 @media (min-width: 1025px) {
-    .header-inner {
-        position: relative;
-    }
+    .header-inner { position: relative; }
 
-    /* 상단 대메뉴는 뷰포트 가로 중앙 */
+    /* 상단 메뉴: 로고와 우측 메뉴에 영향받지 않고 화면 정중앙 */
     .header-nav {
         position: absolute;
         left: 50%;
@@ -676,6 +674,7 @@ body {
     }
 
     .header-nav .main-menu {
+        display: flex;
         justify-content: center;
         gap: clamp(28px, 3.4vw, 65px);
         white-space: nowrap;
@@ -683,19 +682,16 @@ body {
 
     .header-dropdown-bg {
         position: absolute;
-        left: 0;
-        right: 0;
+        inset: 90px 0 auto;
         width: 100%;
         padding: 32px 24px;
         box-sizing: border-box;
     }
 
-    /* 중앙 정렬된 콘텐츠 영역 안에서 버튼과 서브메뉴 간격을 조절 */
+    /* 왼쪽 버튼은 콘텐츠의 왼쪽에 고정 */
     .dropdown-inner {
-        display: grid;
-        grid-template-columns: 200px minmax(0, 1fr);
-        column-gap: 40px;
-        align-items: start;
+        position: relative;
+        display: block;
         width: 100%;
         max-width: 1360px;
         min-height: 190px;
@@ -703,18 +699,23 @@ body {
     }
 
     .dropdown-left-buttons {
-        position: static;
+        position: absolute;
+        left: 0;
+        top: 0;
+        display: flex;
+        flex-direction: column;
         width: 200px;
     }
 
-    /* 서브메뉴는 5개 열을 명시적으로 균등 배치하고 버튼 영역과 겹치지 않게 함 */
+    /* 5개 서브메뉴 묶음 자체를 브라우저 화면 중앙에 배치 */
     .dropdown-sub-columns {
-        position: static;
-        transform: none;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
         display: grid;
-        grid-template-columns: repeat(5, minmax(120px, 1fr));
-        column-gap: 28px;
-        width: 100%;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        column-gap: clamp(24px, 3vw, 48px);
+        width: min(1050px, calc(100vw - 360px));
         max-width: none;
         min-width: 0;
         margin: 0;
@@ -723,22 +724,16 @@ body {
 
     .dropdown-sub-columns .sub-col {
         min-width: 0;
-        width: 100%;
+        width: auto;
     }
 
     .dropdown-sub-columns .sub-col a {
         white-space: normal;
-        overflow-wrap: break-word;
-    }
-
-    .sub-col {
-        min-width: 0;
+        overflow-wrap: anywhere;
     }
 
     .mobile-menu-toggle,
-    .mobile-menu {
-        display: none !important;
-    }
+    .mobile-menu { display: none !important; }
 }
 
 .mobile-menu-toggle { display: none; }
@@ -755,19 +750,9 @@ body {
     .header-dropdown-bg,
     .header:hover .header-dropdown-bg { display: none !important; }
 
-    .header-logo img {
-        max-width: min(42vw, 180px);
-        height: auto;
-    }
-
-    .header-right {
-        gap: clamp(10px, 2.5vw, 20px);
-    }
-
-    .header-link {
-        font-size: 12px;
-        white-space: nowrap;
-    }
+    .header-logo img { max-width: min(42vw, 180px); height: auto; }
+    .header-right { gap: clamp(10px, 2.5vw, 20px); }
+    .header-link { font-size: 12px; white-space: nowrap; }
 
     .mobile-menu-toggle {
         display: flex;
@@ -791,15 +776,9 @@ body {
         transition: transform .2s ease, opacity .2s ease;
     }
 
-    .mobile-menu-toggle[aria-expanded="true"] span:first-child {
-        transform: translateY(7px) rotate(45deg);
-    }
-
+    .mobile-menu-toggle[aria-expanded="true"] span:first-child { transform: translateY(7px) rotate(45deg); }
     .mobile-menu-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
-
-    .mobile-menu-toggle[aria-expanded="true"] span:last-child {
-        transform: translateY(-7px) rotate(-45deg);
-    }
+    .mobile-menu-toggle[aria-expanded="true"] span:last-child { transform: translateY(-7px) rotate(-45deg); }
 
     .mobile-menu:not([hidden]) {
         display: block;
@@ -812,18 +791,12 @@ body {
         padding: 18px 24px 28px;
         box-sizing: border-box;
         background: #fff;
-        box-shadow: 0 10px 20px rgba(0, 0, 0, .08);
+        box-shadow: 0 10px 20px rgba(0,0,0,.08);
         z-index: 1001;
     }
 
-    .mobile-menu ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-    }
-
+    .mobile-menu ul { list-style: none; padding: 0; margin: 0; }
     .mobile-menu li { border-bottom: 1px solid #e9e6e2; }
-
     .mobile-menu li a {
         display: block;
         padding: 17px 4px;
@@ -832,18 +805,8 @@ body {
         text-decoration: none;
     }
 
-    .mobile-menu-utility {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 18px;
-        padding-top: 20px;
-    }
-
-    .mobile-menu-utility a {
-        color: #555;
-        font-size: 13px;
-        text-decoration: none;
-    }
+    .mobile-menu-utility { display: flex; flex-wrap: wrap; gap: 18px; padding-top: 20px; }
+    .mobile-menu-utility a { color: #555; font-size: 13px; text-decoration: none; }
 }
 
 @media (max-width: 480px) {
