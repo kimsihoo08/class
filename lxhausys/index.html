@@ -34,7 +34,22 @@
                         <a href="#" class="header-link">로그인</a>
                         <a href="#" class="header-link">고객센터</a>
                     </div>
+                    <button class="mobile-menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="메뉴 열기">
+                        <span></span><span></span><span></span>
+                    </button>
                 </div>
+                <nav class="mobile-menu" id="mobile-menu" aria-label="모바일 메뉴" hidden>
+                    <ul>
+                        <li><a href="#">제품</a></li>
+                        <li><a href="#">공간솔루션</a></li>
+                        <li><a href="#">사업영역</a></li>
+                        <li><a href="#">기술·R&amp;D·디자인</a></li>
+                        <li><a href="#">회사소개</a></li>
+                    </ul>
+                    <div class="mobile-menu-utility">
+                        <a href="#">검색</a><a href="#">로그인</a><a href="#">고객센터</a>
+                    </div>
+                </nav>
 
                 <!-- 2. 하단 흰색 드롭다운 패널 (호버 시 아래로 내려옴) -->
                 <div class="header-dropdown-bg">
@@ -396,6 +411,22 @@
         });
     </script>
     
+    <script>
+        // 모바일 메뉴 열기/닫기
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuButton = document.querySelector('.mobile-menu-toggle');
+            const mobileMenu = document.querySelector('#mobile-menu');
+            if (!menuButton || !mobileMenu) return;
+
+            menuButton.addEventListener('click', function () {
+                const isExpanded = menuButton.getAttribute('aria-expanded') === 'true';
+                menuButton.setAttribute('aria-expanded', String(!isExpanded));
+                menuButton.setAttribute('aria-label', isExpanded ? '메뉴 열기' : '메뉴 닫기');
+                mobileMenu.hidden = isExpanded;
+                document.body.classList.toggle('mobile-menu-open', !isExpanded);
+            });
+        });
+    </script>
     <script src="js/products.js"></script>
 </body>
 </html>
