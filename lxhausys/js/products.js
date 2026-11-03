@@ -1,28 +1,32 @@
 document.addEventListener('DOMContentLoaded', function () {
 
-    /* ─────────────────────────────────────────
-       A. PRODUCTS Swiper 초기화
-    ───────────────────────────────────────── */
-    document.querySelectorAll('.products-list-wrap').forEach(function (wrap) {
-        const slides = wrap.querySelectorAll('.swiper-slide');
-        const track = wrap.querySelector('.products-track');
+    /* PRODUCTS Swiper 초기화 */
+    const productSwiperInstances = new WeakMap();
 
-        // 실제 제품 슬라이드가 있는 목록만 Swiper로 초기화
-        if (!slides.length || !track) return;
+    function refreshProductSwiper(wrap) {
+        if (!wrap) return;
+        let instance = productSwiperInstances.get(wrap);
 
-        new Swiper(wrap, {
-            slidesPerView: 'auto',
-            spaceBetween: 24,
-            watchOverflow: true,
-            observer: true,
-            observeParents: true,
-            scrollbar: {
-                el: track,
-                draggable: true
-            }
+        if (!instance) {
+            const track = wrap.querySelector('.products-track');
+            if (!wrap.querySelector('.swiper-wrapper') || !track || !wrap.querySelector('.swiper-slide')) return;
+
+            instance = new Swiper(wrap, {
+                slidesPerView: 'auto',
+                spaceBetween: 24,
+                watchOverflow: true,
+                observer: true,
+                observeParents: true,
+                scrollbar: { el: track, draggable: true }
+            });
+            productSwiperInstances.set(wrap, instance);
+        }
+
+        requestAnimationFrame(function () {
+            instance.update();
+            if (instance.scrollbar) instance.scrollbar.updateSize();
         });
-    });
-
+    }
 
     /* ─────────────────────────────────────────
        B. 탭 전환
@@ -42,6 +46,14 @@ document.addEventListener('DOMContentLoaded', function () {
             });
 
             // 숨겨져 있던 리스트는 크기가 0이라서, 보이게 된 뒤 스크롤바를 다시 계산하게 알림
+            targets.forEach(function (target, i) {
+                if (i !== index) return;
+                if (target.matches('.products-list-wrap')) refreshProductSwiper(target);
+                if (target.classList.contains('products-panel')) {
+                    refreshProductSwiper(target.querySelector('.products-list-wrap:not(.is-hidden)'));
+                }
+            });
+
             window.dispatchEvent(new Event('resize'));
         }
 
@@ -71,6 +83,11 @@ document.addEventListener('DOMContentLoaded', function () {
         );
     });
 
+
+    const firstActivePanel = document.querySelector('.products-panel:not(.is-hidden)');
+    if (firstActivePanel) {
+        refreshProductSwiper(firstActivePanel.querySelector('.products-list-wrap:not(.is-hidden)'));
+    }
 
     /* ─────────────────────────────────────────
        C. NEWS 섹션 Swiper 슬라이드 초기화
