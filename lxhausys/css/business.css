@@ -1,0 +1,46 @@
+/* Business subpage — uses existing LX Hausys design tokens and shared components */
+.business-page .business-hero{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);align-items:center;gap:clamp(32px,5vw,80px);max-width:1440px;margin:0 auto;padding:72px 5.4% 100px}
+.business-page .business-hero-copy h1{margin:0;font-size:clamp(36px,3.4vw,54px);line-height:1.35;letter-spacing:-.045em;font-weight:700;color:var(--color-text-primary)}
+.business-page .business-hero-copy>p:not(.eyebrow){margin:24px 0 0;color:var(--color-gray-lx);font-size:16px;line-height:1.9}
+.business-page .business-hero-cta{display:inline-flex;align-items:center;gap:16px;margin-top:30px;padding-bottom:8px;border-bottom:1px solid var(--color-neutral-charcoal);font-size:14px;font-weight:600;text-decoration:none}
+.business-page .business-hero-cta:hover,.business-page .business-text-link:hover{color:var(--color-red-lx)}
+.business-page .business-placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;min-width:0;background:var(--color-neutral-ivory);border:1px dashed var(--color-neutral-stone-beige);color:var(--color-gray-lx);text-align:center}
+.business-page .business-hero-image{min-height:420px;border-radius:12px}
+.business-page .business-plus{display:grid;place-items:center;width:38px;height:38px;border:1px solid var(--color-neutral-stone-beige);border-radius:50%;font-size:25px;font-weight:300}
+.business-page .business-placeholder small{font-size:11px}
+.business-page .business-intro{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,8vw,120px);padding:88px 10.8%;background:var(--color-neutral-ivory)}
+.business-page .business-intro h2{margin:0;font-size:clamp(28px,3vw,40px);line-height:1.45;letter-spacing:-.035em}
+.business-page .business-intro-copy{align-self:center}
+.business-page .business-intro-copy p{margin:0;color:var(--color-gray-lx);font-size:15px;line-height:1.95}
+.business-page .business-intro-copy p+p{margin-top:16px}
+.business-page .business-fields,.business-page .business-strengths{padding:100px 5.4%}
+.business-page .business-section-heading{display:flex;justify-content:space-between;align-items:end;margin-bottom:36px}
+.business-page .business-section-heading h2{margin:0;font-size:clamp(32px,3.2vw,45px);line-height:1.35;letter-spacing:-.035em}
+.business-page .business-lead{margin:14px 0 0;color:var(--color-gray-lx);font-size:15px;line-height:1.8}
+.business-page .business-field-list{display:flex;flex-direction:column;gap:28px}
+.business-page .business-field-card{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.9fr);align-items:stretch;gap:clamp(28px,5vw,72px);padding:24px;border:1px solid var(--color-neutral-light-gray);border-radius:12px;background:var(--color-neutral-white)}
+.business-page .business-field-reverse .business-field-image{order:2}
+.business-page .business-field-reverse .business-field-content{order:1}
+.business-page .business-field-image{aspect-ratio:1.35/1;border-radius:8px}
+.business-page .business-field-content{align-self:center;padding:24px 20px 24px 0}
+.business-page .business-field-content h3{margin:0;font-size:clamp(24px,2.4vw,32px);line-height:1.4;letter-spacing:-.025em}
+.business-page .business-field-content>p:not(.eyebrow){margin:16px 0 24px;color:var(--color-gray-lx);font-size:14px;line-height:1.95}
+.business-page .business-text-link{display:inline-flex;align-items:center;gap:10px;margin:0 22px 8px 0;padding-bottom:6px;border-bottom:1px solid var(--color-neutral-light-gray);font-size:13px;font-weight:600;text-decoration:none}
+.business-page .business-strengths{background:var(--color-neutral-ivory)}
+.business-page .business-strength-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.business-page .business-strength-grid article{padding:28px 26px;border:1px solid var(--color-neutral-light-gray);border-radius:12px;background:var(--color-neutral-white)}
+.business-page .business-strength-number{color:var(--color-red-lx);font-size:13px;font-weight:700}
+.business-page .business-strength-grid h3{margin:22px 0 10px;font-size:21px}
+.business-page .business-strength-grid p{margin:0;color:var(--color-gray-lx);font-size:14px;line-height:1.85}
+.business-page .business-contact{display:flex;justify-content:space-between;align-items:center;gap:32px;margin:0;padding:64px 5.4%;background:var(--color-neutral-stone-beige)}
+.business-page .business-contact h2{margin:0;font-size:clamp(24px,2.6vw,34px);line-height:1.5}
+.business-page .business-contact>div:first-child>p:not(.eyebrow){margin:12px 0 0;color:var(--color-gray-lx);font-size:14px;line-height:1.8}
+.business-page .business-contact-actions{display:flex;flex-wrap:wrap;gap:10px;flex-shrink:0}
+.business-page .business-button-dark,.business-page .business-button-light{display:inline-flex;align-items:center;justify-content:center;gap:14px;min-height:46px;padding:0 22px;border:1px solid var(--color-neutral-charcoal);border-radius:24px;font-size:13px;font-weight:600;text-decoration:none;transition:background .2s,color .2s}
+.business-page .business-button-dark{background:var(--color-neutral-charcoal);color:var(--color-text-inverse)}
+.business-page .business-button-light{background:var(--color-neutral-white);color:var(--color-neutral-charcoal)}
+.business-page .business-button-dark:hover{background:var(--color-red-lx);border-color:var(--color-red-lx)}
+.business-page .business-button-light:hover{background:var(--color-neutral-charcoal);color:var(--color-text-inverse)}
+.business-page a:focus-visible{outline:2px solid var(--color-red-lx);outline-offset:3px}
+@media(max-width:1024px){.business-page .business-hero{grid-template-columns:1fr;gap:32px;padding:48px 24px 60px}.business-page .business-hero-image{min-height:320px}.business-page .business-intro{padding:60px 24px;gap:32px}.business-page .business-fields,.business-page .business-strengths{padding:60px 24px}.business-page .business-field-card{gap:24px;padding:18px}.business-page .business-field-content{padding:18px 8px 18px 0}.business-page .business-contact{padding:48px 24px}}
+@media(max-width:700px){.business-page .business-hero{padding:36px 20px 48px}.business-page .business-hero-copy h1{font-size:34px}.business-page .business-hero-copy>p:not(.eyebrow){font-size:14px}.business-page .business-hero-image{min-height:230px}.business-page .business-intro{grid-template-columns:1fr;padding:48px 20px;gap:18px}.business-page .business-intro h2{font-size:29px}.business-page .business-intro-copy p{font-size:14px}.business-page .business-fields,.business-page .business-strengths{padding:48px 20px}.business-page .business-section-heading{margin-bottom:24px}.business-page .business-field-list{gap:18px}.business-page .business-field-card{grid-template-columns:1fr;gap:18px;padding:14px}.business-page .business-field-reverse .business-field-image,.business-page .business-field-reverse .business-field-content{order:initial}.business-page .business-field-image{aspect-ratio:1.25/1}.business-page .business-field-content{padding:8px 6px 12px}.business-page .business-field-content h3{font-size:25px}.business-page .business-field-content>p:not(.eyebrow){font-size:13px;margin:12px 0 18px}.business-page .business-strength-grid{grid-template-columns:1fr;gap:12px}.business-page .business-strength-grid article{padding:22px}.business-page .business-strength-grid h3{margin:14px 0 8px}.business-page .business-contact{align-items:flex-start;flex-direction:column;padding:40px 20px}.business-page .business-contact-actions{width:100%}.business-page .business-button-dark,.business-page .business-button-light{flex:1;padding:0 14px}}
