@@ -1,0 +1,47 @@
+/* Space solutions subpage — extends LX Hausys design tokens */
+.space-page .space-hero{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(32px,5vw,80px);align-items:center;max-width:1440px;margin:0 auto;padding:72px 5.4% 100px}
+.space-page .space-hero-copy h1{margin:0;font-size:clamp(36px,3.4vw,54px);line-height:1.35;letter-spacing:-.045em;font-weight:700}
+.space-page .space-hero-copy>p:not(.eyebrow){margin:24px 0 0;color:var(--color-gray-lx);font-size:16px;line-height:1.9}
+.space-page .space-hero-link{display:inline-flex;gap:16px;align-items:center;margin-top:30px;padding-bottom:8px;border-bottom:1px solid var(--color-neutral-charcoal);font-size:14px;font-weight:600;text-decoration:none;transition:color .2s ease,border-color .2s ease}
+.space-page .space-hero-link:hover{color:var(--color-red-lx);border-color:var(--color-red-lx)}
+.space-page .space-hero-image{min-height:420px;border-radius:12px}
+.space-page .space-types{padding:100px 5.4%;background:var(--color-neutral-ivory)}
+.space-page .space-type-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;max-width:1440px;margin:0 auto}
+.space-page .space-type-card{display:block;min-width:0;background:var(--color-neutral-white);border:1px solid var(--color-neutral-light-gray);border-radius:12px;overflow:hidden;text-decoration:none;transition:transform .2s ease,border-color .2s ease}
+.space-page .space-type-card:hover{transform:translateY(-4px);border-color:var(--color-neutral-stone-beige)}
+.space-page .space-type-image{aspect-ratio:1.12/1;border:0;border-bottom:1px solid var(--color-neutral-light-gray)}
+.space-page .space-type-copy{position:relative;padding:24px 26px 28px}
+.space-page .space-type-copy .eyebrow{margin-bottom:8px;font-size:11px}
+.space-page .space-type-copy h3{margin:0;font-size:22px;line-height:1.45}
+.space-page .space-type-copy>p:not(.eyebrow){margin:10px 30px 0 0;color:var(--color-gray-lx);font-size:13px;line-height:1.8}
+.space-page .space-arrow{position:absolute;right:24px;bottom:25px;font-size:20px;transition:transform .2s ease}
+.space-page .space-type-card:hover .space-arrow{transform:translate(3px,-3px)}
+.space-page .space-stories{padding:100px 0 100px 5.4%}
+.space-page .space-stories-heading{display:flex;align-items:end;justify-content:space-between;padding-right:5.4%}
+.space-page .space-slider-controls{display:flex;gap:8px}
+.space-page .space-slider-controls button{display:grid;place-items:center;width:44px;height:44px;border:1px solid var(--color-neutral-light-gray);border-radius:50%;background:var(--color-neutral-white);color:var(--color-text-primary);cursor:pointer;transition:background-color .2s ease,color .2s ease}
+.space-page .space-slider-controls button:hover{background:var(--color-neutral-charcoal);color:var(--color-text-inverse)}
+.space-page .space-stories-swiper{padding-right:5.4%}
+.space-page .space-story-card{width:340px;min-height:100%}
+.space-page .space-story-image{aspect-ratio:4/3;margin-bottom:20px;border-radius:8px}
+.space-page .space-story-card h3{margin:0;font-size:20px;line-height:1.5}
+.space-page .space-story-description{margin:10px 0 18px;color:var(--color-gray-lx);font-size:13px;line-height:1.8}
+.space-page .space-story-link{display:inline-flex;gap:12px;align-items:center;font-size:13px;font-weight:600;text-decoration:none}
+.space-page .space-story-link span{transition:transform .2s ease}
+.space-page .space-story-link:hover{color:var(--color-red-lx)}
+.space-page .space-story-link:hover span{transform:translate(2px,-2px)}
+.space-page .space-stories-scrollbar{position:relative;height:4px;margin:32px 5.4% 0 0;border-radius:2px;background:var(--color-neutral-light-gray)}
+.space-page .space-stories-scrollbar .swiper-scrollbar-drag{border-radius:2px;background:var(--color-neutral-charcoal)}
+.space-page .space-process{padding:100px 5.4%;background:var(--color-neutral-ivory)}
+.space-page .space-process-list{max-width:1440px;margin:0 auto;padding:0;list-style:none;border-top:1px solid var(--color-neutral-stone-beige)}
+.space-page .space-process-list li{display:grid;grid-template-columns:100px minmax(0,1fr);gap:24px;padding:28px 0;border-bottom:1px solid var(--color-neutral-stone-beige)}
+.space-page .process-number{color:var(--color-red-lx);font-size:15px;font-weight:600}
+.space-page .space-process-list h3{margin:0;font-size:20px;line-height:1.5}
+.space-page .space-process-list p{margin:8px 0 0;color:var(--color-gray-lx);font-size:14px;line-height:1.8}
+.space-page .space-contact{margin:0}
+.space-page a:focus-visible,.space-page button:focus-visible{outline:2px solid var(--color-red-lx);outline-offset:3px}
+.space-page .image-placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:var(--color-gray-lx);background:var(--color-neutral-ivory);border:1px dashed #c9c2b9;text-align:center}
+.space-page .placeholder-icon{display:grid;place-items:center;width:38px;height:38px;border:1px solid var(--color-neutral-stone-beige);border-radius:50%;font-size:25px;font-weight:300}
+.space-page .image-placeholder small{font-size:11px}
+@media(max-width:1024px){.space-page .space-hero{grid-template-columns:1fr;gap:32px;padding:48px 24px 60px}.space-page .space-hero-image{min-height:320px}.space-page .space-types,.space-page .space-process{padding:60px 24px}.space-page .space-type-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.space-page .space-stories{padding:60px 0 60px 24px}.space-page .space-stories-heading{padding-right:24px}.space-page .space-stories-swiper{padding-right:24px}.space-page .space-story-card{width:290px}.space-page .space-stories-scrollbar{margin-right:24px}}
+@media(max-width:600px){.space-page .space-hero{padding:36px 20px 48px}.space-page .space-hero-copy h1{font-size:34px}.space-page .space-hero-copy>p:not(.eyebrow){font-size:14px}.space-page .space-hero-image{min-height:230px}.space-page .space-types,.space-page .space-process{padding:48px 20px}.space-page .space-type-grid{grid-template-columns:1fr}.space-page .space-type-image{aspect-ratio:1.25/1}.space-page .space-type-copy{padding:20px}.space-page .space-type-copy h3{font-size:20px}.space-page .space-stories{padding:48px 0 48px 20px}.space-page .space-stories-heading{align-items:center;padding-right:20px}.space-page .space-slider-controls button{width:38px;height:38px}.space-page .space-stories-swiper{padding-right:20px}.space-page .space-story-card{width:240px}.space-page .space-stories-scrollbar{margin-right:20px}.space-page .space-process-list li{grid-template-columns:44px minmax(0,1fr);gap:14px;padding:22px 0}.space-page .space-process-list h3{font-size:17px}.space-page .space-process-list p{font-size:13px}}
