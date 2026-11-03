@@ -124,5 +124,17 @@
     </footer>
 
 </div>
+
+  <script>
+    // 로고에 마우스를 올리면 로고 2, 벗어나면 로고 1로 전환
+    document.addEventListener('DOMContentLoaded', function () {
+      const logo = document.querySelector('.header-logo img');
+      if (!logo) return;
+      const defaultLogo = logo.dataset.defaultSrc || 'img/lxlogo1.png';
+      const hoverLogo = logo.dataset.hoverSrc || 'img/lxlogo2.png';
+      logo.addEventListener('mouseenter', function () { logo.src = hoverLogo; });
+      logo.addEventListener('mouseleave', function () { logo.src = defaultLogo; });
+    });
+  </script>
 </body>
 </html>
