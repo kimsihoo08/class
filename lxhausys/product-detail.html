@@ -39,4 +39,16 @@
   </main>
   <footer class="footer-sec"><div class="footer-inner"><div class="footer-left"><h2 class="footer-logo"><a href="index.html"><img src="img/lxlogo2.png" alt="LX하우시스"></a></h2><ul class="footer-links"><li><a href="index.html">협력사등록신청</a></li><li class="divider">•</li><li><a href="index.html">사이트맵</a></li></ul><div class="footer-info"><p><span>서울특별시 종로구 새문안로 58</span><span class="bar">|</span><span>사업자 등록번호 : 107-87-18122</span><span class="bar">|</span><span>대표이사 노진서</span></p><p class="copyright">COPYRIGHT© 2024. LX HAUSYS. ALL RIGHT RESERVED.</p></div></div><div class="footer-center"><span class="cs-title">고객상담실</span><strong class="cs-phone">1544-1893</strong><div class="cs-hours"><p>평일 09:00 ~ 17:30</p><p>토, 일요일 및 공휴일 휴무</p></div></div><div class="footer-right"><div class="family-site-wrap"><a href="index.html" class="family-site-btn"><span>FAMILY SITE</span><span class="arrow">&rarr;</span></a></div></div></div></footer>
 </div>
+
+  <script>
+    // 로고에 마우스를 올리면 로고 2, 벗어나면 로고 1로 전환
+    document.addEventListener('DOMContentLoaded', function () {
+      const logo = document.querySelector('.header-logo img');
+      if (!logo) return;
+      const defaultLogo = logo.dataset.defaultSrc || 'img/lxlogo1.png';
+      const hoverLogo = logo.dataset.hoverSrc || 'img/lxlogo2.png';
+      logo.addEventListener('mouseenter', function () { logo.src = hoverLogo; });
+      logo.addEventListener('mouseleave', function () { logo.src = defaultLogo; });
+    });
+  </script>
 </body></html>
