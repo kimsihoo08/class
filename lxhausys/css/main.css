@@ -1199,12 +1199,13 @@ body {
     margin-top: 32px;
     margin-right: 5.4%;
     border-radius: 2px;
-    background: #e5e1dc !important;
+    background: var(--color-neutral-light-gray) !important;
     cursor: pointer;
 }
 
 .news-track .swiper-scrollbar-drag {
-    background: #242321 !important;
+    background: var(--color-neutral-charcoal) !important;
+    opacity: 1 !important;
     border-radius: 2px;
 }
 
