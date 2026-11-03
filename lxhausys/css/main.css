@@ -1200,13 +1200,20 @@ body {
     margin-right: 5.4%;
     border-radius: 2px;
     background: var(--color-neutral-light-gray) !important;
+    --swiper-scrollbar-bg-color: var(--color-neutral-light-gray);
+    --swiper-scrollbar-drag-bg-color: var(--color-neutral-charcoal);
     cursor: pointer;
 }
 
+.news-track.swiper-scrollbar,
 .news-track .swiper-scrollbar-drag {
     background: var(--color-neutral-charcoal) !important;
     opacity: 1 !important;
     border-radius: 2px;
+}
+
+.news-track.swiper-scrollbar {
+    background: var(--color-neutral-light-gray) !important;
 }
 
 /* 모바일/태블릿 반응형 */
