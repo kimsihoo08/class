@@ -1192,7 +1192,7 @@ body {
     margin: 0;
 }
 
-/* 스크롤바 트랙 */
+/* NEWS 스크롤바: PRODUCTS와 동일한 트랙/움직이는 바 색상 */
 .news-track {
     position: relative !important;
     height: 4px !important;
@@ -1201,19 +1201,14 @@ body {
     border-radius: 2px;
     background: var(--color-neutral-light-gray) !important;
     --swiper-scrollbar-bg-color: var(--color-neutral-light-gray);
-    --swiper-scrollbar-drag-bg-color: var(--color-neutral-charcoal);
+    --swiper-scrollbar-drag-bg-color: #77736f;
     cursor: pointer;
 }
 
-.news-track.swiper-scrollbar,
 .news-track .swiper-scrollbar-drag {
-    background: var(--color-neutral-charcoal) !important;
+    background: #77736f !important;
     opacity: 1 !important;
     border-radius: 2px;
-}
-
-.news-track.swiper-scrollbar {
-    background: var(--color-neutral-light-gray) !important;
 }
 
 /* 모바일/태블릿 반응형 */
