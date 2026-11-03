@@ -1,87 +1,27 @@
 document.addEventListener('DOMContentLoaded', function () {
 
     /* ─────────────────────────────────────────
-       A. 제품 리스트 가로 스크롤바
-          (기존 코드를 함수로 묶어서 리스트마다 한 번씩 실행)
+       A. PRODUCTS Swiper 초기화
     ───────────────────────────────────────── */
-    function initScroll(wrap) {
-        const list = wrap.querySelector('.products-grid');
+    document.querySelectorAll('.products-list-wrap').forEach(function (wrap) {
+        const slides = wrap.querySelectorAll('.swiper-slide');
         const track = wrap.querySelector('.products-track');
-        const thumb = track && track.querySelector('span');
-        if (!list || !track || !thumb) return;
 
-        let dragging = false;
-        let startX = 0;
-        let startScroll = 0;
+        // 실제 제품 슬라이드가 있는 목록만 Swiper로 초기화
+        if (!slides.length || !track) return;
 
-        function syncTrack() {
-            const maxScroll = list.scrollWidth - list.clientWidth;
-            const visibleRatio = list.clientWidth / list.scrollWidth;
-            const thumbWidth = maxScroll <= 0 ? 100 : Math.max(12, visibleRatio * 100);
-            const progress = maxScroll <= 0 ? 0 : list.scrollLeft / maxScroll;
-
-            thumb.style.width = thumbWidth + '%';
-            thumb.style.left = progress * (100 - thumbWidth) + '%';
-            track.setAttribute('aria-valuenow', String(Math.round(progress * 100)));
-        }
-
-        function scrollToTrackPosition(clientX) {
-            const rect = track.getBoundingClientRect();
-            const thumbWidthPx = thumb.getBoundingClientRect().width;
-            const usableWidth = rect.width - thumbWidthPx;
-            const position = Math.max(0, Math.min(1, (clientX - rect.left - thumbWidthPx / 2) / usableWidth));
-
-            list.scrollLeft = position * (list.scrollWidth - list.clientWidth);
-        }
-
-        track.addEventListener('pointerdown', function (event) {
-            dragging = true;
-            startX = event.clientX;
-            startScroll = list.scrollLeft;
-            track.setPointerCapture(event.pointerId);
-            scrollToTrackPosition(event.clientX);
-            event.preventDefault();
-        });
-
-        track.addEventListener('pointermove', function (event) {
-            if (!dragging) return;
-
-            const rect = track.getBoundingClientRect();
-            const thumbWidthPx = thumb.getBoundingClientRect().width;
-            const usableWidth = rect.width - thumbWidthPx;
-            const delta = event.clientX - startX;
-
-            list.scrollLeft = startScroll + delta / Math.max(1, usableWidth) * (list.scrollWidth - list.clientWidth);
-        });
-
-        track.addEventListener('pointerup', function () { dragging = false; });
-        track.addEventListener('pointercancel', function () { dragging = false; });
-
-        track.addEventListener('keydown', function (event) {
-            if (event.key === 'ArrowRight') {
-                list.scrollBy({ left: list.clientWidth * 0.75, behavior: 'smooth' });
-                event.preventDefault();
-            }
-            if (event.key === 'ArrowLeft') {
-                list.scrollBy({ left: -list.clientWidth * 0.75, behavior: 'smooth' });
-                event.preventDefault();
-            }
-            if (event.key === 'Home') {
-                list.scrollTo({ left: 0, behavior: 'smooth' });
-                event.preventDefault();
-            }
-            if (event.key === 'End') {
-                list.scrollTo({ left: list.scrollWidth, behavior: 'smooth' });
-                event.preventDefault();
+        new Swiper(wrap, {
+            slidesPerView: 'auto',
+            spaceBetween: 24,
+            watchOverflow: true,
+            observer: true,
+            observeParents: true,
+            scrollbar: {
+                el: track,
+                draggable: true
             }
         });
-
-        list.addEventListener('scroll', syncTrack, { passive: true });
-        window.addEventListener('resize', syncTrack);
-        syncTrack();
-    }
-
-    document.querySelectorAll('.products-list-wrap').forEach(initScroll);
+    });
 
 
     /* ─────────────────────────────────────────
