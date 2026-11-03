@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="LX하우시스 제품 카테고리와 주요 제품을 살펴보세요.">
+    <title>제품 | LX하우시스</title>
+    <link rel="stylesheet" href="../css/default.css">
+    <link rel="stylesheet" href="../npm/swiper/swiper-bundle.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/products-page.css">
+    <script src="../npm/swiper/swiper-bundle.min.js" defer></script>
+    <script src="js/products-page.js" defer></script>
+</head>
+<body>
+<div id="wrap">
+    <header class="header">
+        <div class="header-inner">
+            <div class="header-logo">
+                <a href="index.html" aria-label="LX하우시스 메인으로"><img src="img/lxlogo1.png" data-default-src="img/lxlogo1.png" data-hover-src="img/lxlogo2.png" alt="LX 하우시스"></a>
+            </div>
+            <nav class="header-nav" aria-label="주 메뉴">
+                <ul class="main-menu">
+                    <li><a href="products.html" aria-current="page">제품</a></li>
+                    <li><a href="#space-solutions">공간솔루션</a></li>
+                    <li><a href="#business">사업영역</a></li>
+                    <li><a href="#technology">기술·R&amp;D·디자인</a></li>
+                    <li><a href="#company">회사소개</a></li>
+                </ul>
+            </nav>
+            <div class="header-right">
+                <a href="#product-search" class="header-link">검색</a>
+                <a href="#login" class="header-link">로그인</a>
+                <a href="#customer-center" class="header-link">고객센터</a>
+            </div>
+            <button class="mobile-menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="메뉴 열기">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+        <nav class="mobile-menu" id="mobile-menu" aria-label="모바일 메뉴" hidden>
+            <ul>
+                <li><a href="products.html" aria-current="page">제품</a></li>
+                <li><a href="#space-solutions">공간솔루션</a></li>
+                <li><a href="#business">사업영역</a></li>
+                <li><a href="#technology">기술·R&amp;D·디자인</a></li>
+                <li><a href="#company">회사소개</a></li>
+            </ul>
+            <div class="mobile-menu-utility">
+                <a href="#product-search">검색</a><a href="#login">로그인</a><a href="#customer-center">고객센터</a>
+            </div>
+        </nav>
+        <div class="header-dropdown-bg" aria-hidden="true">
+            <div class="dropdown-inner">
+                <div class="dropdown-left-buttons">
+                    <a href="#product-search" class="side-btn">제품 찾기</a>
+                    <a href="#product-categories" class="side-btn">제품 카테고리</a>
+                    <a href="#featured-products" class="side-btn">주요 제품</a>
+                </div>
+                <div class="dropdown-sub-columns">
+                    <ul class="sub-col">
+                        <li><a href="#product-categories">전체제품</a></li><li><a href="#flooring">바닥재</a></li><li><a href="#wall-materials">벽장재</a></li><li><a href="#windows">창호</a></li><li><a href="#interior">인테리어</a></li>
+                    </ul>
+                    <ul class="sub-col">
+                        <li><a href="#kitchen">주방</a></li><li><a href="#doors">도어</a></li><li><a href="#film">인테리어필름</a></li><li><a href="#automotive">자동차소재부품</a></li>
+                    </ul>
+                    <ul class="sub-col">
+                        <li><a href="#commercial">상업 공간</a></li><li><a href="#residential">주거 공간</a></li>
+                    </ul>
+                    <ul class="sub-col">
+                        <li><a href="#featured-products">추천 제품</a></li><li><a href="#new-products">신제품</a></li>
+                    </ul>
+                    <ul class="sub-col">
+                        <li><a href="#customer-center">제품 문의</a></li><li><a href="#customer-center">고객 지원</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="product-page">
+        <nav class="breadcrumb" aria-label="현재 위치">
+            <a href="index.html">홈</a><span aria-hidden="true">/</span><span aria-current="page">제품</span>
+        </nav>
+
+        <section class="product-hero" aria-labelledby="page-title">
+            <div class="product-hero-copy">
+                <p class="eyebrow">PRODUCTS</p>
+                <h1 id="page-title">공간의 가능성을 넓히는<br class="desktop-break"> LX하우시스 제품</h1>
+                <p class="product-hero-description">일상과 공간의 가치를 높이는 다양한 제품을 만나보세요.</p>
+            </div>
+            <div class="image-placeholder product-hero-image" role="img" aria-label="제품 또는 인테리어 공간 대표 이미지가 들어갈 영역">
+                <span class="placeholder-icon" aria-hidden="true">＋</span>
+                <span>대표 제품 이미지 영역</span>
+                <small>이미지 교체 예정</small>
+            </div>
+        </section>
+
+        <section class="product-catalog" id="product-categories" aria-labelledby="catalog-title">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">PRODUCT CATEGORY</p>
+                    <h2 id="catalog-title">제품 카테고리</h2>
+                    <p class="section-description">필요한 공간과 용도에 맞는 제품을 찾아보세요.</p>
+                </div>
+            </div>
+            <div class="category-tabs" role="tablist" aria-label="제품 카테고리">
+                <button class="category-tab is-active" type="button" role="tab" aria-selected="true" data-category="all">전체</button>
+                <button class="category-tab" type="button" role="tab" aria-selected="false" data-category="architecture">건축장식자재</button>
+                <button class="category-tab" type="button" role="tab" aria-selected="false" data-category="interior">인테리어</button>
+                <button class="category-tab" type="button" role="tab" aria-selected="false" data-category="automotive">자동차소재부품</button>
+                <button class="category-tab" type="button" role="tab" aria-selected="false" data-category="industrial">산업용 필름</button>
+                <button class="category-tab" type="button" role="tab" aria-selected="false" data-category="energy">신재생 에너지</button>
+            </div>
+
+            <div class="catalog-toolbar" id="product-search">
+                <p class="result-count">제품 <strong id="result-count">6</strong>개</p>
+                <label class="search-field">
+                    <span class="sr-only">제품명 검색</span>
+                    <input id="product-query" type="search" placeholder="제품명 또는 키워드 검색" autocomplete="off">
+                    <button type="button" id="clear-search" aria-label="검색어 지우기">×</button>
+                </label>
+            </div>
+
+            <div class="product-grid" id="product-grid">
+                <article class="catalog-card" data-category="architecture" data-search="바닥재 미스티 콘크리트 LVT">
+                    <a class="catalog-card-link" href="#product-detail-1">
+                        <div class="image-placeholder catalog-image"><span class="placeholder-icon" aria-hidden="true">＋</span><span>제품 이미지</span></div>
+                        <div class="catalog-card-info"><p class="catalog-category">건축장식자재 · 바닥재</p><h3>미스티 콘크리트</h3><p class="catalog-summary">차분한 콘크리트 질감의 바닥재</p><span class="text-link">제품 보기 <span aria-hidden="true">↗</span></span></div>
+                    </a>
+                </article>
+                <article class="catalog-card" data-category="architecture" data-search="바닥재 모던 그레이 LVT">
+                    <a class="catalog-card-link" href="#product-detail-2">
+                        <div class="image-placeholder catalog-image"><span class="placeholder-icon" aria-hidden="true">＋</span><span>제품 이미지</span></div>
+                        <div class="catalog-card-info"><p class="catalog-category">건축장식자재 · 바닥재</p><h3>모던 그레이</h3><p class="catalog-summary">자연스러운 회색 톤과 섬세한 표면</p><span class="text-link">제품 보기 <span aria-hidden="true">↗</span></span></div>
+                    </a>
+                </article>
+                <article class="catalog-card" data-category="architecture" data-search="바닥재 샌드 베이지 LVT">
+                    <a class="catalog-card-link" href="#product-detail-3">
+                        <div class="image-placeholder catalog-image"><span class="placeholder-icon" aria-hidden="true">＋</span><span>제품 이미지</span></div>
+                        <div class="catalog-card-info"><p class="catalog-category">건축장식자재 · 바닥재</p><h3>샌드 베이지</h3><p class="catalog-summary">따뜻하고 편안한 분위기를 위한 컬러</p><span class="text-link">제품 보기 <span aria-hidden="true">↗</span></span></div>
+                    </a>
+                </article>
+                <article class="catalog-card" data-category="interior" data-search="인테리어필름 솔리드 칩">
+                    <a class="catalog-card-link" href="#product-detail-4">
+                        <div class="image-placeholder catalog-image"><span class="placeholder-icon" aria-hidden="true">＋</span><span>제품 이미지</span></div>
+                        <div class="catalog-card-info"><p class="catalog-category">인테리어 · 인테리어필름</p><h3>솔리드 칩</h3><p class="catalog-summary">공간의 톤을 정돈하는 단색 마감</p><span class="text-link">제품 보기 <span aria-hidden="true">↗</span></span></div>
+                    </a>
+                </article>
+                <article class="catalog-card" data-category="automotive" data-search="자동차소재부품 내장 소재">
+                    <a class="catalog-card-link" href="#product-detail-5">
+                        <div class="image-placeholder catalog-image"><span class="placeholder-icon" aria-hidden="true">＋</span><span>제품 이미지</span></div>
+                        <div class="catalog-card-info"><p class="catalog-category">자동차소재부품</p><h3>자동차 내장 소재</h3><p class="catalog-summary">차량 공간을 위한 소재 솔루션</p><span class="text-link">제품 보기 <span aria-hidden="true">↗</span></span></div>
+                    </a>
+                </article>
+                <article class="catalog-card" data-category="energy" data-search="신재생 에너지 태양광">
+                    <a class="catalog-card-link" href="#product-detail-6">
+                        <div class="image-placeholder catalog-image"><span class="placeholder-icon" aria-hidden="true">＋</span><span>제품 이미지</span></div>
+                        <div class="catalog-card-info"><p class="catalog-category">신재생 에너지</p><h3>에너지 솔루션</h3><p class="catalog-summary">지속가능한 미래를 위한 에너지 분야</p><span class="text-link">제품 보기 <span aria-hidden="true">↗</span></span></div>
+                    </a>
+                </article>
+            </div>
+            <p class="empty-state" id="empty-state" hidden>검색 결과가 없습니다. 다른 검색어를 입력해 주세요.</p>
+        </section>
+
+        <section class="featured-products" id="featured-products" aria-labelledby="featured-title">
+            <div class="section-heading featured-heading">
+                <div><p class="eyebrow">FEATURED PRODUCTS</p><h2 id="featured-title">주목할 만한 제품</h2><p class="section-description">주요 제품을 가로로 살펴보세요.</p></div>
+                <div class="swiper-controls"><button type="button" class="featured-prev" aria-label="이전 제품">←</button><button type="button" class="featured-next" aria-label="다음 제품">→</button></div>
+            </div>
+            <div class="swiper featured-swiper">
+                <div class="swiper-wrapper">
+                    <article class="swiper-slide featured-card"><div class="image-placeholder featured-image"><span class="placeholder-icon">＋</span><span>제품 이미지</span></div><p class="catalog-category">바닥재</p><h3>공간의 분위기를 만드는 바닥재</h3></article>
+                    <article class="swiper-slide featured-card"><div class="image-placeholder featured-image"><span class="placeholder-icon">＋</span><span>제품 이미지</span></div><p class="catalog-category">창호</p><h3>빛과 단열을 고려한 창호</h3></article>
+                    <article class="swiper-slide featured-card"><div class="image-placeholder featured-image"><span class="placeholder-icon">＋</span><span>제품 이미지</span></div><p class="catalog-category">인테리어</p><h3>취향에 맞춰 완성하는 인테리어</h3></article>
+                    <article class="swiper-slide featured-card"><div class="image-placeholder featured-image"><span class="placeholder-icon">＋</span><span>제품 이미지</span></div><p class="catalog-category">자동차소재부품</p><h3>다양한 이동 공간을 위한 소재</h3></article>
+                </div>
+            </div>
+            <div class="featured-scrollbar" aria-label="추천 제품 슬라이드 위치"></div>
+        </section>
+
+        <section class="product-contact" id="customer-center" aria-labelledby="contact-title">
+            <div><p class="eyebrow">NEED HELP?</p><h2 id="contact-title">제품에 대해 더 궁금하신가요?</h2><p>제품 정보와 상담이 필요하다면 고객 지원 정보를 확인해 보세요.</p></div>
+            <a href="#customer-center" class="product-contact-button">제품 문의 <span aria-hidden="true">→</span></a>
+        </section>
+    </main>
+
+    <footer class="footer-sec">
+        <div class="footer-inner">
+            <div class="footer-left">
+                <h2 class="footer-logo"><a href="index.html"><img src="img/lxlogo2.png" alt="LX하우시스"></a></h2>
+                <ul class="footer-links"><li><a href="#partner">협력사등록신청</a></li><li class="divider">•</li><li><a href="#sitemap">사이트맵</a></li></ul>
+                <div class="footer-info"><p><span>서울특별시 종로구 새문안로 58</span><span class="bar">|</span><span>사업자 등록번호 : 107-87-18122</span><span class="bar">|</span><span>대표이사 노진서</span></p><p class="copyright">COPYRIGHT© 2024. LX HAUSYS. ALL RIGHT RESERVED.</p></div>
+            </div>
+            <div class="footer-center"><span class="cs-title">고객상담실</span><strong class="cs-phone">1544-1893</strong><div class="cs-hours"><p>평일 09:00 ~ 17:30</p><p>토, 일요일 및 공휴일 휴무</p></div></div>
+            <div class="footer-right"><div class="family-site-wrap"><a href="#family-site" class="family-site-btn"><span>FAMILY SITE</span><span class="arrow">&rarr;</span></a></div></div>
+        </div>
+    </footer>
+</div>
+</body>
+</html>
