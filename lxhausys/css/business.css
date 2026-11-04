@@ -28,7 +28,7 @@
 .business-page .business-text-link{display:inline-flex;align-items:center;gap:10px;margin:0 22px 8px 0;padding-bottom:6px;border-bottom:1px solid var(--color-neutral-light-gray);font-size:13px;font-weight:600;text-decoration:none}
 .business-page .business-strengths{background:var(--color-neutral-ivory)}
 .business-page .business-strength-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
-.business-page .business-strength-grid article{padding:28px 26px;border:1px solid var(--color-neutral-light-gray);border-radius:12px;background:var(--color-neutral-white)}
+.business-page .business-strength-grid article{display:flex;flex-direction:column;justify-content:flex-start;align-items:flex-start;padding:28px 26px;border:1px solid var(--color-neutral-light-gray);border-radius:12px;background:var(--color-neutral-white)}
 
 .business-page .business-strength-grid h3{margin:0 0 10px;font-size:21px}
 .business-page .business-strength-grid p{margin:0;color:var(--color-gray-lx);font-size:14px;line-height:1.85}
