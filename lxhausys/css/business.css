@@ -21,7 +21,7 @@
 .business-page .business-field-card{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.9fr);align-items:stretch;gap:clamp(28px,5vw,72px);padding:24px;border:1px solid var(--color-neutral-light-gray);border-radius:12px;background:var(--color-neutral-white)}
 .business-page .business-field-reverse .business-field-image{order:2}
 .business-page .business-field-reverse .business-field-content{order:1}
-.business-page .business-field-image{aspect-ratio:1.35/1;border-radius:8px}
+.business-page .business-field-image{display:block;width:100%;aspect-ratio:1.35/1;object-fit:cover;object-position:center;border-radius:8px}
 .business-page .business-field-content{align-self:center;padding:24px 20px 24px 0}
 .business-page .business-field-content h3{margin:0;font-size:clamp(24px,2.4vw,32px);line-height:1.4;letter-spacing:-.025em}
 .business-page .business-field-content>p:not(.eyebrow){margin:16px 0 24px;color:var(--color-gray-lx);font-size:14px;line-height:1.95}
