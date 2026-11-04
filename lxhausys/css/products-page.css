@@ -16,7 +16,7 @@
 .product-page .image-placeholder { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; color: var(--color-gray-lx); background: var(--color-neutral-ivory); border: 1px dashed #c9c2b9; text-align: center; }
 .product-page .placeholder-icon { display: grid; place-items: center; width: 38px; height: 38px; border: 1px solid var(--color-neutral-stone-beige); border-radius: 50%; color: var(--color-gray-lx); font-size: 25px; font-weight: 300; }
 .product-page .image-placeholder small { font-size: 11px; color: var(--color-gray-lx); }
-.product-page .product-hero-image { min-height: 390px; border-radius: 12px; }
+.product-page .product-hero-image { display: block; width: 100%; height: 390px; min-height: 390px; object-fit: cover; border-radius: 12px; }
 .product-page .product-catalog { padding: 100px 5.4%; background: var(--color-neutral-ivory); }
 .product-page .section-heading { max-width: var(--product-content-width); margin: 0 auto 32px; }
 .product-page .section-heading .eyebrow { margin-bottom: 10px; }
@@ -67,7 +67,7 @@
 @media (max-width: 1024px) {
  .product-page .breadcrumb { padding: 18px 24px 0; }
  .product-page .product-hero { grid-template-columns: 1fr; gap: 32px; padding: 48px 24px 60px; }
- .product-page .product-hero-image { min-height: 300px; }
+ .product-page .product-hero-image { height: 300px; min-height: 300px; }
  .product-page .product-catalog { padding: 60px 24px; }
  .product-page .category-tabs { flex-wrap: nowrap; overflow-x: auto; padding-bottom: 8px; scrollbar-width: none; }
  .product-page .category-tabs::-webkit-scrollbar { display: none; }
@@ -86,7 +86,7 @@
  .product-page .desktop-break { display: none; }
  .product-page .product-hero h1 { font-size: 32px; }
  .product-page .product-hero-description { font-size: 14px; }
- .product-page .product-hero-image { min-height: 220px; }
+ .product-page .product-hero-image { height: 220px; min-height: 220px; }
  .product-page .catalog-toolbar { align-items: stretch; flex-direction: column; gap: 14px; }
  .product-page .search-field { width: 100%; }
  .product-page .product-grid { grid-template-columns: 1fr; gap: 16px; }
