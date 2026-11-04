@@ -29,8 +29,8 @@
 .technology-page .tech-process-list{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;margin:44px 0 0;padding:0;list-style:none}
 .technology-page .tech-process-list li{position:relative;padding:24px 22px;border-top:1px solid var(--color-neutral-stone-beige)}
 .technology-page .tech-process-list li+li{border-left:1px solid var(--color-neutral-stone-beige)}
-.technology-page .tech-process-list span{font-size:12px;color:var(--color-red-lx);font-weight:700}
-.technology-page .tech-process-list h3{margin:18px 0 8px;font-size:19px}
+
+.technology-page .tech-process-list h3{margin:0 0 8px;font-size:19px}
 .technology-page .tech-process-list p{margin:0;color:var(--color-gray-lx);font-size:13px;line-height:1.8}
 .technology-page .tech-cta{display:flex;justify-content:space-between;align-items:center;gap:32px;padding:64px 5.4%;background:var(--color-neutral-stone-beige)}
 .technology-page .tech-cta h2{margin:0;font-size:clamp(24px,2.6vw,34px);line-height:1.5}
