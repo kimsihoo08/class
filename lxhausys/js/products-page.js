@@ -63,10 +63,6 @@ document.addEventListener("DOMContentLoaded", () => {
             slidesPerView: "auto",
             spaceBetween: 24,
             watchOverflow: true,
-            navigation: {
-                prevEl: ".featured-prev",
-                nextEl: ".featured-next"
-            },
             scrollbar: {
                 el: ".featured-scrollbar",
                 draggable: true
