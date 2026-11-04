@@ -9,7 +9,7 @@
 .space-page .space-type-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;max-width:1440px;margin:0 auto}
 .space-page .space-type-card{display:block;min-width:0;background:var(--color-neutral-white);border:1px solid var(--color-neutral-light-gray);border-radius:12px;overflow:hidden;text-decoration:none;transition:transform .2s ease,border-color .2s ease}
 .space-page .space-type-card:hover{transform:translateY(-4px);border-color:var(--color-neutral-stone-beige)}
-.space-page .space-type-image{aspect-ratio:1.12/1;border:0;border-bottom:1px solid var(--color-neutral-light-gray)}
+.space-page .space-type-image{display:block;width:100%;aspect-ratio:1.12/1;object-fit:cover;border:0;border-bottom:1px solid var(--color-neutral-light-gray)}
 .space-page .space-type-copy{position:relative;padding:24px 26px 28px}
 .space-page .space-type-copy .eyebrow{margin-bottom:8px;font-size:11px}
 .space-page .space-type-copy h3{margin:0;font-size:22px;line-height:1.45}
