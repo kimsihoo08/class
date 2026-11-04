@@ -5,7 +5,7 @@
 .business-page .business-hero-cta{display:inline-flex;align-items:center;gap:16px;margin-top:30px;padding-bottom:8px;border-bottom:1px solid var(--color-neutral-charcoal);font-size:14px;font-weight:600;text-decoration:none}
 .business-page .business-hero-cta:hover,.business-page .business-text-link:hover{color:var(--color-red-lx)}
 .business-page .business-placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;min-width:0;background:var(--color-neutral-ivory);border:1px dashed var(--color-neutral-stone-beige);color:var(--color-gray-lx);text-align:center}
-.business-page .business-hero-image{display:block;width:100%;height:420px;min-height:420px;object-fit:cover;border-radius:12px}
+.business-page .business-hero-image{display:block;width:100%;height:420px;min-height:420px;object-fit:cover;object-position:left center;border-radius:12px}
 .business-page .business-plus{display:grid;place-items:center;width:38px;height:38px;border:1px solid var(--color-neutral-stone-beige);border-radius:50%;font-size:25px;font-weight:300}
 .business-page .business-placeholder small{font-size:11px}
 .business-page .business-intro{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,8vw,120px);padding:88px 10.8%;background:var(--color-neutral-ivory)}
