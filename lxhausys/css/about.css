@@ -5,7 +5,7 @@
 .about-page .about-hero-link{display:inline-flex;gap:16px;margin-top:30px;padding-bottom:8px;border-bottom:1px solid var(--color-neutral-charcoal);font-size:14px;font-weight:600;text-decoration:none}
 .about-page .about-hero-link:hover,.about-page .about-text-link:hover{color:var(--color-red-lx)}
 .about-page .about-placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;min-width:0;background:var(--color-neutral-ivory);border:1px dashed var(--color-neutral-stone-beige);color:var(--color-gray-lx);text-align:center}
-.about-page .about-hero-visual{min-height:420px;border-radius:12px}
+.about-page .about-hero-visual{display:block;width:100%;height:420px;object-fit:cover;object-position:center;border-radius:12px}
 .about-page .about-placeholder-mark{display:grid;place-items:center;width:38px;height:38px;border:1px solid var(--color-neutral-stone-beige);border-radius:50%;font-size:25px;font-weight:300}
 .about-page .about-placeholder small{font-size:11px}
 .about-page .about-intro{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,8vw,120px);padding:88px 10.8%;background:var(--color-neutral-ivory)}
@@ -20,8 +20,8 @@
 .about-page .about-section-heading>p:last-child{margin:14px 0 0;color:var(--color-gray-lx);font-size:15px;line-height:1.8}
 .about-page .about-value-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
 .about-page .about-value-grid article{padding:28px 26px;border:1px solid var(--color-neutral-light-gray);border-radius:12px;background:var(--color-neutral-white)}
-.about-page .about-number{font-size:13px;font-weight:700;color:var(--color-red-lx)}
-.about-page .about-value-grid h3{margin:22px 0 10px;font-size:21px}
+
+.about-page .about-value-grid h3{margin:0 0 10px;font-size:21px}
 .about-page .about-value-grid p{margin:0;color:var(--color-gray-lx);font-size:14px;line-height:1.9}
 .about-page .about-text-link{display:inline-flex;gap:10px;margin-top:20px;padding-bottom:6px;border-bottom:1px solid var(--color-neutral-light-gray);font-size:13px;font-weight:600;text-decoration:none}
 .about-page .about-business{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.9fr);gap:clamp(32px,6vw,90px);align-items:center;padding:80px 5.4%;background:var(--color-neutral-ivory)}
@@ -44,8 +44,8 @@
 .about-page .about-button-dark:hover{background:var(--color-red-lx);border-color:var(--color-red-lx)}
 .about-page .about-button-light:hover{background:var(--color-neutral-charcoal);color:var(--color-text-inverse)}
 .about-page a:focus-visible{outline:2px solid var(--color-red-lx);outline-offset:3px}
-@media(max-width:1024px){.about-page .about-hero{grid-template-columns:1fr;gap:32px;padding:48px 24px 60px}.about-page .about-hero-visual{min-height:320px}.about-page .about-intro{padding:60px 24px;gap:32px}.about-page .about-values,.about-page .about-history{padding:60px 24px}.about-page .about-business{padding:60px 24px;gap:32px}.about-page .about-business-visual{min-height:340px}.about-page .about-cta{padding:48px 24px}}
-@media(max-width:700px){.about-page .about-hero{padding:36px 20px 48px}.about-page .about-hero-copy h1{font-size:34px}.about-page .about-hero-copy>p:not(.eyebrow){font-size:14px}.about-page .about-hero-visual{min-height:230px}.about-page .about-intro{grid-template-columns:1fr;padding:48px 20px;gap:18px}.about-page .about-intro h2{font-size:29px}.about-page .about-intro-copy p{font-size:14px}.about-page .about-values,.about-page .about-history{padding:48px 20px}.about-page .about-section-heading{margin-bottom:24px}.about-page .about-value-grid{grid-template-columns:1fr;gap:12px}.about-page .about-value-grid article{padding:22px}.about-page .about-value-grid h3{margin:14px 0 8px}.about-page .about-business{grid-template-columns:1fr;padding:48px 20px;gap:24px}.about-page .about-business-visual{min-height:240px}.about-page .about-business-copy h2{font-size:29px}.about-page .about-history-placeholder{padding:24px}.about-page .about-cta{align-items:flex-start;flex-direction:column;padding:40px 20px}.about-page .about-cta-actions{width:100%}.about-page .about-button-dark,.about-page .about-button-light{flex:1;padding:0 14px}}
+@media(max-width:1024px){.about-page .about-hero{grid-template-columns:1fr;gap:32px;padding:48px 24px 60px}.about-page .about-hero-visual{height:320px}.about-page .about-intro{padding:60px 24px;gap:32px}.about-page .about-values,.about-page .about-history{padding:60px 24px}.about-page .about-business{padding:60px 24px;gap:32px}.about-page .about-business-visual{min-height:340px}.about-page .about-cta{padding:48px 24px}}
+@media(max-width:700px){.about-page .about-hero{padding:36px 20px 48px}.about-page .about-hero-copy h1{font-size:34px}.about-page .about-hero-copy>p:not(.eyebrow){font-size:14px}.about-page .about-hero-visual{height:230px}.about-page .about-intro{grid-template-columns:1fr;padding:48px 20px;gap:18px}.about-page .about-intro h2{font-size:29px}.about-page .about-intro-copy p{font-size:14px}.about-page .about-values,.about-page .about-history{padding:48px 20px}.about-page .about-section-heading{margin-bottom:24px}.about-page .about-value-grid{grid-template-columns:1fr;gap:12px}.about-page .about-value-grid article{padding:22px}.about-page .about-value-grid h3{margin:14px 0 8px}.about-page .about-business{grid-template-columns:1fr;padding:48px 20px;gap:24px}.about-page .about-business-visual{min-height:240px}.about-page .about-business-copy h2{font-size:29px}.about-page .about-history-placeholder{padding:24px}.about-page .about-cta{align-items:flex-start;flex-direction:column;padding:40px 20px}.about-page .about-cta-actions{width:100%}.about-page .about-button-dark,.about-page .about-button-light{flex:1;padding:0 14px}}
 
 /* 화면 양끝까지 메인 페이지와 동일하게 맞춤 */
 html, body { margin: 0; width: 100%; }
