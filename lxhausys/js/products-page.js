@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
            <div><p class="eyebrow">LX Z:IN PRODUCT</p><p>LX Z:IN의 다양한 제품을 만나보세요.<br><span>제품 분야를 선택해 관련 제품 정보를 확인할 수 있습니다.</span></p></div>
          </div>
          <div class="architecture-product-grid" aria-label="건축장식자재 제품 분야">
-           ${architectureItems.map((item,i)=>`<button class="architecture-product-item" type="button" data-material="${item}"><span class="architecture-product-symbol" aria-hidden="true">${String(i+1).padStart(2,"0")}</span><strong>${item}</strong><span class="architecture-product-arrow" aria-hidden="true">↗</span></button>`).join("")}
+           ${architectureItems.map((item,i)=>`<button class="architecture-product-item" type="button" data-material="${item}"><strong>${item}</strong><span class="architecture-product-arrow" aria-hidden="true">↗</span></button>`).join("")}
          </div>
        </div>`;
      empty.hidden=true;
