@@ -142,3 +142,25 @@
 .product-page .board-item-copy>p:last-child{margin:8px 0 0;color:var(--color-gray-lx);font-size:13px;line-height:1.7}
 .product-page .board-item-index{color:var(--color-gray-lx);font-size:12px;text-align:right}
 @media(max-width:700px){.product-page .product-board{margin-top:38px}.product-page .board-heading{align-items:flex-start;flex-direction:column;gap:12px}.product-page .board-toolbar{align-items:flex-start;flex-direction:column}.product-page .board-toolbar .search-field{width:100%;margin-left:0}.product-page .product-board-item{grid-template-columns:104px minmax(0,1fr);gap:14px;padding:16px 4px}.product-page .board-thumb{width:104px;height:92px}.product-page .board-item-copy h4{font-size:15px}.product-page .board-item-copy>p:last-child{font-size:12px}.product-page .board-item-index{display:none}}
+
+/* 건축장식자재 선택 시 공식 소개 페이지의 정보 구조를 참고한 제품 메뉴 */
+.product-page .board-heading.is-architecture{align-items:flex-start}
+.product-page .board-heading.is-architecture #board-description{font-size:15px}
+.product-page .architecture-intro{padding:28px 0 12px}
+.product-page .architecture-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:56px}
+.product-page .architecture-actions a{display:inline-flex;align-items:center;gap:30px;min-width:220px;justify-content:space-between;padding:17px 22px;border:1px solid var(--color-neutral-light-gray);border-radius:6px;background:var(--color-neutral-white);font-size:14px;font-weight:600;text-decoration:none;transition:border-color .2s ease,color .2s ease}
+.product-page .architecture-actions a:hover{border-color:var(--color-red-lx);color:var(--color-red-lx)}
+.product-page .architecture-actions a span,.product-page .architecture-product-heading>a span{font-size:18px}
+.product-page .architecture-product-heading{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:24px}
+.product-page .architecture-product-heading .eyebrow{margin-bottom:8px;color:var(--color-text-primary);font-size:15px}
+.product-page .architecture-product-heading p:not(.eyebrow){margin:0;color:var(--color-gray-lx);font-size:15px;line-height:1.8}
+.product-page .architecture-product-heading p span{font-size:12px}
+.product-page .architecture-product-heading>a{display:inline-flex;align-items:center;gap:12px;color:var(--color-text-primary);font-size:13px;text-decoration:none;border-bottom:1px solid var(--color-neutral-light-gray);padding-bottom:8px}
+.product-page .architecture-product-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--color-neutral-light-gray);border-left:1px solid var(--color-neutral-light-gray)}
+.product-page .architecture-product-item{position:relative;display:flex;align-items:center;gap:16px;min-height:104px;padding:20px;border:0;border-right:1px solid var(--color-neutral-light-gray);border-bottom:1px solid var(--color-neutral-light-gray);background:var(--color-neutral-white);text-align:left;cursor:pointer;transition:background-color .2s ease,color .2s ease}
+.product-page .architecture-product-item:hover,.product-page .architecture-product-item.is-selected{background:var(--color-neutral-ivory);color:var(--color-red-lx)}
+.product-page .architecture-product-symbol{color:var(--color-gray-lx);font-size:11px;letter-spacing:.06em}
+.product-page .architecture-product-item strong{font-size:15px;font-weight:600}
+.product-page .architecture-product-arrow{margin-left:auto;font-size:18px}
+@media(max-width:900px){.product-page .architecture-product-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:600px){.product-page .architecture-intro{padding-top:18px}.product-page .architecture-actions{margin-bottom:38px}.product-page .architecture-actions a{flex:1;min-width:0;padding:15px}.product-page .architecture-product-heading{align-items:flex-start;flex-direction:column}.product-page .architecture-product-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.product-page .architecture-product-item{min-height:82px;padding:14px 10px;gap:9px}.product-page .architecture-product-item strong{font-size:13px}.product-page .architecture-product-symbol{font-size:10px}}
