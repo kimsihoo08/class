@@ -116,21 +116,38 @@
         </section>
 
 
-        <section class="product-quick" id="product-quick" aria-labelledby="quick-title">
+        <section class="product-catalog" id="product-catalog" aria-labelledby="catalog-title">
             <div class="section-heading">
-                <p class="eyebrow">PRODUCT QUICK MENU</p>
-                <h2 id="quick-title">제품을 분야별로 살펴보세요</h2>
-                <p class="section-description">관심 있는 제품 분야를 선택하면 세부 분류와 제품 목록을 확인할 수 있습니다.</p>
+                <p class="eyebrow">PRODUCT CATEGORY</p>
+                <h2 id="catalog-title">제품 카테고리</h2>
+                <p class="section-description">원하는 제품 분야를 선택해 다양한 제품을 살펴보세요.</p>
             </div>
-            <div class="quick-menu-grid">
-                <a class="quick-menu-card" href="product-board.html?category=architecture"><span class="quick-menu-number">01</span><strong>건축장식자재</strong><span>창호부터 바닥재, 벽장재까지</span><b aria-hidden="true">↗</b></a>
-                <a class="quick-menu-card" href="product-board.html?category=lonchel"><span class="quick-menu-number">02</span><strong>LONCHEL</strong><span>프리미엄 소재와 공간 솔루션</span><b aria-hidden="true">↗</b></a>
-                <a class="quick-menu-card" href="product-board.html?category=kitchen"><span class="quick-menu-number">03</span><strong>수입 주방</strong><span>해외 주방 브랜드와 제품</span><b aria-hidden="true">↗</b></a>
-                <a class="quick-menu-card" href="product-board.html?category=automotive"><span class="quick-menu-number">04</span><strong>자동차소재부품</strong><span>자동차 내·외장 소재와 부품</span><b aria-hidden="true">↗</b></a>
-                <a class="quick-menu-card" href="product-board.html?category=film"><span class="quick-menu-number">05</span><strong>산업용 필름</strong><span>데코·가전·그래픽 필름</span><b aria-hidden="true">↗</b></a>
-                <a class="quick-menu-card" href="product-board.html?category=energy"><span class="quick-menu-number">06</span><strong>신재생 에너지</strong><span>지속가능한 에너지 제품</span><b aria-hidden="true">↗</b></a>
-                <a class="quick-menu-card" href="product-board.html?category=insulation"><span class="quick-menu-number">07</span><strong>단열재</strong><span>건축물의 에너지 효율을 위한 소재</span><b aria-hidden="true">↗</b></a>
+            <div class="category-tabs" role="tablist" aria-label="제품 카테고리">
+                <button class="category-tab is-active" type="button" role="tab" aria-selected="true" data-category="전체제품">전체제품</button>
+                <button class="category-tab" type="button" role="tab" aria-selected="false" data-category="바닥재">바닥재</button>
+                <button class="category-tab" type="button" role="tab" aria-selected="false" data-category="벽장재">벽장재</button>
+                <button class="category-tab" type="button" role="tab" aria-selected="false" data-category="창호">창호</button>
+                <button class="category-tab" type="button" role="tab" aria-selected="false" data-category="인테리어">인테리어</button>
+                <button class="category-tab" type="button" role="tab" aria-selected="false" data-category="자동차소재부품">자동차소재부품</button>
             </div>
+            <div class="catalog-toolbar">
+                <p class="result-count">제품 <strong id="product-result-count">7</strong>개</p>
+                <label class="search-field">
+                    <span class="sr-only">제품 검색</span>
+                    <input id="product-search" type="search" placeholder="제품명 검색">
+                    <button id="product-search-clear" type="button" aria-label="검색어 지우기">×</button>
+                </label>
+            </div>
+            <div class="product-grid" id="product-grid" aria-live="polite">
+                <article class="catalog-card"><a class="catalog-card-link" href="product-detail.html?id=1"><img class="catalog-image" src="img/products1.png" alt="바닥재 제품 이미지"><div class="catalog-card-info"><p class="catalog-category">바닥재</p><h3>공간의 분위기를 만드는 바닥재</h3><p class="catalog-summary">다양한 공간에 어울리는 바닥재 제품을 살펴보세요.</p><span class="text-link">자세히 보기 <span aria-hidden="true">↗</span></span></div></a></article>
+                <article class="catalog-card"><a class="catalog-card-link" href="product-detail.html?id=2"><img class="catalog-image" src="img/products1.png" alt="벽장재 제품 이미지"><div class="catalog-card-info"><p class="catalog-category">벽장재</p><h3>공간의 인상을 완성하는 벽장재</h3><p class="catalog-summary">소재와 패턴으로 공간에 새로운 분위기를 더합니다.</p><span class="text-link">자세히 보기 <span aria-hidden="true">↗</span></span></div></a></article>
+                <article class="catalog-card"><a class="catalog-card-link" href="product-detail.html?id=3"><img class="catalog-image" src="img/products1.png" alt="창호 제품 이미지"><div class="catalog-card-info"><p class="catalog-category">창호</p><h3>빛과 단열을 고려한 창호</h3><p class="catalog-summary">기능과 디자인을 고려한 창호 제품을 확인해 보세요.</p><span class="text-link">자세히 보기 <span aria-hidden="true">↗</span></span></div></a></article>
+                <article class="catalog-card"><a class="catalog-card-link" href="product-detail.html?id=4"><img class="catalog-image" src="img/products1.png" alt="인테리어 제품 이미지"><div class="catalog-card-info"><p class="catalog-category">인테리어</p><h3>취향에 맞춰 완성하는 인테리어</h3><p class="catalog-summary">다양한 마감재로 원하는 공간을 연출합니다.</p><span class="text-link">자세히 보기 <span aria-hidden="true">↗</span></span></div></a></article>
+                <article class="catalog-card"><a class="catalog-card-link" href="product-detail.html?id=5"><img class="catalog-image" src="img/products1.png" alt="자동차소재부품 제품 이미지"><div class="catalog-card-info"><p class="catalog-category">자동차소재부품</p><h3>다양한 이동 공간을 위한 소재</h3><p class="catalog-summary">자동차 내·외장에 적용되는 소재와 부품입니다.</p><span class="text-link">자세히 보기 <span aria-hidden="true">↗</span></span></div></a></article>
+                <article class="catalog-card"><a class="catalog-card-link" href="product-detail.html?id=6"><img class="catalog-image" src="img/products1.png" alt="인테리어 필름 제품 이미지"><div class="catalog-card-info"><p class="catalog-category">인테리어</p><h3>다양한 표면을 완성하는 인테리어 필름</h3><p class="catalog-summary">컬러와 패턴으로 공간의 개성을 표현합니다.</p><span class="text-link">자세히 보기 <span aria-hidden="true">↗</span></span></div></a></article>
+                <article class="catalog-card"><a class="catalog-card-link" href="product-detail.html?id=7"><img class="catalog-image" src="img/products1.png" alt="바닥재 제품 이미지"><div class="catalog-card-info"><p class="catalog-category">바닥재</p><h3>일상에 편안함을 더하는 바닥재</h3><p class="catalog-summary">사용 환경에 맞는 소재와 디자인을 선택해 보세요.</p><span class="text-link">자세히 보기 <span aria-hidden="true">↗</span></span></div></a></article>
+            </div>
+            <p class="empty-state" id="product-empty" hidden>검색 결과가 없습니다.</p>
         </section>
 
         <section class="product-contact" id="customer-center" aria-labelledby="contact-title">
