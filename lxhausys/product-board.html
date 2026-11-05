@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="LX하우시스 제품 분야별 세부 분류와 제품 목록">
+    <title>제품 목록 | LX하우시스</title>
+    <link rel="stylesheet" href="../css/default.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/product-board.css">
+    <script src="js/product-board.js" defer></script>
+</head>
+<body>
+<div id="wrap">
+    <header class="header">
+        <div class="header-inner">
+            <div class="header-logo">
+                <a href="index.html" aria-label="LX하우시스 메인으로"><img src="img/lxlogo1.png" data-default-src="img/lxlogo1.png" data-hover-src="img/lxlogo2.png" alt="LX 하우시스"></a>
+            </div>
+            <nav class="header-nav" aria-label="주 메뉴">
+                <ul class="main-menu">
+                    <li><a href="products.html" aria-current="page">제품소개</a></li>
+                    <li><a href="space-solutions.html">공간솔루션</a></li>
+                    <li><a href="business.html">사업영역</a></li>
+                    <li><a href="technology.html">기술·R&amp;D·디자인</a></li>
+                    <li><a href="about.html">회사소개</a></li>
+                </ul>
+            </nav>
+            <div class="header-right">
+                <a href="#product-search" class="header-link">검색</a>
+                <a href="#login" class="header-link">로그인</a>
+                <a href="#customer-center" class="header-link">고객센터</a>
+            </div>
+            <button class="mobile-menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="메뉴 열기">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+        <nav class="mobile-menu" id="mobile-menu" aria-label="모바일 메뉴" hidden>
+            <ul>
+                <li><a href="products.html" aria-current="page">제품소개</a></li>
+                <li><a href="space-solutions.html">공간솔루션</a></li>
+                <li><a href="business.html">사업영역</a></li>
+                <li><a href="technology.html">기술·R&amp;D·디자인</a></li>
+                <li><a href="about.html">회사소개</a></li>
+            </ul>
+            <div class="mobile-menu-utility">
+                <a href="#product-search">검색</a><a href="#login">로그인</a><a href="#customer-center">고객센터</a>
+            </div>
+        </nav>
+        <div class="header-dropdown-bg">
+                    <div class="dropdown-inner">
+                        <!-- 좌측 브랜드 버튼 -->
+                        <div class="dropdown-left-buttons">
+                            <a href="#" class="side-btn">LX Z:IN 브랜드사이트</a>
+                            <a href="#" class="side-btn">고객서비스</a>
+                            <a href="#" class="side-btn">Global Network</a>
+                        </div>
+
+                        <!-- 우측 서브메뉴 5열 (세로 정렬 컬럼 구조) -->
+                        <div class="dropdown-sub-columns">
+                            <ul class="sub-col" aria-label="제품소개">
+                                <li><a href="products.html">건축장식자재</a></li>
+                                <li><a href="products.html">LONCHEL</a></li>
+                                <li><a href="products.html">수입 주방</a></li>
+                                <li><a href="products.html">자동차소재부품</a></li>
+                                <li><a href="products.html">산업용 필름</a></li>
+                                <li><a href="products.html">신재생 에너지</a></li>
+                                <li><a href="products.html">단열재</a></li>
+                            </ul>
+                            <ul class="sub-col">
+                                <li><a href="space-solutions.html#space-types">공간별 솔루션</a></li>
+                                <li><a href="space-solutions.html#stories-title">스타일별 공간</a></li>
+                                <li><a href="space-solutions.html#stories-title">시공사례</a></li>
+                                <li><a href="space-solutions.html#process-title">공간 제안</a></li>
+                            </ul>
+                            <ul class="sub-col">
+                                <li><a href="#">건축·인테리어</a></li>
+                                <li><a href="#">자동차</a></li>
+                                <li><a href="#">가전·산업 소재</a></li>
+                                <li><a href="#">사업문의</a></li>
+                            </ul>
+                            <ul class="sub-col">
+                                <li><a href="https://kimsihoo08.github.io/class/lxhausys/technology.html#tech-pillars">기술개발</a></li>
+                                <li><a href="#">R&D</a></li>
+                                <li><a href="https://kimsihoo08.github.io/class/lxhausys/technology.html#tech-process-title">기술자료</a></li>
+                                <li><a href="https://kimsihoo08.github.io/class/lxhausys/technology.html#tech-pillars">친환경 기술</a></li>
+                            </ul>
+                            <ul class="sub-col">
+                                <li><a href="#">LX하우시스 소개</a></li>
+                                <li><a href="#">CEO</a></li>
+                                <li><a href="#">연혁</a></li>
+                                <li><a href="#">ESG</a></li>
+                                <li><a href="#">사업장</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+    </header>
+<main class="product-board-page">
+    <nav class="breadcrumb" aria-label="현재 위치"><a href="index.html">홈</a><span>/</span><a href="products.html">제품소개</a><span>/</span><span aria-current="page" id="breadcrumb-current">제품 목록</span></nav>
+    <section class="board-hero">
+        <p class="eyebrow">PRODUCTS</p>
+        <h1 id="board-title">제품 목록</h1>
+        <p id="board-description">분야별 제품 정보를 확인해 보세요.</p>
+    </section>
+    <section class="board-layout" aria-label="제품 분류와 목록">
+        <aside class="board-sidebar">
+            <h2>제품 분야</h2>
+            <nav id="category-navigation" aria-label="제품 분야별 메뉴"></nav>
+        </aside>
+        <div class="board-content">
+            <div class="board-toolbar">
+                <div><p class="eyebrow">PRODUCT LIST</p><h2 id="subcategory-title">전체 제품</h2></div>
+                <label class="board-search"><span class="sr-only">제품 검색</span><input id="board-search" type="search" placeholder="제품명 검색"><button id="search-clear" type="button" aria-label="검색어 지우기">×</button></label>
+            </div>
+            <div class="board-summary"><span>전체 <strong id="board-count">0</strong>개</span><span>제품 정보는 예시 데이터입니다.</span></div>
+            <div class="board-list" id="board-list" aria-live="polite"></div>
+            <p class="board-empty" id="board-empty" hidden>검색 결과가 없습니다.</p>
+            <nav class="pagination" aria-label="페이지 이동"><button type="button" class="is-current" aria-current="page">1</button><button type="button" disabled aria-label="다음 페이지">›</button></nav>
+        </div>
+    </section>
+    <section class="board-notice"><strong>제품 정보 안내</strong><p>실제 데이터베이스와 연동되지 않은 화면 시안으로, 제품명과 설명은 게시판 UI 확인을 위한 예시 콘텐츠입니다.</p></section>
+</main>
+    <footer class="footer-sec">
+        <div class="footer-inner">
+            <div class="footer-left">
+                <h2 class="footer-logo"><a href="index.html"><img src="img/lxlogo2.png" alt="LX하우시스"></a></h2>
+                <ul class="footer-links"><li><a href="#partner">협력사등록신청</a></li><li class="divider">•</li><li><a href="#sitemap">사이트맵</a></li></ul>
+                <div class="footer-info"><p><span>서울특별시 종로구 새문안로 58</span><span class="bar">|</span><span>사업자 등록번호 : 107-87-18122</span><span class="bar">|</span><span>대표이사 노진서</span></p><p class="copyright">COPYRIGHT© 2024. LX HAUSYS. ALL RIGHT RESERVED.</p></div>
+            </div>
+            <div class="footer-center"><span class="cs-title">고객상담실</span><strong class="cs-phone">1544-1893</strong><div class="cs-hours"><p>평일 09:00 ~ 17:30</p><p>토, 일요일 및 공휴일 휴무</p></div></div>
+            <div class="footer-right"><div class="family-site-wrap"><a href="#family-site" class="family-site-btn"><span>FAMILY SITE</span><span class="arrow">&rarr;</span></a></div></div>
+        </div>
+    </footer>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+ const headerEl = document.querySelector('.header');
+ const logo = document.querySelector('.header-logo img');
+ if (!headerEl || !logo) return;
+ const desktopQuery = window.matchMedia('(min-width: 1025px)');
+ headerEl.addEventListener('mouseenter', () => { if (desktopQuery.matches) logo.src = logo.dataset.hoverSrc; });
+ headerEl.addEventListener('mouseleave', () => { logo.src = logo.dataset.defaultSrc; });
+});
+</script>
+</body>
+</html>
