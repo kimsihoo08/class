@@ -164,3 +164,36 @@
 .product-page .architecture-product-arrow{margin-left:auto;font-size:18px}
 @media(max-width:900px){.product-page .architecture-product-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:600px){.product-page .architecture-intro{padding-top:18px}.product-page .architecture-actions{margin-bottom:38px}.product-page .architecture-actions a{flex:1;min-width:0;padding:15px}.product-page .architecture-product-heading{align-items:flex-start;flex-direction:column}.product-page .architecture-product-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.product-page .architecture-product-item{min-height:82px;padding:14px 10px;gap:9px}.product-page .architecture-product-item strong{font-size:13px}.product-page .architecture-product-symbol{font-size:10px}}
+
+
+/* 선택한 제품 분야의 게시판형 목록 */
+.product-page .material-board{margin-top:58px;padding-top:38px;border-top:1px solid var(--color-neutral-light-gray);scroll-margin-top:30px}
+.product-page .material-board-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:26px}
+.product-page .material-board-heading .eyebrow{margin-bottom:8px}
+.product-page .material-board-heading h4{margin:0;font-size:clamp(24px,2.2vw,32px);line-height:1.4}
+.product-page .material-board-heading p:not(.eyebrow){margin:10px 0 0;color:var(--color-gray-lx);font-size:14px;line-height:1.7}
+.product-page .material-board-count{flex:0 0 auto;color:var(--color-gray-lx);font-size:14px}
+.product-page .material-board-count strong{color:var(--color-text-primary);font-size:18px}
+.product-page .material-filter-list{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+.product-page .material-filter{min-height:38px;padding:0 17px;border:1px solid var(--color-neutral-light-gray);border-radius:999px;background:var(--color-neutral-white);color:var(--color-text-primary);font-size:13px;cursor:pointer;transition:background-color .2s ease,border-color .2s ease,color .2s ease}
+.product-page .material-filter:hover,.product-page .material-filter.is-active{border-color:var(--color-neutral-charcoal);background:var(--color-neutral-charcoal);color:var(--color-text-inverse)}
+.product-page .material-list-head,.product-page .material-product-row{display:grid;grid-template-columns:180px minmax(0,1fr) 70px;align-items:center;gap:24px}
+.product-page .material-list-head{min-height:48px;padding:0 20px;border-top:1px solid var(--color-neutral-charcoal);border-bottom:1px solid var(--color-neutral-light-gray);color:var(--color-gray-lx);font-size:12px}
+.product-page .material-list-head span:last-child{text-align:right}
+.product-page .material-product-row{min-height:76px;padding:16px 20px;border-bottom:1px solid var(--color-neutral-light-gray);background:var(--color-neutral-white);transition:background-color .2s ease}
+.product-page .material-product-row:hover{background:#faf9f7}
+.product-page .material-product-row[hidden]{display:none}
+.product-page .material-product-type{color:var(--color-gray-lx);font-size:13px}
+.product-page .material-product-row strong{font-size:15px;font-weight:600;line-height:1.5}
+.product-page .material-product-arrow{justify-self:end;font-size:18px}
+@media(max-width:700px){
+ .product-page .material-board{margin-top:40px;padding-top:28px}
+ .product-page .material-board-heading{align-items:flex-start;flex-direction:column;gap:12px}
+ .product-page .material-filter-list{flex-wrap:nowrap;overflow-x:auto;padding-bottom:8px;scrollbar-width:none}
+ .product-page .material-filter-list::-webkit-scrollbar{display:none}
+ .product-page .material-filter{flex:0 0 auto}
+ .product-page .material-list-head,.product-page .material-product-row{grid-template-columns:90px minmax(0,1fr) 22px;gap:10px;padding-left:10px;padding-right:10px}
+ .product-page .material-product-row{min-height:68px}
+ .product-page .material-product-type{font-size:11px}
+ .product-page .material-product-row strong{font-size:13px}
+}
