@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="LX하우시스 제품 카테고리와 주요 제품을 살펴보세요.">
-    <title>제품 | LX하우시스</title>
+    <meta name="description" content="LX하우시스 제품 분야별 퀵메뉴와 제품 정보를 확인해 보세요.">
+    <title>제품소개 | LX하우시스</title>
     <link rel="stylesheet" href="../css/default.css">
     <link rel="stylesheet" href="../npm/swiper/swiper-bundle.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,7 +12,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/products-page.css">
-    <script src="../npm/swiper/swiper-bundle.min.js" defer></script>
     <script src="js/products-page.js" defer></script>
 </head>
 <body>
@@ -116,89 +115,22 @@
             <img class="product-hero-image" src="img/products1.png" alt="LX하우시스 대표 제품 이미지">
         </section>
 
-        <section class="product-catalog" id="product-categories" aria-labelledby="catalog-title">
+
+        <section class="product-quick" id="product-quick" aria-labelledby="quick-title">
             <div class="section-heading">
-                <div>
-                    <p class="eyebrow">PRODUCT CATEGORY</p>
-                    <h2 id="catalog-title">제품 카테고리</h2>
-                    <p class="section-description">필요한 공간과 용도에 맞는 제품을 찾아보세요.</p>
-                </div>
+                <p class="eyebrow">PRODUCT QUICK MENU</p>
+                <h2 id="quick-title">제품을 분야별로 살펴보세요</h2>
+                <p class="section-description">관심 있는 제품 분야를 선택하면 세부 분류와 제품 목록을 확인할 수 있습니다.</p>
             </div>
-            <div class="category-tabs" role="tablist" aria-label="제품 카테고리">
-                <button class="category-tab is-active" type="button" role="tab" aria-selected="true" data-category="all">전체</button>
-                <button class="category-tab" type="button" role="tab" aria-selected="false" data-category="architecture">건축장식자재</button>
-                <button class="category-tab" type="button" role="tab" aria-selected="false" data-category="interior">인테리어</button>
-                <button class="category-tab" type="button" role="tab" aria-selected="false" data-category="automotive">자동차소재부품</button>
-                <button class="category-tab" type="button" role="tab" aria-selected="false" data-category="industrial">산업용 필름</button>
-                <button class="category-tab" type="button" role="tab" aria-selected="false" data-category="energy">신재생 에너지</button>
+            <div class="quick-menu-grid">
+                <a class="quick-menu-card" href="product-board.html?category=architecture"><span class="quick-menu-number">01</span><strong>건축장식자재</strong><span>창호부터 바닥재, 벽장재까지</span><b aria-hidden="true">↗</b></a>
+                <a class="quick-menu-card" href="product-board.html?category=lonchel"><span class="quick-menu-number">02</span><strong>LONCHEL</strong><span>프리미엄 소재와 공간 솔루션</span><b aria-hidden="true">↗</b></a>
+                <a class="quick-menu-card" href="product-board.html?category=kitchen"><span class="quick-menu-number">03</span><strong>수입 주방</strong><span>해외 주방 브랜드와 제품</span><b aria-hidden="true">↗</b></a>
+                <a class="quick-menu-card" href="product-board.html?category=automotive"><span class="quick-menu-number">04</span><strong>자동차소재부품</strong><span>자동차 내·외장 소재와 부품</span><b aria-hidden="true">↗</b></a>
+                <a class="quick-menu-card" href="product-board.html?category=film"><span class="quick-menu-number">05</span><strong>산업용 필름</strong><span>데코·가전·그래픽 필름</span><b aria-hidden="true">↗</b></a>
+                <a class="quick-menu-card" href="product-board.html?category=energy"><span class="quick-menu-number">06</span><strong>신재생 에너지</strong><span>지속가능한 에너지 제품</span><b aria-hidden="true">↗</b></a>
+                <a class="quick-menu-card" href="product-board.html?category=insulation"><span class="quick-menu-number">07</span><strong>단열재</strong><span>건축물의 에너지 효율을 위한 소재</span><b aria-hidden="true">↗</b></a>
             </div>
-
-            <div class="catalog-toolbar" id="product-search">
-                <p class="result-count">제품 <strong id="result-count">6</strong>개</p>
-                <label class="search-field">
-                    <span class="sr-only">제품명 검색</span>
-                    <input id="product-query" type="search" placeholder="제품명 또는 키워드 검색" autocomplete="off">
-                    <button type="button" id="clear-search" aria-label="검색어 지우기">×</button>
-                </label>
-            </div>
-
-            <div class="product-grid" id="product-grid">
-                <article class="catalog-card" data-category="architecture" data-search="바닥재 미스티 콘크리트 LVT">
-                    <a class="catalog-card-link" href="product-detail.html?id=1">
-                        <img class="catalog-image" src="img/product01.png" alt="미스티 콘크리트 제품 이미지" loading="lazy">
-                        <div class="catalog-card-info"><p class="catalog-category">건축장식자재 · 바닥재</p><h3>미스티 콘크리트</h3><p class="catalog-summary">차분한 콘크리트 질감의 바닥재</p><span class="text-link">제품 보기 <span aria-hidden="true">→</span></span></div>
-                    </a>
-                </article>
-                <article class="catalog-card" data-category="architecture" data-search="바닥재 모던 그레이 LVT">
-                    <a class="catalog-card-link" href="product-detail.html?id=2">
-                        <img class="catalog-image" src="img/product02.png" alt="모던 그레이 제품 이미지" loading="lazy">
-                        <div class="catalog-card-info"><p class="catalog-category">건축장식자재 · 바닥재</p><h3>모던 그레이</h3><p class="catalog-summary">자연스러운 회색 톤과 섬세한 표면</p><span class="text-link">제품 보기 <span aria-hidden="true">→</span></span></div>
-                    </a>
-                </article>
-                <article class="catalog-card" data-category="architecture" data-search="바닥재 샌드 베이지 LVT">
-                    <a class="catalog-card-link" href="product-detail.html?id=3">
-                        <img class="catalog-image" src="img/product03.png" alt="샌드 베이지 제품 이미지" loading="lazy">
-                        <div class="catalog-card-info"><p class="catalog-category">건축장식자재 · 바닥재</p><h3>샌드 베이지</h3><p class="catalog-summary">따뜻하고 편안한 분위기를 위한 컬러</p><span class="text-link">제품 보기 <span aria-hidden="true">→</span></span></div>
-                    </a>
-                </article>
-                <article class="catalog-card" data-category="interior" data-search="인테리어필름 솔리드 칩">
-                    <a class="catalog-card-link" href="product-detail.html?id=4">
-                        <img class="catalog-image" src="img/product04.png" alt="솔리드 칩 제품 이미지" loading="lazy">
-                        <div class="catalog-card-info"><p class="catalog-category">인테리어 · 인테리어필름</p><h3>솔리드 칩</h3><p class="catalog-summary">공간의 톤을 정돈하는 단색 마감</p><span class="text-link">제품 보기 <span aria-hidden="true">→</span></span></div>
-                    </a>
-                </article>
-                <article class="catalog-card" data-category="automotive" data-search="자동차소재부품 내장 소재">
-                    <a class="catalog-card-link" href="product-detail.html?id=5">
-                        <img class="catalog-image" src="img/product05.png" alt="자동차 내장 소재 제품 이미지" loading="lazy">
-                        <div class="catalog-card-info"><p class="catalog-category">자동차소재부품</p><h3>자동차 내장 소재</h3><p class="catalog-summary">차량 공간을 위한 소재 솔루션</p><span class="text-link">제품 보기 <span aria-hidden="true">→</span></span></div>
-                    </a>
-                </article>
-                <article class="catalog-card" data-category="energy" data-search="신재생 에너지 태양광">
-                    <a class="catalog-card-link" href="product-detail.html?id=6">
-                        <img class="catalog-image" src="img/product06.png" alt="에너지 솔루션 제품 이미지" loading="lazy">
-                        <div class="catalog-card-info"><p class="catalog-category">신재생 에너지</p><h3>에너지 솔루션</h3><p class="catalog-summary">지속가능한 미래를 위한 에너지 분야</p><span class="text-link">제품 보기 <span aria-hidden="true">→</span></span></div>
-                    </a>
-                </article>
-            </div>
-            <p class="empty-state" id="empty-state" hidden>검색 결과가 없습니다. 다른 검색어를 입력해 주세요.</p>
-        </section>
-
-        <section class="featured-products" id="featured-products" aria-labelledby="featured-title">
-            <div class="section-heading featured-heading">
-                <div><p class="eyebrow">FEATURED PRODUCTS</p><h2 id="featured-title">주목할 만한 제품</h2><p class="section-description">주요 제품을 가로로 살펴보세요.</p></div>
-                
-            </div>
-            <div class="swiper featured-swiper">
-                <div class="swiper-wrapper">
-                    <article class="swiper-slide featured-card"><img class="featured-image" src="img/products1.png" alt="주목할 만한 제품 이미지" loading="lazy"><p class="catalog-category">바닥재</p><h3>공간의 분위기를 만드는 바닥재</h3></article>
-                    <article class="swiper-slide featured-card"><img class="featured-image" src="img/products1.png" alt="주목할 만한 제품 이미지" loading="lazy"><p class="catalog-category">창호</p><h3>빛과 단열을 고려한 창호</h3></article>
-                    <article class="swiper-slide featured-card"><img class="featured-image" src="img/products1.png" alt="주목할 만한 제품 이미지" loading="lazy"><p class="catalog-category">인테리어</p><h3>취향에 맞춰 완성하는 인테리어</h3></article>
-                    <article class="swiper-slide featured-card"><img class="featured-image" src="img/products1.png" alt="주목할 만한 제품 이미지" loading="lazy"><p class="catalog-category">자동차소재부품</p><h3>다양한 이동 공간을 위한 소재</h3></article>
-                    <article class="swiper-slide featured-card"><img class="featured-image" src="img/products1.png" alt="주목할 만한 제품 이미지" loading="lazy"><p class="catalog-category">벽장재</p><h3>공간의 인상을 완성하는 벽장재</h3></article>
-                    <article class="swiper-slide featured-card"><img class="featured-image" src="img/products1.png" alt="주목할 만한 제품 이미지" loading="lazy"><p class="catalog-category">인테리어필름</p><h3>다양한 표면을 새롭게 바꾸는 인테리어필름</h3></article>
-                </div>
-            </div>
-            <div class="featured-scrollbar" aria-label="추천 제품 슬라이드 위치"></div>
         </section>
 
         <section class="product-contact" id="customer-center" aria-labelledby="contact-title">
