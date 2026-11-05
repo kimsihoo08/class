@@ -118,5 +118,14 @@ document.addEventListener("DOMContentLoaded", () => {
  }
  tabs.forEach(tab=>tab.addEventListener("click",()=>{active=tab.dataset.category||"건축장식자재";tabs.forEach(item=>{const selected=item===tab;item.classList.toggle("is-active",selected);item.setAttribute("aria-selected",String(selected));});if(search)search.value="";render();}));
  tabs.forEach(tab=>{const selected=tab.dataset.category===active;tab.classList.toggle("is-active",selected);tab.setAttribute("aria-selected",String(selected));});
+ document.querySelectorAll('a[href*="#category-"]').forEach(link=>link.addEventListener("click",event=>{
+   const hash=new URL(link.href,location.href).hash;
+   const targetTab=document.getElementById(hash.slice(1));
+   if(!targetTab||!targetTab.classList.contains("category-tab"))return;
+   event.preventDefault();
+   history.pushState(null,"",hash);
+   targetTab.click();
+   document.querySelector(".category-tabs")?.scrollIntoView({behavior:"smooth",block:"center"});
+ }));
  search?.addEventListener("input",render);clear?.addEventListener("click",()=>{if(search){search.value="";search.focus();render();}});render();
 });
