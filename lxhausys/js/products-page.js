@@ -116,5 +116,8 @@ document.addEventListener("DOMContentLoaded", () => {
    if(desc)desc.textContent=descriptions[active]||"";
  }
  tabs.forEach(tab=>tab.addEventListener("click",()=>{active=tab.dataset.category||"건축장식자재";tabs.forEach(item=>{const selected=item===tab;item.classList.toggle("is-active",selected);item.setAttribute("aria-selected",String(selected));});if(search)search.value="";render();}));
+ const categoryId=location.hash.slice(1);
+ const linkedCategory=tabs.find(tab=>tab.id===categoryId);
+ if(linkedCategory)linkedCategory.click();
  search?.addEventListener("input",render);clear?.addEventListener("click",()=>{if(search){search.value="";search.focus();render();}});render();
 });
