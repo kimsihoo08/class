@@ -25,13 +25,8 @@ document.addEventListener("DOMContentLoaded", () => {
    if(isArchitecture){
      list.innerHTML=`
        <div class="architecture-intro">
-         <div class="architecture-actions">
-           <a href="https://www.lxzin.com/" target="_blank" rel="noopener noreferrer">LX Z:IN 제품 소개 <span aria-hidden="true">↗</span></a>
-           <a href="https://www.lxhausys.co.kr/products/material/store" target="_blank" rel="noopener noreferrer">대리점 &amp; 등록점 찾기 <span aria-hidden="true">↗</span></a>
-         </div>
          <div class="architecture-product-heading">
            <div><p class="eyebrow">LX Z:IN PRODUCT</p><p>LX Z:IN의 다양한 제품을 만나보세요.<br><span>제품 분야를 선택해 관련 제품 정보를 확인할 수 있습니다.</span></p></div>
-           <a href="https://service.lxhausys.co.kr/" target="_blank" rel="noopener noreferrer">성적서·인증서·시공시방서 바로가기 <span aria-hidden="true">↗</span></a>
          </div>
          <div class="architecture-product-grid" aria-label="건축장식자재 제품 분야">
            ${architectureItems.map((item,i)=>`<button class="architecture-product-item" type="button" data-material="${item}"><span class="architecture-product-symbol" aria-hidden="true">${String(i+1).padStart(2,"0")}</span><strong>${item}</strong><span class="architecture-product-arrow" aria-hidden="true">↗</span></button>`).join("")}
