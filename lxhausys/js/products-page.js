@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
      </div>
      <div class="material-product-grid">
        ${cards.map((item,index)=>`<article class="material-product-card" data-type="${item.type}" data-name="${item.name}">
-         <div class="material-product-image"><img src="${item.image}" alt="${item.name}" loading="lazy"><button type="button" class="material-bookmark" aria-label="${item.name} 스크랩">♧</button></div>
+         <div class="material-product-image"><img src="${item.image}" alt="${item.name}" loading="lazy"><button type="button" class="material-bookmark" aria-label="${item.name} 스크랩"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.5 3.5h11a1 1 0 0 1 1 1v16l-6.5-4-6.5 4v-16a1 1 0 0 1 1-1Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div>
          <p class="material-product-type">${item.type}</p><h6>${item.name}</h6>${item.code?`<p class="material-product-code">${item.code}</p>`:""}${item.best?'<span class="material-best">BEST</span>':""}
        </article>`).join("")}
      </div>`;
