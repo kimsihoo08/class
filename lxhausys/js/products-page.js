@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const empty = document.querySelector("#product-empty");
     if (!tabs.length || !cards.length) return;
 
-    let activeCategory = "전체제품";
+    let activeCategory = "건축장식자재";
     cards.forEach((card) => {
         const category = card.querySelector(".catalog-category")?.textContent.trim() || "";
         card.dataset.category = category;
@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const keyword = search?.value.trim().toLocaleLowerCase("ko") || "";
         let visibleCount = 0;
         cards.forEach((card) => {
-            const categoryMatch = activeCategory === "전체제품" || card.dataset.category === activeCategory;
+            const categoryMatch = card.dataset.category === activeCategory;
             const keywordMatch = card.textContent.toLocaleLowerCase("ko").includes(keyword);
             const visible = categoryMatch && keywordMatch;
             card.hidden = !visible;
