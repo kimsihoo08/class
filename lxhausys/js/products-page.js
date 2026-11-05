@@ -18,14 +18,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
  const materialData={
    "창호":{description:"LX Z:IN의 창호 제품과 다양한 타입을 확인해 보세요.",filters:["전체","뷰프레임","시스템창호","커튼월","차별화 옵션 상품"],items:[
-     ["시스템창호 Top Hung (전동) E9-ATH220 AUTO","시스템창호"],
-     ["뷰프레임 F-145 / F-145S / F-265 / F-265S / F-285","뷰프레임"],
-     ["시스템창호 Lift & Slide E9-PLS200 / 250N","시스템창호"],
-     ["시스템창호 Lift & Slide E9-ALS283D","시스템창호"],
-     ["시스템창호 Lift & Slide E9-ALS245","시스템창호"],
-     ["커튼월 시스템창호 Façade E9-ACW","커튼월"],
-     ["먼지필터 방충망","차별화 옵션 상품"],
-     ["시스템창호 Tilt & Turn E9-PTT85","시스템창호"]
+     ["시스템창호 Top Hung (전동)","시스템창호","E9-ATH220 AUTO","img/product01.png"],
+     ["뷰프레임","뷰프레임","F-145/145S/265/265S/285(베젤리스)","img/product02.png"],
+     ["시스템창호 Lift & Slide","시스템창호","E9-PLS200/250N","img/product03.png"],
+     ["시스템창호 Lift & Slide","시스템창호","E9-ALS283D","img/product04.png"],
+     ["시스템창호 Lift & Slide","시스템창호","E9-ALS245","img/product05.png"],
+     ["커튼월 시스템창호 Façade","커튼월","E9-ACW","img/product06.png"],
+     ["먼지필터 방충망","차별화 옵션 상품","","img/product07.png"],
+     ["시스템창호 Tilt & Turn","시스템창호","E9-PTT85","img/products1.png"]
    ]},
    "벽지 & 벽장재":{description:"공간의 분위기를 완성하는 벽지와 벽장재 제품 분야입니다.",filters:["전체","디아망","실크벽지","방염벽지","뮤럴벽지","합지벽지","조습벽재","에디톤"],items:[["디아망","디아망"],["실크벽지","실크벽지"],["방염벽지","방염벽지"],["뮤럴벽지","뮤럴벽지"],["합지벽지","합지벽지"],["조습벽재","조습벽재"],["에디톤","에디톤"]]},
    "바닥재(주거)":{description:"주거 공간에 어울리는 바닥재 제품 분야입니다.",filters:["전체","에디톤","마루","시트","타일"],items:[["에디톤","에디톤"],["마루","마루"],["시트","시트"],["타일","타일"]]},
@@ -45,25 +45,44 @@ document.addEventListener("DOMContentLoaded", () => {
    if(!data||!intro)return;
    let board=intro.querySelector(".material-board");
    if(!board){board=document.createElement("section");board.className="material-board";board.setAttribute("aria-live","polite");intro.appendChild(board);}
+   const cards=data.items.map((item,index)=>({name:item[0],type:item[1],code:item[2]||"",image:item[3]||`img/product0${index%7+1}.png`,best:index===1}));
    board.innerHTML=`
      <div class="material-board-heading">
        <div><p class="eyebrow">PRODUCT LIST</p><h4>${material} 제품</h4><p>${data.description}</p></div>
-       <span class="material-board-count">항목 <strong>${data.items.length}</strong>개</span>
      </div>
-     <div class="material-filter-list" role="group" aria-label="${material} 세부 카테고리">
-       ${data.filters.map((filter,index)=>`<button type="button" class="material-filter${index===0?" is-active":""}" data-filter="${filter}">${filter}</button>`).join("")}
+     <div class="material-category-bar">
+       <strong class="material-category-label">카테고리</strong>
+       <div class="material-filter-list" role="group" aria-label="${material} 세부 카테고리">
+         ${data.filters.map((filter,index)=>`<button type="button" class="material-filter${index===0?" is-active":""}" data-filter="${filter}">${filter}</button>`).join("")}
+       </div>
      </div>
-     <div class="material-list-head"><span>제품 분야</span><span>제품명</span><span>바로가기</span></div>
-     <div class="material-product-list">
-       ${data.items.map(([name,type],index)=>`<article class="material-product-row" data-type="${type}" data-name="${name}"><span class="material-product-type">${type}</span><strong>${name}</strong><span class="material-product-arrow" aria-hidden="true">↗</span></article>`).join("")}
+     <div class="material-products-heading">
+       <div><h5>${material} 제품</h5><p>전체 <strong class="material-visible-count">${cards.length}</strong>개</p></div>
+       <label class="material-sort-label"><span class="sr-only">제품 정렬</span><select class="material-sort"><option value="new">신제품순</option><option value="name">가나다순</option></select></label>
+     </div>
+     <div class="material-product-grid">
+       ${cards.map((item,index)=>`<article class="material-product-card" data-type="${item.type}" data-name="${item.name}">
+         <div class="material-product-image"><img src="${item.image}" alt="${item.name}" loading="lazy"><button type="button" class="material-bookmark" aria-label="${item.name} 스크랩">♧</button></div>
+         <p class="material-product-type">${item.type}</p><h6>${item.name}</h6>${item.code?`<p class="material-product-code">${item.code}</p>`:""}${item.best?'<span class="material-best">BEST</span>':""}
+       </article>`).join("")}
      </div>`;
+   const updateVisible=()=>{
+     const activeFilter=board.querySelector("[data-filter].is-active")?.dataset.filter||"전체";
+     const rows=[...board.querySelectorAll(".material-product-card")];
+     rows.forEach(card=>{card.hidden=activeFilter!=="전체"&&card.dataset.type!==activeFilter;});
+     const visible=rows.filter(card=>!card.hidden);
+     board.querySelector(".material-visible-count").textContent=visible.length;
+     const sort=board.querySelector(".material-sort")?.value;
+     if(sort==="name"){
+       const grid=board.querySelector(".material-product-grid");
+       [...grid.children].sort((a,b)=>a.dataset.name.localeCompare(b.dataset.name,"ko")).forEach(card=>grid.appendChild(card));
+     }
+   };
    board.querySelectorAll("[data-filter]").forEach(filterButton=>filterButton.addEventListener("click",()=>{
      board.querySelectorAll("[data-filter]").forEach(item=>item.classList.toggle("is-active",item===filterButton));
-     const chosen=filterButton.dataset.filter;
-     let visible=0;
-     board.querySelectorAll(".material-product-row").forEach(row=>{const show=chosen==="전체"||row.dataset.type===chosen;row.hidden=!show;if(show)visible++;});
-     board.querySelector(".material-board-count strong").textContent=visible;
+     updateVisible();
    }));
+   board.querySelector(".material-sort")?.addEventListener("change",updateVisible);
    board.scrollIntoView({behavior:"smooth",block:"start"});
  }
  function render(){
