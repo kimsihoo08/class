@@ -14,7 +14,8 @@ document.addEventListener("DOMContentLoaded", () => {
  };
  const descriptions={"LONCHEL":"프리미엄 소재와 공간 솔루션을 확인해 보세요.","수입 주방":"해외 주방 브랜드와 제품 정보를 확인해 보세요.","자동차소재부품":"자동차 내·외장에 적용되는 소재와 부품을 살펴보세요.","산업용 필름":"다양한 산업 분야에 활용되는 필름 제품을 살펴보세요.","신재생 에너지":"지속가능한 에너지 분야의 제품 정보를 확인해 보세요.","단열재":"건축물의 에너지 효율을 고려한 단열 제품을 살펴보세요."};
  const architectureItems=["창호","벽지 & 벽장재","바닥재(주거)","바닥재(상업)","인테리어필름","인테리어스톤","중문","도어","키친","빌트인 시스템","보드","단열재"];
- let active="건축장식자재";
+ const categoryByHash={"category-architecture":"건축장식자재","category-lonchel":"LONCHEL","category-kitchen":"수입 주방","category-automotive":"자동차소재부품","category-film":"산업용 필름","category-energy":"신재생 에너지","category-insulation":"단열재"};
+ let active=categoryByHash[location.hash.slice(1)]||"건축장식자재";
 
  const materialData={
    "창호":{description:"LX Z:IN의 창호 제품과 다양한 타입을 확인해 보세요.",filters:["전체","뷰프레임","시스템창호","커튼월","차별화 옵션 상품"],items:[
@@ -116,8 +117,6 @@ document.addEventListener("DOMContentLoaded", () => {
    if(desc)desc.textContent=descriptions[active]||"";
  }
  tabs.forEach(tab=>tab.addEventListener("click",()=>{active=tab.dataset.category||"건축장식자재";tabs.forEach(item=>{const selected=item===tab;item.classList.toggle("is-active",selected);item.setAttribute("aria-selected",String(selected));});if(search)search.value="";render();}));
- const categoryId=location.hash.slice(1);
- const linkedCategory=tabs.find(tab=>tab.id===categoryId);
- if(linkedCategory)linkedCategory.click();
+ tabs.forEach(tab=>{const selected=tab.dataset.category===active;tab.classList.toggle("is-active",selected);tab.setAttribute("aria-selected",String(selected));});
  search?.addEventListener("input",render);clear?.addEventListener("click",()=>{if(search){search.value="";search.focus();render();}});render();
 });
