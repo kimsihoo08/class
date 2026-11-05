@@ -15,6 +15,57 @@ document.addEventListener("DOMContentLoaded", () => {
  const descriptions={"LONCHEL":"프리미엄 소재와 공간 솔루션을 확인해 보세요.","수입 주방":"해외 주방 브랜드와 제품 정보를 확인해 보세요.","자동차소재부품":"자동차 내·외장에 적용되는 소재와 부품을 살펴보세요.","산업용 필름":"다양한 산업 분야에 활용되는 필름 제품을 살펴보세요.","신재생 에너지":"지속가능한 에너지 분야의 제품 정보를 확인해 보세요.","단열재":"건축물의 에너지 효율을 고려한 단열 제품을 살펴보세요."};
  const architectureItems=["창호","벽지 & 벽장재","바닥재(주거)","바닥재(상업)","인테리어필름","인테리어스톤","중문","도어","키친","빌트인 시스템","보드","단열재"];
  let active="건축장식자재";
+
+ const materialData={
+   "창호":{description:"LX Z:IN의 창호 제품과 다양한 타입을 확인해 보세요.",filters:["전체","뷰프레임","시스템창호","커튼월","차별화 옵션 상품"],items:[
+     ["시스템창호 Top Hung (전동) E9-ATH220 AUTO","시스템창호"],
+     ["뷰프레임 F-145 / F-145S / F-265 / F-265S / F-285","뷰프레임"],
+     ["시스템창호 Lift & Slide E9-PLS200 / 250N","시스템창호"],
+     ["시스템창호 Lift & Slide E9-ALS283D","시스템창호"],
+     ["시스템창호 Lift & Slide E9-ALS245","시스템창호"],
+     ["커튼월 시스템창호 Façade E9-ACW","커튼월"],
+     ["먼지필터 방충망","차별화 옵션 상품"],
+     ["시스템창호 Tilt & Turn E9-PTT85","시스템창호"]
+   ]},
+   "벽지 & 벽장재":{description:"공간의 분위기를 완성하는 벽지와 벽장재 제품 분야입니다.",filters:["전체","디아망","실크벽지","방염벽지","뮤럴벽지","합지벽지","조습벽재","에디톤"],items:[["디아망","벽지"],["실크벽지","벽지"],["방염벽지","벽지"],["뮤럴벽지","벽지"],["합지벽지","벽지"],["조습벽재","벽장재"],["에디톤","벽장재"]]},
+   "바닥재(주거)":{description:"주거 공간에 어울리는 바닥재 제품 분야입니다.",filters:["전체","에디톤","마루","시트","타일"],items:[["에디톤","바닥재"],["마루","바닥재"],["시트","바닥재"],["타일","바닥재"]]},
+   "바닥재(상업)":{description:"상업 공간의 사용 환경을 고려한 바닥재 제품 분야입니다.",filters:["전체","LVT","VCT","전도성 타일","카펫타일","이중바닥재","Looselay","상업용 시트"],items:[["LVT","바닥재"],["VCT","바닥재"],["전도성 타일","바닥재"],["카펫타일","바닥재"],["이중바닥재","바닥재"],["Looselay","바닥재"],["상업용 시트","바닥재"]]},
+   "인테리어필름":{description:"다양한 표면에 적용할 수 있는 인테리어 필름 제품 분야입니다.",filters:["전체","솔리드","메탈","우드","스톤","텍스타일","레더","아웃도어"],items:[["솔리드","인테리어필름"],["메탈","인테리어필름"],["우드","인테리어필름"],["스톤","인테리어필름"],["텍스타일","인테리어필름"],["레더","인테리어필름"],["아웃도어","인테리어필름"]]},
+   "인테리어스톤":{description:"고급스러운 공간 연출을 위한 인테리어 스톤 제품 분야입니다.",filters:["전체","비아테라"],items:[["비아테라","이스톤"]] },
+   "중문":{description:"공간을 분리하고 연결하는 중문 제품 분야입니다.",filters:["전체","슬라이딩 중문","스윙 중문"],items:[["슬라이딩 중문","중문"],["스윙 중문","중문"]]},
+   "도어":{description:"공간의 디자인과 기능을 고려한 도어 제품 분야입니다.",filters:["전체","디자인 도어","글라스 도어","안전 도어","3연동 미서기 도어"],items:[["디자인 도어","도어"],["글라스 도어","도어"],["안전 도어","도어"],["3연동 미서기 도어","도어"]]},
+   "키친":{description:"라이프스타일에 맞춘 주방 제품 라인업입니다.",filters:["전체","제니스9","셀렉션 7","셀렉션 5","셀렉션 3","셀렉션 1"],items:[["제니스9","키친"],["셀렉션 7","키친"],["셀렉션 5","키친"],["셀렉션 3","키친"],["셀렉션 1","키친"]]},
+   "빌트인 시스템":{description:"수납과 공간 활용을 위한 빌트인 시스템 제품 분야입니다.",filters:["전체","붙박이장","현관장","유닛","행거 시스템","냉장고장"],items:[["붙박이장","빌트인 시스템"],["현관장","빌트인 시스템"],["유닛","빌트인 시스템"],["행거 시스템","빌트인 시스템"],["냉장고장","빌트인 시스템"]]},
+   "보드":{description:"가구와 건축에 활용되는 보드 제품 분야입니다.",filters:["전체","가구용 보드","준불연 보드"],items:[["가구용 보드","보드"],["준불연 보드","보드"]]},
+   "단열재":{description:"건축물의 단열 성능을 고려한 단열재 제품 분야입니다.",filters:["전체","인테리어용 단열재"],items:[["인테리어용 단열재","단열재"]]}
+ };
+ function renderMaterialBoard(material){
+   const data=materialData[material];
+   const intro=list.querySelector(".architecture-intro");
+   if(!data||!intro)return;
+   let board=intro.querySelector(".material-board");
+   if(!board){board=document.createElement("section");board.className="material-board";board.setAttribute("aria-live","polite");intro.appendChild(board);}
+   board.innerHTML=`
+     <div class="material-board-heading">
+       <div><p class="eyebrow">PRODUCT LIST</p><h4>${material} 제품</h4><p>${data.description}</p></div>
+       <span class="material-board-count">전체 <strong>${data.items.length}</strong>개</span>
+     </div>
+     <div class="material-filter-list" role="group" aria-label="${material} 세부 카테고리">
+       ${data.filters.map((filter,index)=>`<button type="button" class="material-filter${index===0?" is-active":""}" data-filter="${filter}">${filter}</button>`).join("")}
+     </div>
+     <div class="material-list-head"><span>제품 분야</span><span>제품명</span><span>바로가기</span></div>
+     <div class="material-product-list">
+       ${data.items.map(([name,type],index)=>`<article class="material-product-row" data-type="${type}" data-name="${name}"><span class="material-product-type">${type}</span><strong>${name}</strong><span class="material-product-arrow" aria-hidden="true">↗</span></article>`).join("")}
+     </div>`;
+   board.querySelectorAll("[data-filter]").forEach(filterButton=>filterButton.addEventListener("click",()=>{
+     board.querySelectorAll("[data-filter]").forEach(item=>item.classList.toggle("is-active",item===filterButton));
+     const chosen=filterButton.dataset.filter;
+     let visible=0;
+     board.querySelectorAll(".material-product-row").forEach(row=>{const show=chosen==="전체"||row.dataset.type===chosen;row.hidden=!show;if(show)visible++;});
+     board.querySelector(".material-board-count strong").textContent=visible;
+   }));
+   board.scrollIntoView({behavior:"smooth",block:"start"});
+ }
  function render(){
    const isArchitecture=active==="건축장식자재";
    if(toolbar)toolbar.hidden=isArchitecture;
@@ -33,7 +84,10 @@ document.addEventListener("DOMContentLoaded", () => {
          </div>
        </div>`;
      empty.hidden=true;
-     list.querySelectorAll("[data-material]").forEach(button=>button.addEventListener("click",()=>{list.querySelectorAll("[data-material]").forEach(item=>item.classList.toggle("is-selected",item===button));}));
+     list.querySelectorAll("[data-material]").forEach(button=>button.addEventListener("click",()=>{
+       list.querySelectorAll("[data-material]").forEach(item=>{const selected=item===button;item.classList.toggle("is-selected",selected);item.setAttribute("aria-pressed",String(selected));});
+       renderMaterialBoard(button.dataset.material);
+     }));
      return;
    }
    const key=search?.value.trim().toLocaleLowerCase("ko")||"",rows=(products[active]||[]).filter(row=>row.join(" ").toLocaleLowerCase("ko").includes(key));
