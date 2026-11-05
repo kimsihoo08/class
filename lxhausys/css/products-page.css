@@ -118,3 +118,27 @@
  .product-page .quick-menu-number { top: 20px; left: 24px; }
  .product-page .quick-menu-card strong { font-size: 19px; }
 }
+
+
+/* Category-driven product board */
+.product-page .product-board{max-width:var(--product-content-width);margin:54px auto 0}
+.product-page .board-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;padding-bottom:26px;border-bottom:1px solid var(--color-neutral-light-gray)}
+.product-page .board-heading .eyebrow{margin-bottom:10px}
+.product-page .board-heading h3{margin:0;font-size:clamp(24px,2.4vw,34px);line-height:1.4}
+.product-page .board-heading #board-description{margin:10px 0 0;color:var(--color-gray-lx);font-size:14px;line-height:1.7}
+.product-page .board-total{flex:0 0 auto;color:var(--color-gray-lx);font-size:14px}
+.product-page .board-total strong{color:var(--color-text-primary);font-size:18px}
+.product-page .board-toolbar{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:20px 0}
+.product-page .board-toolbar .search-field{margin-left:auto}
+.product-page .board-sort{color:var(--color-gray-lx);font-size:13px}
+.product-page .product-board-list{border-top:1px solid var(--color-neutral-light-gray)}
+.product-page .product-board-item{display:grid;grid-template-columns:180px minmax(0,1fr) 44px;align-items:center;gap:28px;padding:22px 12px;border-bottom:1px solid var(--color-neutral-light-gray);background:var(--color-neutral-white);transition:background-color .2s ease}
+.product-page .product-board-item:hover{background:#faf9f7}
+.product-page .board-thumb{width:180px;height:124px;overflow:hidden;border-radius:8px;background:var(--color-neutral-ivory)}
+.product-page .board-thumb img{display:block;width:100%;height:100%;object-fit:cover}
+.product-page .board-item-copy{min-width:0}
+.product-page .board-item-category{margin:0 0 8px;color:var(--color-gray-lx);font-size:12px}
+.product-page .board-item-copy h4{margin:0;font-size:19px;line-height:1.5}
+.product-page .board-item-copy>p:last-child{margin:8px 0 0;color:var(--color-gray-lx);font-size:13px;line-height:1.7}
+.product-page .board-item-index{color:var(--color-gray-lx);font-size:12px;text-align:right}
+@media(max-width:700px){.product-page .product-board{margin-top:38px}.product-page .board-heading{align-items:flex-start;flex-direction:column;gap:12px}.product-page .board-toolbar{align-items:flex-start;flex-direction:column}.product-page .board-toolbar .search-field{width:100%;margin-left:0}.product-page .product-board-item{grid-template-columns:104px minmax(0,1fr);gap:14px;padding:16px 4px}.product-page .board-thumb{width:104px;height:92px}.product-page .board-item-copy h4{font-size:15px}.product-page .board-item-copy>p:last-child{font-size:12px}.product-page .board-item-index{display:none}}
