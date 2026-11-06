@@ -157,9 +157,15 @@
 .product-page .architecture-product-heading p span{font-size:12px}
 .product-page .architecture-product-heading>a{display:inline-flex;align-items:center;gap:12px;color:var(--color-text-primary);font-size:13px;text-decoration:none;border-bottom:1px solid var(--color-neutral-light-gray);padding-bottom:8px}
 .product-page .architecture-product-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
-.product-page .architecture-product-item{position:relative;display:flex;align-items:center;gap:16px;min-height:104px;padding:20px;border:1px solid var(--color-neutral-light-gray);border-radius:14px;background:var(--color-neutral-white);text-align:left;cursor:pointer;transition:background-color .2s ease,color .2s ease,border-color .2s ease,transform .2s ease}
-.product-page .architecture-product-item:hover,.product-page .architecture-product-item.is-selected{border-color:var(--color-neutral-stone-beige);background:var(--color-neutral-ivory);color:var(--color-red-lx);transform:translateY(-2px)}
-.product-page .architecture-product-symbol{color:var(--color-gray-lx);font-size:11px;letter-spacing:.06em}
+.product-page .architecture-product-item{position:relative;display:flex;align-items:center;gap:16px;min-height:116px;padding:20px;border:1px solid var(--color-neutral-light-gray);border-radius:14px;background:var(--color-neutral-white);color:var(--color-text-primary);text-align:left;cursor:pointer;transition:background-color .22s ease,color .22s ease,border-color .22s ease,transform .22s ease}
+.product-page .architecture-product-item:hover,.product-page .architecture-product-item.is-selected{border-color:var(--color-red-lx);background:var(--color-red-lx);color:#fff;transform:translateY(-2px)}
+.product-page .architecture-product-symbol{display:grid;place-items:center;flex:0 0 58px;width:58px;height:58px;color:var(--color-text-primary)}
+.product-page .architecture-product-symbol svg{display:block;width:58px;height:58px;overflow:visible}
+.product-page .architecture-product-item:hover .architecture-product-symbol,.product-page .architecture-product-item.is-selected .architecture-product-symbol{color:#fff}
+.product-page .architecture-product-symbol svg [stroke="#d92f32"]{stroke:#d92f32}
+.product-page .architecture-product-item strong{font-size:15px;font-weight:600}
+.product-page .architecture-product-arrow{margin-left:auto;font-size:18px;transition:transform .2s ease}
+.product-page .architecture-product-item:hover .architecture-product-arrow{transform:translate(2px,-2px)}
 .product-page .architecture-product-item strong{font-size:15px;font-weight:600}
 .product-page .architecture-product-arrow{margin-left:auto;font-size:18px}
 @media(max-width:900px){.product-page .architecture-product-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
