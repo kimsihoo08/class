@@ -57,7 +57,7 @@
 .product-page .featured-card h3 { font-size: 17px; }
 .product-page .featured-scrollbar { position: relative; height: 4px; margin: 32px 5.4% 0 0; border-radius: 2px; background: var(--color-neutral-light-gray); }
 .product-page .featured-scrollbar .swiper-scrollbar-drag { border-radius: 2px; background: var(--color-neutral-charcoal); }
-.product-page .product-contact { display: flex; align-items: center; justify-content: space-between; gap: 28px; padding: 56px 5.4%; background: #e9edf0; }
+.product-page .product-contact { display: flex; align-items: center; justify-content: space-between; gap: 28px; padding: 56px 5.4%; background: #eee6dc; }
 .product-page .product-contact h2 { margin: 0; font-size: clamp(24px, 2.5vw, 34px); line-height: 1.4; }
 .product-page .product-contact p:not(.eyebrow) { margin: 12px 0 0; color: var(--color-gray-lx); font-size: 14px; line-height: 1.8; }
 .product-page .product-contact .eyebrow { margin-bottom: 10px; }
