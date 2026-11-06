@@ -41,18 +41,18 @@ document.addEventListener("DOMContentLoaded", () => {
    "단열재":{description:"건축물의 단열 성능을 고려한 단열재 제품 분야입니다.",filters:["전체","인테리어용 단열재"],items:[["인테리어용 단열재","단열재"]]}
  };
  const architectureIcons={
-"창호":`<svg viewBox="0 0 64 64" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.15" stroke-linecap="round" stroke-linejoin="round"><path d="M14 50V10h26v40M19 50V14h8v36M31 14h5v36M10 50h35M7 54h42M12 34h30M15 36v14M20 36v14M25 36v14M30 36v14M35 36v14M40 36v14"/></g><path d="M20 14h7v22h-7zM31 14h5v22h-5z" fill="none" stroke="#d92f32" stroke-width="1.15"/></svg>`,
-"벽지 & 벽장재":`<svg viewBox="0 0 64 64" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.15" stroke-linecap="round"><path d="M16 14h31v33c0 5-4 8-9 8H16c-4 0-6-3-6-7V21c0-4 2-7 6-7zM47 14c5 0 7 3 7 7s-2 7-7 7"/></g><g fill="none" stroke="#d92f32" stroke-width="1"><path d="M22 23l2 3m-2 0l2-3M31 19v5m-2-2h4M38 29l2 3m-2 0l2-3M25 38v5m-2-2h4M36 40l2 3m-2 0l2-3"/></g><ellipse cx="51" cy="21" rx="2.5" ry="5" fill="none" stroke="currentColor" stroke-width="1"/></svg>`,
-"바닥재(주거)":`<svg viewBox="0 0 64 64" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.15" stroke-linejoin="round"><path d="M8 28 29 11l17 13-21 17zM29 11l17-8 18 14-18 15zM25 41l21-17 18 14-20 17z"/></g><path d="m46 32 18-15M46 32 64 46" fill="none" stroke="#d92f32" stroke-width="1.15"/></svg>`,
-"바닥재(상업)":`<svg viewBox="0 0 64 64" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.05"><path d="M8 8h48v48H8zM8 24 24 8M8 40 40 8M8 56 56 8M24 56 56 24M40 56 56 40M24 8 8 24M40 8 8 40M56 8 8 56M56 24 24 56M56 40 40 56"/></g><path d="m18 42 24-24M30 54l24-24" fill="none" stroke="#d92f32" stroke-width="1.2"/></svg>`,
-"인테리어필름":`<svg viewBox="0 0 64 64" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.15" stroke-linejoin="round"><path d="M14 14c0-5 17-5 17 0v39c0 7-17 7-17 0zM31 14h30v30L49 56H31"/><ellipse cx="22.5" cy="14" rx="8.5" ry="4"/><path d="M49 56V44h12"/></g><path d="M49 44h12" stroke="#d92f32" stroke-width="1.2"/></svg>`,
-"인테리어스톤":`<svg viewBox="0 0 64 64" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.05" stroke-linejoin="round"><path d="M8 48 17 12h34l8 36zM17 12l-4 16h42l-4-16M22 12c-1 9 7 10 10 16s-2 11-8 13M39 12c-1 8 7 10 11 15M12 36c8-4 13 0 18 7s12 6 18 1"/></g><path d="M31 28c4-3 8-2 11 2" fill="none" stroke="#d92f32" stroke-width="1.2"/></svg>`,
-"중문":`<svg viewBox="0 0 64 64" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.15"><path d="M12 10h36v43H12zM17 14h10v35H17zM31 14h12v35H31zM8 53h44M53 35v18M53 35h6v18M56 29v6"/></g><path d="M17 14h10v35H17zM31 14h12v35H31z" fill="none" stroke="#d92f32" stroke-width="1.1"/></svg>`,
-"도어":`<svg viewBox="0 0 64 64" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.15" stroke-linejoin="round"><path d="M16 10 49 14v43l-33-4zM9 14h7v39H9zM49 14l7 2v39l-7 2"/></g><circle cx="31" cy="35" r="2" fill="none" stroke="#d92f32" stroke-width="1.2"/></svg>`,
-"키친":`<svg viewBox="0 0 64 64" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.1" stroke-linejoin="round"><path d="M9 32h46v24H9zM14 25h36v7H14zM14 39h15v17H14zM34 39h16v17H34zM21 25v-8h13l7 8M23 17v-7h7v7M51 32v-9h5v33M54 23v-5"/></g><g fill="none" stroke="#d92f32" stroke-width="1"><circle cx="18" cy="28.5" r="1.5"/><circle cx="25" cy="28.5" r="1.5"/><circle cx="32" cy="28.5" r="1.5"/><path d="M18 44h7M38 44h7"/></g></svg>`,
-"빌트인 시스템":`<svg viewBox="0 0 64 64" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.1" stroke-linejoin="round"><path d="M10 9h44v47H10zM10 31h44M29 9v47M42 9v22M10 45h44M5 56h54"/></g><path d="M20 24v-6M33 24v-6M20 39h5M33 50h5" stroke="#d92f32" stroke-width="1.2"/></svg>`,
-"보드":`<svg viewBox="0 0 64 64" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.15"><path d="M12 12h40v44H12zM12 34h40M32 12v44"/></g><path d="M22 28h7M36 28h7M22 40h7M36 40h7" stroke="#d92f32" stroke-width="1.2"/></svg>`,
-"단열재":`<svg viewBox="0 0 64 64" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.1" stroke-linejoin="round"><path d="m8 22 27-13 27 13-27 13zM8 31l27 13 27-13M8 40l27 13 27-13M14 25v11l21 10 21-10V25M20 19l15 7 15-7"/></g><path d="m8 22 27-13 27 13-27 13z" fill="none" stroke="#d92f32" stroke-width="1.2"/></svg>`
+  "창호":"icon_products01.png",
+  "벽지 & 벽장재":"icon_products02.png",
+  "바닥재(주거)":"icon_products03.png",
+  "바닥재(상업)":"icon_products04.png",
+  "인테리어필름":"icon_products05.png",
+  "인테리어스톤":"icon_products06.png",
+  "중문":"icon_products07.png",
+  "도어":"icon_products08.png",
+  "키친":"icon_products09.png",
+  "빌트인 시스템":"icon_products10.png",
+  "보드":"icon_products11.png",
+  "단열재":"icon_products12.png"
  };
  function renderMaterialBoard(material){
    const data=materialData[material];
@@ -114,7 +114,7 @@ document.addEventListener("DOMContentLoaded", () => {
            <div><p class="eyebrow">LX Z:IN PRODUCT</p><p>LX Z:IN의 다양한 제품을 만나보세요.<br><span>제품 분야를 선택해 관련 제품 정보를 확인할 수 있습니다.</span></p></div>
          </div>
          <div class="architecture-product-grid" aria-label="건축장식자재 제품 분야">
-           ${architectureItems.map((item,i)=>`<button class="architecture-product-item" type="button" data-material="${item}"><span class="architecture-product-symbol">${architectureIcons[item]||""}</span><strong>${item}</strong><span class="architecture-product-arrow" aria-hidden="true">↗</span></button>`).join("")}
+           ${architectureItems.map((item,i)=>`<button class="architecture-product-item" type="button" data-material="${item}"><span class="architecture-product-symbol"><img src="img/${architectureIcons[item]}" alt="" loading="lazy"></span><strong>${item}</strong><span class="architecture-product-arrow" aria-hidden="true">↗</span></button>`).join("")}
          </div>
        </div>`;
      empty.hidden=true;
