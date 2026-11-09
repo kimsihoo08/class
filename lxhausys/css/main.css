@@ -1705,3 +1705,13 @@ body {
         width: 100%;
     }
 }
+.footer-portfolio-note {
+    max-width: 1440px;
+    margin: 22px auto 0;
+    padding: 0 5.4%;
+    box-sizing: border-box;
+    color: #888888;
+    font-size: 12px;
+    line-height: 1.5;
+    text-align: right;
+}
