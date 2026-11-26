@@ -1,5 +1,5 @@
 /* Space solutions subpage — extends LX Hausys design tokens */
-.space-page .space-hero{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(32px,5vw,80px);align-items:center;max-width:1440px;margin:0 auto;padding:72px 5.4% 100px}
+.space-page .space-hero{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(32px,5vw,80px);align-items:center;max-width:1440px;margin:0 auto;padding:72px 0 100px}
 .space-page .space-hero-copy h1{margin:0;font-size:clamp(36px,3.4vw,54px);line-height:1.35;letter-spacing:-.045em;font-weight:700}
 .space-page .space-hero-copy>p:not(.eyebrow){margin:24px 0 0;color:var(--color-gray-lx);font-size:16px;line-height:1.9}
 .space-page .space-hero-link{display:inline-flex;gap:16px;align-items:center;margin-top:30px;padding-bottom:8px;border-bottom:1px solid var(--color-neutral-charcoal);font-size:14px;font-weight:600;text-decoration:none;transition:color .2s ease,border-color .2s ease}
