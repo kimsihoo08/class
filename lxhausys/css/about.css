@@ -82,3 +82,16 @@ html, body { margin: 0; width: 100%; }
   .about-page .about-history > .about-section-heading,
   .about-page .about-history > .about-history-placeholder{width:calc(100% - 40px)}
 }
+
+
+/* WHAT WE DO와 EXPLORE CTA 내부 폭을 HERO와 동일한 기준으로 정렬 */
+.about-page .about-business{padding-left:max(24px,calc((100% - 1440px)/2));padding-right:max(24px,calc((100% - 1440px)/2))}
+.about-page .about-cta{padding-left:max(24px,calc((100% - 1440px)/2));padding-right:max(24px,calc((100% - 1440px)/2))}
+@media(max-width:1024px){
+  .about-page .about-business{padding-left:24px;padding-right:24px}
+  .about-page .about-cta{padding-left:24px;padding-right:24px}
+}
+@media(max-width:700px){
+  .about-page .about-business{padding-left:20px;padding-right:20px}
+  .about-page .about-cta{padding-left:20px;padding-right:20px}
+}
