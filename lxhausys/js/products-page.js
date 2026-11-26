@@ -76,11 +76,18 @@ document.addEventListener("DOMContentLoaded", () => {
        <label class="material-sort-label"><span class="sr-only">제품 정렬</span><select class="material-sort"><option value="new">신제품순</option><option value="name">가나다순</option></select></label>
      </div>
      <div class="material-product-grid">
-       ${cards.map((item,index)=>`<article class="material-product-card" data-type="${item.type}" data-name="${item.name}">
+       ${cards.map((item,index)=>`<article class="material-product-card" data-type="${item.type}" data-name="${item.name}" tabindex="0" role="link">
          <div class="material-product-image"><img src="${item.image}" alt="${item.name}" loading="lazy"><button type="button" class="material-bookmark" aria-label="${item.name} 스크랩"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.5 3.5h11a1 1 0 0 1 1 1v16l-6.5-4-6.5 4v-16a1 1 0 0 1 1-1Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div>
          <p class="material-product-type">${item.type}</p><h6>${item.name}</h6>${item.code?`<p class="material-product-code">${item.code}</p>`:""}${item.best?'<span class="material-best">BEST</span>':""}
        </article>`).join("")}
      </div>`;
+   board.querySelectorAll(".material-product-card").forEach(card=>{
+     const item=cards.find(product=>product.name===card.dataset.name);
+     const params=new URLSearchParams({name:item.name,type:item.type,code:item.code||"",image:item.image,category:material});
+     const openDetail=()=>window.open("product-detail.html?"+params.toString(),"_blank","noopener");
+     card.addEventListener("click",event=>{if(event.target.closest(".material-bookmark"))return;openDetail();});
+     card.addEventListener("keydown",event=>{if(event.key==="Enter"){event.preventDefault();openDetail();}});
+   });
    const updateVisible=()=>{
      const activeFilter=board.querySelector("[data-filter].is-active")?.dataset.filter||"전체";
      const rows=[...board.querySelectorAll(".material-product-card")];
