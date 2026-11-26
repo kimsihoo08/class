@@ -511,7 +511,8 @@ body {
 
 .dropdown-inner {
     position: relative;
-    display: block;
+    display: flex;
+    justify-content: center;
     min-height: 190px;
     margin: 0;
 }
@@ -538,14 +539,16 @@ body {
 .side-btn:hover { background-color: #e4dfd5; }
 
 .dropdown-sub-columns {
-    display: flex;
+     display: flex;
+    justify-content: center;
     gap: 65px;
-    margin-right: 80px;
+    margin-right: 0;
 }
 
 .sub-col {
     display: flex;
     flex-direction: column;
+    align-items: center;
     list-style: none;
     padding: 0;
     margin: 0;
