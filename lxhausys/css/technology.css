@@ -1,5 +1,5 @@
 /* Technology, R&D and Design subpage — follows existing LX Hausys tokens */
-.technology-page .tech-hero{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);align-items:center;gap:clamp(32px,5vw,80px);max-width:1440px;margin:0 auto;padding:72px 5.4% 100px}
+.technology-page .tech-hero{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);align-items:center;gap:clamp(32px,5vw,80px);max-width:1440px;margin:0 auto;padding:72px 0 100px}
 .technology-page .tech-hero-copy h1{margin:0;font-size:clamp(36px,3.4vw,54px);line-height:1.35;letter-spacing:-.045em;font-weight:700;color:var(--color-text-primary)}
 .technology-page .tech-hero-copy>p:not(.eyebrow){margin:24px 0 0;color:var(--color-gray-lx);font-size:16px;line-height:1.9}
 .technology-page .tech-hero-link{display:inline-flex;gap:16px;margin-top:30px;padding-bottom:8px;border-bottom:1px solid var(--color-neutral-charcoal);font-size:14px;font-weight:600;text-decoration:none}
