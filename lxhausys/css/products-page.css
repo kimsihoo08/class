@@ -8,7 +8,7 @@
 .product-page .breadcrumb { max-width: var(--product-content-width); margin: 0 auto; padding: 22px 5.4% 0; display: flex; align-items: center; gap: 12px; color: var(--color-gray-lx); font-size: 13px; }
 .product-page .breadcrumb a { text-decoration: none; }
 .product-page .breadcrumb a:hover { color: var(--color-red-lx); }
-.product-page .product-hero { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: clamp(32px, 5vw, 80px); align-items: center; max-width: var(--product-content-width); margin: 0 auto; padding: 72px 5.4% 100px; }
+.product-page .product-hero { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: clamp(32px, 5vw, 80px); align-items: center; max-width: var(--product-content-width); margin: 0 auto; padding: 72px 0 100px; }
 .product-page .eyebrow { margin: 0 0 16px; color: var(--color-gray-lx); font-size: 13px; font-weight: 600; letter-spacing: .12em; }
 .product-page h1, .product-page h2, .product-page h3, .product-page p { overflow-wrap: anywhere; }
 .product-page .product-hero h1 { margin: 0; font-size: clamp(36px, 3.4vw, 54px); line-height: 1.35; font-weight: 700; letter-spacing: -.045em; }
