@@ -18,15 +18,34 @@ document.addEventListener("DOMContentLoaded", () => {
  let active=categoryByHash[location.hash.slice(1)]||"건축장식자재";
 
  const materialData={
-   "창호":{description:"LX Z:IN의 창호 제품과 다양한 타입을 확인해 보세요.",filters:["전체","뷰프레임","시스템창호","커튼월","차별화 옵션 상품"],items:[
+   "창호":{description:"LX Z:IN 공식 창호 페이지의 제품 분류와 모델명을 참고해 구성했습니다.",filters:["전체","뷰프레임","시스템창호","커튼월","차별화 옵션 상품"],items:[
      ["시스템창호 Top Hung (전동)","시스템창호","E9-ATH220 AUTO","img/product01.png"],
-     ["뷰프레임","뷰프레임","F-145/145S/265/265S/285(베젤리스)","img/product02.png"],
+     ["뷰프레임","뷰프레임","F-145/145S/265/265S/285(베젤리스) 외","img/product02.png"],
      ["시스템창호 Lift & Slide","시스템창호","E9-PLS200/250N","img/product03.png"],
      ["시스템창호 Lift & Slide","시스템창호","E9-ALS283D","img/product04.png"],
      ["시스템창호 Lift & Slide","시스템창호","E9-ALS245","img/product05.png"],
-     ["커튼월 시스템창호 Façade","커튼월","E9-ACW","img/product06.png"],
-     ["먼지필터 방충망","차별화 옵션 상품","","img/product07.png"],
-     ["시스템창호 Tilt & Turn","시스템창호","E9-PTT85","img/products1.png"]
+     ["커튼월 시스템창호 Façade","커튼월","E9-ACW (S-Façade E+)","img/product06.png"],
+     ["먼지필터 방충망","차별화 옵션 상품","차별화 옵션 상품","img/product07.png"],
+     ["시스템창호 Tilt & Turn","시스템창호","E9-PTT85 / E9-PTT85 PHI / E9-PTT200","img/product01.png"],
+     ["시스템창호 Lift & Slide","시스템창호","E9-ALS200","img/product02.png"],
+     ["커튼월 시스템창호 Façade","커튼월","E9-ACW (S-Façade)","img/product03.png"],
+     ["시스템창호 Door","시스템창호","E9-PTD200/200F","img/product04.png"],
+     ["안전강화 방충망","차별화 옵션 상품","차별화 옵션 상품","img/product05.png"],
+     ["시스템창호 Parallel Slide","시스템창호","E9-APS210","img/product06.png"],
+     ["커튼월 시스템창호 Façade","커튼월","E9-ACW (Slim-Façade)","img/product07.png"],
+     ["시스템창호 Turn only","시스템창호","E9-PTU200(mini)","img/product01.png"],
+     ["시스템창호 Tilt & Turn","시스템창호","E9-ATT80","img/product02.png"],
+     ["커튼월 시스템창호 Façade","커튼월","E9-ASW192 (Slim Window Wall)","img/product03.png"],
+     ["자동환기","차별화 옵션 상품","차별화 옵션 상품","img/product04.png"],
+     ["시스템창호 Tilt & Turn","시스템창호","E9-ATT90","img/product05.png"],
+     ["자동환기 Slim","차별화 옵션 상품","차별화 옵션 상품","img/product06.png"],
+     ["시스템창호 Tilt & Turn","시스템창호","E9-ATT100","img/product07.png"],
+     ["시스템창호 Side Hung / Top Hung","시스템창호","E9-ASH80/ATH80","img/product01.png"],
+     ["시스템창호 Side Hung / Top Hung","시스템창호","E9-ASH90 / E9-ATH90","img/product02.png"],
+     ["시스템창호 Door","시스템창호","E9-ADR80","img/product03.png"],
+     ["시스템창호 Door","시스템창호","E9-ADR100","img/product04.png"],
+     ["시스템창호 Folding Door","시스템창호","E9-AFD68","img/product05.png"],
+     ["시스템 방화창","시스템창호","E9-ACW(S-facade) FR / E9-ATH/ASH80 FR","img/product06.png"]
    ]},
    "벽지 & 벽장재":{description:"공간의 분위기를 완성하는 벽지와 벽장재 제품 분야입니다.",filters:["전체","디아망","실크벽지","방염벽지","뮤럴벽지","합지벽지","조습벽재","에디톤"],items:[["디아망","디아망"],["실크벽지","실크벽지"],["방염벽지","방염벽지"],["뮤럴벽지","뮤럴벽지"],["합지벽지","합지벽지"],["조습벽재","조습벽재"],["에디톤","에디톤"]]},
    "바닥재(주거)":{description:"주거 공간에 어울리는 바닥재 제품 분야입니다.",filters:["전체","에디톤","마루","시트","타일"],items:[["에디톤","에디톤"],["마루","마루"],["시트","시트"],["타일","타일"]]},
