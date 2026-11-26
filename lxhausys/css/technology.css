@@ -48,3 +48,20 @@
 /* 화면 양끝까지 메인 페이지와 동일하게 맞춤 */
 html, body { margin: 0; width: 100%; }
 #wrap { width: 100%; margin: 0; }
+
+
+/* 지정된 기술 페이지 섹션을 HERO와 같은 1440px 내부 폭으로 정렬 */
+.technology-page .tech-intro{padding-left:max(24px,calc((100% - 1440px)/2));padding-right:max(24px,calc((100% - 1440px)/2))}
+.technology-page .tech-pillars,
+.technology-page .tech-process{padding-left:max(24px,calc((100% - 1440px)/2));padding-right:max(24px,calc((100% - 1440px)/2))}
+.technology-page .tech-cta{padding-left:max(24px,calc((100% - 1440px)/2));padding-right:max(24px,calc((100% - 1440px)/2))}
+@media(max-width:1024px){
+  .technology-page .tech-intro{padding-left:24px;padding-right:24px}
+  .technology-page .tech-pillars,.technology-page .tech-process{padding-left:24px;padding-right:24px}
+  .technology-page .tech-cta{padding-left:24px;padding-right:24px}
+}
+@media(max-width:700px){
+  .technology-page .tech-intro{padding-left:20px;padding-right:20px}
+  .technology-page .tech-pillars,.technology-page .tech-process{padding-left:20px;padding-right:20px}
+  .technology-page .tech-cta{padding-left:20px;padding-right:20px}
+}
