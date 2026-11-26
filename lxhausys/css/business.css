@@ -8,12 +8,12 @@
 .business-page .business-hero-image{display:block;width:100%;height:420px;min-height:420px;object-fit:cover;object-position:left center;border-radius:12px}
 .business-page .business-plus{display:grid;place-items:center;width:38px;height:38px;border:1px solid var(--color-neutral-stone-beige);border-radius:50%;font-size:25px;font-weight:300}
 .business-page .business-placeholder small{font-size:11px}
-.business-page .business-intro{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,8vw,120px);padding:88px 10.8%;background:var(--color-neutral-ivory)}
+.business-page .business-intro{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,8vw,120px);padding:88px max(calc((100% - 1440px)/2),5.4%);background:var(--color-neutral-ivory)}
 .business-page .business-intro h2{margin:0;font-size:clamp(28px,3vw,40px);line-height:1.45;letter-spacing:-.035em}
 .business-page .business-intro-copy{align-self:center}
 .business-page .business-intro-copy p{margin:0;color:var(--color-gray-lx);font-size:15px;line-height:1.95}
 .business-page .business-intro-copy p+p{margin-top:16px}
-.business-page .business-fields,.business-page .business-strengths{padding:100px 5.4%}
+.business-page .business-fields,.business-page .business-strengths{padding:100px max(calc((100% - 1440px)/2),5.4%)}
 .business-page .business-section-heading{display:flex;justify-content:space-between;align-items:end;margin-bottom:36px}
 .business-page .business-section-heading h2{margin:0;font-size:clamp(32px,3.2vw,45px);line-height:1.35;letter-spacing:-.035em}
 .business-page .business-lead{margin:14px 0 0;color:var(--color-gray-lx);font-size:15px;line-height:1.8}
@@ -32,7 +32,7 @@
 
 .business-page .business-strength-grid h3{margin:0 0 10px;font-size:21px}
 .business-page .business-strength-grid p{margin:0;color:var(--color-gray-lx);font-size:14px;line-height:1.85}
-.business-page .business-contact{display:flex;justify-content:space-between;align-items:center;gap:32px;margin:0;padding:64px 5.4%;background:var(--color-neutral-stone-beige)}
+.business-page .business-contact{display:flex;justify-content:space-between;align-items:center;gap:32px;margin:0;padding:64px max(calc((100% - 1440px)/2),5.4%);background:var(--color-neutral-stone-beige)}
 .business-page .business-contact h2{margin:0;font-size:clamp(24px,2.6vw,34px);line-height:1.5}
 .business-page .business-contact>div:first-child>p:not(.eyebrow){margin:12px 0 0;color:var(--color-gray-lx);font-size:14px;line-height:1.8}
 .business-page .business-contact-actions{display:flex;flex-wrap:wrap;gap:10px;flex-shrink:0}
