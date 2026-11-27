@@ -505,7 +505,7 @@ body {
     box-shadow: 0 10px 20px rgba(0,0,0,0.05);
     display: none !important;
     z-index: 5;
-    padding: 30px 0;
+    padding: 40px 0;
     box-sizing: border-box;
 }
 
@@ -539,9 +539,9 @@ body {
 }
 .side-btn:hover { background-color: #e4dfd5; }
 
-.dropdown-sub-columns {
+ .dropdown-sub-columns {
     position: absolute;
-    top: 0;
+    top: -10px;
     left: 50%;
     transform: translateX(-50%);
     display: grid;
