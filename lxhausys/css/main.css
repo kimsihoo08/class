@@ -541,7 +541,7 @@ body {
 
  .dropdown-sub-columns {
     position: absolute;
-    top: -10px;
+    top: -25px;
     left: 50%;
     transform: translateX(-50%);
     display: grid;
