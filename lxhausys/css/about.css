@@ -143,3 +143,23 @@ html, body { margin: 0; width: 100%; }
   .about-page .about-history-content p{font-size:13px}
   .about-page .about-history-note{width:calc(100% - 40px);margin-top:12px}
 }
+
+
+/* OUR JOURNEY 정렬 및 좌측 잘림 방지 */
+.about-page .about-history-timeline{
+  width:calc(100% - 48px);
+  max-width:1440px;
+  box-sizing:border-box;
+  margin-left:auto;
+  margin-right:auto;
+}
+.about-page .about-history-item,
+.about-page .about-history-year,
+.about-page .about-history-content{
+  min-width:0;
+  box-sizing:border-box;
+}
+@media(max-width:700px){
+  .about-page .about-history-timeline{width:calc(100% - 40px)}
+  .about-page .about-history-item{width:100%}
+}
