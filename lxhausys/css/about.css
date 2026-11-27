@@ -95,3 +95,51 @@ html, body { margin: 0; width: 100%; }
   .about-page .about-business{padding-left:20px;padding-right:20px}
   .about-page .about-cta{padding-left:20px;padding-right:20px}
 }
+
+
+/* OUR JOURNEY: 기업 연혁 타임라인 */
+.about-page .about-history-timeline{
+  display:grid;
+  grid-template-columns:repeat(6,minmax(0,1fr));
+  list-style:none;
+  margin:56px auto 0;
+  padding:0;
+}
+.about-page .about-history-item{position:relative;min-width:0;padding:0 18px 0 0}
+.about-page .about-history-item::before{
+  content:"";position:absolute;top:62px;left:0;right:0;height:1px;
+  background:var(--color-neutral-stone-beige);
+}
+.about-page .about-history-item:first-child::before{left:0}
+.about-page .about-history-item:last-child::before{right:calc(100% - 12px)}
+.about-page .about-history-year{
+  display:block;margin-bottom:22px;color:var(--color-neutral-charcoal);
+  font-size:clamp(27px,3vw,40px);font-weight:700;letter-spacing:-.055em;
+}
+.about-page .about-history-dot{
+  position:relative;z-index:1;display:block;width:11px;height:11px;margin:0 0 28px 4px;
+  border:2px solid var(--color-red-lx);border-radius:50%;background:var(--color-neutral-white);
+}
+.about-page .about-history-content h3{margin:0 0 10px;font-size:16px;line-height:1.5;letter-spacing:-.03em}
+.about-page .about-history-content p{margin:0;color:var(--color-neutral-charcoal);font-size:14px;font-weight:600;line-height:1.7;word-break:keep-all}
+.about-page .about-history-content small{display:block;margin-top:9px;color:var(--color-gray-lx);font-size:12px;line-height:1.7;word-break:keep-all}
+.about-page .about-history-note{width:calc(100% - 48px);max-width:1440px;margin:34px auto 0;color:var(--color-gray-lx);font-size:11px;line-height:1.7}
+@media(max-width:1024px){
+  .about-page .about-history-timeline{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:42px;margin-top:42px}
+  .about-page .about-history-item:nth-child(3)::before{right:calc(100% - 12px)}
+  .about-page .about-history-item:nth-child(4)::before{left:0}
+  .about-page .about-history-item:nth-child(4){grid-column:1}
+  .about-page .about-history-note{width:calc(100% - 48px)}
+}
+@media(max-width:700px){
+  .about-page .about-history-timeline{grid-template-columns:1fr;gap:0;margin-top:32px;padding-left:4px}
+  .about-page .about-history-item{display:grid;grid-template-columns:76px 18px minmax(0,1fr);column-gap:12px;padding:0 0 30px}
+  .about-page .about-history-item::before{top:12px;bottom:-2px;left:83px;right:auto;width:1px;height:auto}
+  .about-page .about-history-item:last-child::before{display:none}
+  .about-page .about-history-year{margin:0;font-size:27px}
+  .about-page .about-history-dot{grid-column:2;grid-row:1;width:10px;height:10px;margin:8px 0 0}
+  .about-page .about-history-content{grid-column:3;grid-row:1}
+  .about-page .about-history-content h3{font-size:15px}
+  .about-page .about-history-content p{font-size:13px}
+  .about-page .about-history-note{width:calc(100% - 40px);margin-top:12px}
+}
