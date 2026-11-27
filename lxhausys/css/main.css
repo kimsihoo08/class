@@ -505,15 +505,17 @@ body {
     box-shadow: 0 10px 20px rgba(0,0,0,0.05);
     display: none !important;
     z-index: 5;
-    padding: 40px 5.4%;
+    padding: 30px 0;
     box-sizing: border-box;
 }
 
 .dropdown-inner {
     position: relative;
     display: block;
+    width: 100%;
+    max-width: 1440px;
     min-height: 190px;
-    margin: 0;
+    margin: 0 auto;
 }
 
 .dropdown-left-buttons {
@@ -538,9 +540,15 @@ body {
 .side-btn:hover { background-color: #e4dfd5; }
 
 .dropdown-sub-columns {
-    display: flex;
-    gap: 65px;
-    margin-right: 80px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 0;
+    width: min(960px, calc(100vw - 480px));
+    margin: 0;
 }
 
 .sub-col {
